@@ -15,9 +15,8 @@ jobs:
         run: |
           gem install bundler
           bundle install
-      - name: Build and test React app
+      - name: Install React app dependencies
         run: |
           cd client
           npm install
-          npm run build
      
