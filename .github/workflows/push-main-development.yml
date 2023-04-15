@@ -15,6 +15,7 @@ jobs:
           ruby-version: 2.7.4
       - name: Install dependencies
         run: |
+          cd server
           gem install bundler
           bundle install
       - name: Install React app dependencies
