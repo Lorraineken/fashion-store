@@ -32,4 +32,10 @@ class UsersController < ApplicationController
     head :no_content
    end
 
+   private
+
+   def user_params 
+    params.permit(:username, :password, :email)
+   end
+
 end
