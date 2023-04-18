@@ -5,7 +5,7 @@ class CreateProducts < ActiveRecord::Migration[6.1]
       t.float :price, null:false
       t.text :image_url, null:false
       t.text :description
-      t.string :gender
+      t.string :gender, null:false
 
       t.timestamps
     end

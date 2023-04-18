@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
     def create 
-        product = Product.create!(comment_params)
+        product = Product.create!(product_params)
         if product.valid? 
             render json: product, status: :created
         else 
