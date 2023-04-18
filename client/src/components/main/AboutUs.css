@@ -1,13 +1,4 @@
-body {
-    margin: 0%;
-    background-color: black;
-    /* overflow-y: scroll; */
-  }
-  
-  /* glitch text styling */
-  @import url("https://fonts.googleapis.com/css?family=Sacramento&display=swap");
-  
-  .hero {
+.abt {
     font-size: calc(0px + 7vh);
     line-height: calc(20px +40vh);
     /*   text-shadow: 0 0 5px #f562ff, 0 0 15px #f562ff, 0 0 25px #f562ff,
@@ -22,6 +13,9 @@ body {
     margin-top: 0px;
     animation: blink 12s infinite;
     -webkit-animation: blink 12s infinite;
+    float: left;
+    margin-left: 50px;
+    margin-top: -850px;
   }
   
   body {
@@ -78,75 +72,24 @@ body {
       color: #fff6a9;
     }
   }
-  
-  .btnnn {
-    margin-left: 200px;
-    background-color: orange;
-    color: white;
-    font-size: 24px;
-    padding: 16px 24px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .btnnn:hover {
-    /* background-color: white; */
-    color: orange;
-    border: 2px solid orange;
-  }
-  
-  .gify {
-    width: 500px;
-    height: 500px;
-    border-radius: 50%;
-    overflow: hidden;
-    color: white;
-    float: right;
-    margin-top: -31%;
-    margin-right: 6%;
-  }
-  
-  .gify video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .text {
-    color: white;
-  }
 
-  .img{
-    margin-top: 150px;
-    height: 200%;
-    width: 20%;
+.paragraph{
+    color: white;
     float: left;
-    margin-left: 55%;
-  }
-
-  .imgg{
-    height: 40%;
-    border-radius: 60px;
-  }
-
-  /* @media screen and (max-width:500%) {
-    .container {
-        font-size: 14px;
-    }
- }   */
-
- @media (max-width: 768px) {
-  .container {
-    width: 100%;
-  }
-  .hero {
-    font-size: 24px;
-  }
-  .gify video {
-    width: 100%;
-  }
-  .img {
-    display: none;
-  }
+    margin-left: 100px;
+    font-size: large;
+    height: 20%;
+    width: 40%;
+    margin-top: -30%;
+    margin-top: -3%;
 }
+.paragraph {
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 20px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 45px;
+  margin-top: -55%;
+}
+

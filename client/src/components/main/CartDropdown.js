@@ -11,6 +11,7 @@ export default function CartDropdown() {
   return (
     <div className="cart-dropdown">
       <ul>
+        {addToCart}
         {cartItems.map((item) => (
           <li key={item.id}>{item.name}</li>
         ))}

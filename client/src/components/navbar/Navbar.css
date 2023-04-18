@@ -19,9 +19,11 @@
     margin-left: 60%;
     justify-content: space-between;
     margin-top: -3px;
+       /* margin-right: 50%; */
   }
   
   .nav-item {
+    /* margin-right: 50%; */
     margin-right: 1rem;
     margin-top: -3px;
   }
