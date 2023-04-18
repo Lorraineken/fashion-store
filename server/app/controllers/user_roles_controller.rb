@@ -1,6 +1,6 @@
 class UserRolesController < ApplicationController
     def create 
-        user_role = UserRole.create!(reviews_params)
+        user_role = UserRole.create!(user_role_params)
         if user_role.valid? 
             render json: user_role, status: :created
         else 
