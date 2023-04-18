@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :roles
   resources :user_roles
   resources :categories
   resources :products
