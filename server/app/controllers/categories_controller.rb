@@ -34,6 +34,6 @@ class CategoriesController < ApplicationController
        private
     
        def category_params 
-        params.permit(:name,:gender,:unisex)
+        params.permit(:name)
        end
 end
