@@ -1,11 +1,8 @@
 class Order < ApplicationRecord
   enum :status, [:pending, :completed, :cancelled]
   belongs_to :user
+  belongs_to :product
 
   has_many :payments
-  has_many :products, through: :order_products
-
-  validates :quality, {
-              presence: true,
-            }
+  
 end
