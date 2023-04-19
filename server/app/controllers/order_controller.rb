@@ -1,6 +1,7 @@
 class OrderController < ApplicationController
   def index
     @orders = current_user.orders
+    render json: @orders, status: :ok
   end
 
   def make_order
@@ -12,7 +13,7 @@ class OrderController < ApplicationController
 
   def show
     @order = Order.find(params[:id]).to_json(:include => [{ :product => { :only => :name } }, { :user => { :only => :email } }])
-    respond_with @order
+    render json: @order, status: :ok
   end
 
   def destroy

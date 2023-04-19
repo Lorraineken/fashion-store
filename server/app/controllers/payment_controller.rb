@@ -1,6 +1,7 @@
 class PaymentController < ApplicationController
   def index
     @payments = Payment.includes(order: :user).all
+    render json: @payments, status: :ok
   end
 
   def create
