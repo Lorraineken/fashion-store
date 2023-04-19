@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   delete "/auth/logout", to: "authentication#logout_account"
 
   #payment
+  get '/payments', to: "payment#index"
   post "payments/create", to: "payment#create"
 
   #order

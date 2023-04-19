@@ -1,4 +1,8 @@
 class PaymentController < ApplicationController
+  def index
+    @payments = Payment.includes(order: :user).all
+  end
+
   def create
     # Get the credit card details submitted by the form
     token = params[:stripeToken]
