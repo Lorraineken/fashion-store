@@ -1,16 +1,14 @@
 Rails.application.routes.draw do
-  #authentication routes
-  post "/auth/login", to: "authentication#login_account"
-  post "/auth/register", to: "authentication#create_account"
-  delete "/auth/logout", to: "authentication#logout_account"
 
-  #payment
-  get '/payments', to: "payment#index"
-  post "payments/create", to: "payment#create"
+  resources :products_categories
+  resources :roles
+  resources :user_roles
+  resources :categories
+  resources :products
+  resources :comments
+  resources :users
+  # Routing logic: fallback requests for React Router.
+  # Leave this here to help deploy your app later!
+  get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 
-  #order
-  post "/make_order", to: "order#make_order"
-  get "/orders", to: "order#index"
-  get "/orders/:id", to: "order#show"
-  delete "orders/:id", to: "order#destroy"
 end
