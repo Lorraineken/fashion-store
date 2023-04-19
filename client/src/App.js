@@ -11,6 +11,7 @@ import CartIcon from './components/main/CartIcon';
 import ProductTable from './features/products/components';
 import UserTable from './features/users/components';
 import OrdersTable from './features/orders/components';
+import Sidebar from './components/admin/Sidebar';
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
             <Route path="/table" element={<ProductTable/>} />
             <Route path="/usertable" element={<UserTable/>} />
             <Route path="/orderstable" element={<OrdersTable/>} />
+            <Route path="/sidebar" element={<Sidebar/>} />
         </Routes>
         </BrowserRouter>
     </div>
