@@ -28,6 +28,7 @@ class AuthenticationController < ApplicationController
 
   def logout_account
     delete_user_session
+    delete_admin_session
     app_response(status_code: 200, message: "Log out successfully")
   end
 
@@ -48,5 +49,9 @@ class AuthenticationController < ApplicationController
 
   def delete_user_session
     session.delete :user_id
+  end
+
+  def delete_admin_session 
+    session.delete :admin_user
   end
 end
