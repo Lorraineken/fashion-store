@@ -68,6 +68,11 @@ export default function Navbar() {
             sidebar
           </Link>
         </li>
+        <li className="nav-item">
+          <Link to="/cart" className="nav-link">
+            cart
+          </Link>
+        </li>
       </ul>
       <li className="font">
         <Link to="#" className="nav-link" onClick={toggleCartDropdown}>

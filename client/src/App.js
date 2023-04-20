@@ -13,6 +13,7 @@ import UserTable from './features/users/components';
 import OrdersTable from './features/orders/components';
 import Sidebar from './components/admin/Sidebar';
 import UserReview from './components/admin/UserReview';
+import Cart from './components/main/Cart';
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
             <Route path="/usertable" element={<UserTable/>} />
             <Route path="/orderstable" element={<OrdersTable/>} />
             <Route path="/sidebar" element={<UserReview/>} />
+            <Route path="/cart" element={<Cart/>} />
         </Routes>
         </BrowserRouter>
     </div>
