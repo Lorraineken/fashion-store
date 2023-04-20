@@ -1,11 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Sacramento&display=swap");
 .card_product_container{
-    /* display: grid;
-  grid-template-columns: repeat(2, 1fr); */
-  margin-top: 3%;
+    display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  
+  /* margin-top: 3%;
   margin-left: 20%;
-  display: flex;
-  flex-wrap: wrap;
+  
+  flex-wrap: wrap; */
   /* display: inline-block; */
   /* display: flex; */
 }
