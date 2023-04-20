@@ -4,20 +4,24 @@
       "name": "Writing",
       "description": "jjkbwwj",
       "price": "6",
-      "id": 2
+      "id": 2,
+      "quantity": 1
     },
     {
       "name": "w",
       "description": "w",
       "price": "3",
-      "id": 3
+      "id": 3,
+      "quantity": 1
     },
     {
       "name": "jbby",
       "description": "hby",
       "price": "778",
-      "id": 4
+      "id": 4,
+      "quantity": 1
     }
+  
   ],
   "users": [
     {

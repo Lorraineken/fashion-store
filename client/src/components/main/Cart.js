@@ -8,6 +8,8 @@ function Cart() {
   const handleQuantityChange  = (event, id) => {
 
     const quantity = Number(event.target.value);
+    console.log('quantity:', quantity)
+    console.log('id:', id)
     dispatch(updateItemQuantity({ id, quantity }));
 
     // const newCartData = cartData.map(item => {
@@ -29,7 +31,9 @@ function Cart() {
 
   const getSubtotal = () => {
     const subtotal = cartData.reduce((acc, item) => {
+      console.log(item)
       if (typeof item.quantity === 'number') {
+
         return acc + (item.price * item.quantity);
       }
       return acc;

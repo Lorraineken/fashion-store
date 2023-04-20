@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { addToCart, removeFromCart } from '../../features/cart/slice';
+import { fetchProducts } from '../../features/products/slice';
 import "../main/product.css";
+
 function Products() {
-  const [products, setProducts] = useState([]);
+  const products = useSelector(state => state.products.list);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -11,32 +13,33 @@ function Products() {
 
   const dispatch = useDispatch()
   useEffect(() => {
-    fetch("https://api.npoint.io/61f48a63e201ea40f86f/products/")
-      .then((response) => response.json())
-      .then((data) => {
-        setProducts(data);
-        setIsLoading(false);
-      })
+    dispatch(fetchProducts())
+      .then(() => setIsLoading(false))
       .catch((error) => {
         setError(error);
         setIsLoading(false);
       });
-  }, []);
+  }, [dispatch]);
+  
   const handleClick = (product) => {
     setClickedProducts([...clickedProducts, product.id]);
     dispatch(addToCart(product))
   };
+  
   const handleClose = (product) => {
     setClickedProducts(clickedProducts.filter(id => id !== product.id));
     dispatch(removeFromCart(product.id))
   };
+  
   const handleCategoryChange = (event) => {
     setSelectedCategory(event.target.value);
   };
+  
   const filteredProducts =
     selectedCategory === ""
       ? products
       : products.filter((product) => product.category === selectedCategory);
+  
   return (
     <div className="card_product_container">
       <div className="category-dropdown">
@@ -91,4 +94,5 @@ function Products() {
     </div>
   );
 }
+
 export default Products;
