@@ -1,0 +1,268 @@
+@import url("https://fonts.googleapis.com/css?family=Sacramento&display=swap");
+.card_product_container{
+    /* display: grid;
+  grid-template-columns: repeat(2, 1fr); */
+  margin-top: 3%;
+  margin-left: 20%;
+  display: flex;
+  flex-wrap: wrap;
+  /* display: inline-block; */
+  /* display: flex; */
+}
+.wrapper {
+  width: 240px;
+  height: 380px;
+  background: white;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: 0;
+  transform: scale(0.95);
+  transition: box-shadow 0.5s, transform 0.5s;
+}
+.wrapper:hover {
+  transform: scale(1);
+  box-shadow: 5px 20px 30px rgba(0, 0, 0, 0.2);
+}
+.wrapper .container {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+}
+.wrapper .container .top {
+  height: 80%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.wrapper .container .bottom {
+  width: 200%;
+  height: 50%;
+  transition: transform 0.5s;
+}
+.wrapper .container .bottom.clicked {
+  transform: translateX(-50%);
+}
+.wrapper .container .bottom h1 {
+  margin: 0;
+  padding: 0;
+}
+.wrapper .container .bottom p {
+  margin: 0;
+  padding: 0;
+}
+.wrapper .container .bottom .left {
+  height: 100%;
+  width: 50%;
+  background: #f4f4f4;
+  position: relative;
+  float: left;
+}
+.wrapper .container .bottom .left .details {
+  padding: 10px;
+  float: left;
+  width: calc(70% - 40px);
+}
+.wrapper .container .bottom .left .buy {
+  float: right;
+  width: calc(30% - 2px);
+  height: 100%;
+  background: #f1f1f1;
+  transition: background 0.5s;
+  border-left: solid thin rgba(0, 0, 0, 0.1);
+}
+.wrapper .container .bottom .left .buy i {
+  font-size: 30px;
+  padding: 30px;
+  color: #254053;
+  transition: transform 0.5s;
+}
+.wrapper .container .bottom .left .buy:hover {
+  background: #a6cdde;
+}
+.buy, .remove, .done{
+  display: flex;
+  justify-content: center;
+}
+ .remove{
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper .container .bottom .left .buy:hover i {
+  transform: translateY(5px);
+  color: #00394b;
+}
+.wrapper .container .bottom .right {
+  width: 50%;
+  background: #a6cdde;
+  color: white;
+  float: right;
+  height: 200%;
+  overflow: hidden;
+}
+.wrapper .container .bottom .right .details {
+  padding: 6px;
+  float: right;
+  width: calc(70% - 40px);
+}
+.wrapper .container .bottom .right .done {
+  width: calc(30% - 2px);
+  float: left;
+  transition: transform 0.5s;
+  border-right: solid thin rgba(255, 255, 255, 0.3);
+  height: 50%;
+}
+.wrapper .container .bottom .right .done i {
+  font-size: 30px;
+  padding: 15px;
+  color: white;
+}
+.wrapper .container .bottom .right .remove {
+  width: calc(30% - 1px);
+  clear: both;
+  border-right: solid thin rgba(255, 255, 255, 0.3);
+  height: 50%;
+  background: #bc3b59;
+  transition: transform 0.5s, background 0.5s;
+}
+.wrapper .container .bottom .right .remove:hover {
+  background: #9b2847;
+}
+.wrapper .container .bottom .right .remove:hover i {
+  transform: translateY(5px);
+}
+.wrapper .container .bottom .right .remove i {
+  transition: transform 0.5s;
+  font-size: 30px;
+  padding: 30px;
+  color: white;
+}
+.wrapper .container .bottom .right:hover .remove, .wrapper .container .bottom .right:hover .done {
+  transform: translateY(-100%);
+}
+.wrapper .inside {
+  z-index: 9;
+  background: black;
+  width: 140px;
+  height: 140px;
+  position: absolute;
+  top: -70px;
+  right: -70px;
+  border-radius: 0px 0px 200px 200px;
+  transition: all 0.5s, border-radius 2s, top 1s;
+  overflow: hidden;
+}
+.wrapper .inside .icon {
+  position: absolute;
+  right: 85px;
+  top: 85px;
+  color: white;
+  opacity: 1;
+}
+.wrapper .inside:hover {
+  width: 100%;
+  right: 0;
+  top: 0;
+  border-radius: 0;
+  height: 80%;
+}
+.wrapper .inside:hover .icon {
+  opacity: 0;
+  right: 15px;
+  top: 15px;
+}
+.wrapper .inside:hover .contents {
+  opacity: 1;
+  transform: scale(1);
+  transform: translateY(0);
+}
+.wrapper .inside .contents {
+  padding: 5%;
+  opacity: 0;
+  transform: scale(0.5);
+  transform: translateY(-200%);
+  transition: opacity 0.2s, transform 0.8s;
+}
+.wrapper .inside .contents table {
+  text-align: left;
+  width: 100%;
+}
+.wrapper .inside .contents h1, .wrapper .inside .contents p, .wrapper .inside .contents table {
+  color: white;
+}
+.wrapper .inside .contents p {
+  font-size: 13px;
+} 
+
+.pdt{
+  object-fit: cover;
+  height: 80%;
+  
+}
+
+/* Style the dropdown container */
+/* .category-dropdown {
+  margin-bottom: 20px;
+  margin-right: 80%;
+  float: left;
+
+} */
+.category-dropdown {
+  position: absolute;
+  margin-top: 8%;
+  margin-left: 5%;
+  top: 0;
+  left: 0;
+}
+
+
+/* Style the select element */
+.category-dropdown select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  margin-right: 50%;
+
+}
+
+/* Style the select arrow */
+.category-dropdown select::-ms-expand {
+  display: none;
+}
+
+.category-dropdown select::after {
+  content: "\25BC";
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+/* Style the option elements */
+.category-dropdown option {
+  font-size: 16px;
+  background-color: #f1f1f1;
+  color: #555;
+}
+
+.category-dropdown option:hover {
+  background-color: #ddd;
+  color: #000;
+}
+.contents{
+  color: black;
+}
+.top{
+  object-fit: cover;
+}
