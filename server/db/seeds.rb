@@ -10,17 +10,17 @@ require "faker"
 puts "Creating seed data..."
 
 # Create some categories
-Category.create(name: "Shirts")
-Category.create(name: "Pants")
-Category.create(name: "Shoes")
+Category.create!(name: "Shirts")
+Category.create!(name: "Pants")
+Category.create!(name: "Shoes")
 
 # Create some roles
-Role.create(name: "admin")
-Role.create(name: "customer")
+Role.create!(name: "admin")
+Role.create!(name: "customer")
 
 # Create some users
 10.times do
-  User.create(
+  User.create!(
     username: Faker::Internet.username,
     email: Faker::Internet.email,
     password: "password",
@@ -28,7 +28,7 @@ Role.create(name: "customer")
 end
 
 # Assign roles to users
-User.all.each do |user|
+ User.all.each do |user|
   user.roles << Role.find_by(name: "customer")
 end
 
@@ -37,7 +37,7 @@ admin.roles << Role.find_by(name: "admin")
 
 # Create some products
 10.times do
-  Product.create(
+  Product.create!(
     name: Faker::Commerce.product_name,
     price: Faker::Commerce.price(range: 10..100.0),
     image_url: Faker::LoremFlickr.image(size: "300x300"),
@@ -67,7 +67,7 @@ end
 
 # Create some payments
 Order.all.each do |order|
-  Payment.create(
+  Payment.create!(
     order_id: order.id,
     payment_method: ["credit card", "paypal", "cash"].sample,
     amount: order.total_amount,
@@ -79,7 +79,7 @@ end
 User.all.each do |user|
   3.times do
     product = Product.all.sample
-    Review.create(
+    Review.create!(
       comments: Faker::Lorem.paragraph,
       rating: rand(1..5),
       user_id: user.id,
