@@ -5,6 +5,7 @@ const cartSlice = createSlice({
   initialState: {
     items: [],
     deliveryOption: 'collection',
+
   },
   reducers: {
     addToCart(state, action) {
@@ -15,6 +16,13 @@ const cartSlice = createSlice({
     },
     setDeliveryOption(state, action) {
       state.deliveryOption = action.payload;
+    },
+    updateItemQuantity(state, action) {
+      const { id, quantity } = action.payload;
+      const item = state.items.find(item => item.id === id);
+      if (item) {
+        item.quantity = quantity;
+      }
     },
   },
 });
