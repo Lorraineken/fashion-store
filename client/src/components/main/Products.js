@@ -1,135 +1,88 @@
-import React from 'react';
-import '../main/product.css'
+import React, { useEffect, useState } from "react";
+import "../main/product.css";
 function Products() {
-  function handleAdd(){
-    document.querySelector('.bottom').classList.add("clicked");
-  }
-
-  const handleRemove = () => {
-    document.querySelector('.bottom').classList.remove("clicked");
+  const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [clickedProducts, setClickedProducts] = useState([]);
+  useEffect(() => {
+    fetch("https://api.npoint.io/61f48a63e201ea40f86f/products/")
+      .then((response) => response.json())
+      .then((data) => {
+        setProducts(data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        setError(error);
+        setIsLoading(false);
+      });
+  }, []);
+  const handleClick = (product) => {
+    setClickedProducts([...clickedProducts, product.id]);
   };
-
-
+  const handleClose = (product) => {
+    setClickedProducts(clickedProducts.filter(id => id !== product.id));
+  };
+  const handleCategoryChange = (event) => {
+    setSelectedCategory(event.target.value);
+  };
+  const filteredProducts =
+    selectedCategory === ""
+      ? products
+      : products.filter((product) => product.category === selectedCategory);
   return (
     <div className="card_product_container">
-    <div className="wrapper">
-      <div className="container">
-        <div className="top"></div>
-        <div className="bottom">
-          <div className="left">
-            <div className="details">
-              <h1>Coat</h1>
-              <p>£250</p>
-            </div>
-            <div className="buy" onClick={handleAdd}><i className="material-icons">add</i></div>
-          </div>
-          <div className="right">
-            <div className="done"><i className="material-icons">✔️</i></div>
-            <div className="details">
-              <h1>Coat</h1>
-              <p>Added to your cart</p>
-            </div>
-            <div className="remove" onClick={handleRemove}><i className="material-icons">X</i></div>
-          </div>
-        </div>
+      <div className="category-dropdown">
+        <select value={selectedCategory} onChange={handleCategoryChange} open>
+          <option value="">All products</option>
+          <option value="men's clothing">Mens clothing</option>
+          <option value="women's clothing">Womens clothing</option>
+          <option value="sneakers">Sneakers</option>
+          <option value="jewelry">jewelry</option>
+          <option value="Hoodies">Hoodies</option>
+          <option value="Denims">Denims</option>
+        </select>
       </div>
-      <div className="inside">
-        <div className="icon"><i className="material-icons">details</i></div>
-        <div className="contents">
-          {/* <table>
-            <thead>
-              <tr>
-                <th>Width</th>
-                <th>Height</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>3000mm</td>
-                <td>4000mm</td>
-              </tr>
-              <tr>
-                <td>200mm</td>
-                <td>200mm</td>
-              </tr>
-              <tr>
-                <td>200mm</td>
-                <td>200mm</td>
-              </tr>
-              <tr>
-                <td>200mm</td>
-                <td>200mm</td>
-              </tr>
-            </tbody>
-          </table> */}
-        </div>
-      </div>
-    </div>
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : error ? (
+        <p>{error.message}</p>
+      ) : (
+        filteredProducts.map((product) => (
+          <div key={product.id} className="wrapper">
+            <div className="container">
+              <div className="top">
+                <img className='pdt'src={product.image} alt={product.title} />
+              </div>
+              <div className={`bottom ${clickedProducts.includes(product.id) ? "clicked" : ""}`}>
+                <div className="left">
+                  <div className="details">
+                    <h1>{product.title}</h1>
+                    <p>{`$${product.price}`}</p>
+                  </div>
+                  <div className="buy" onClick={() => handleClick(product)}><i className="material-icons">add</i></div>
+                </div>
+                <div className="right">
+                  <div className="done"><i class="fa-solid fa-check"></i></div>
+                  <div className="details">
+                    <p>Added to your cart</p>
+                  </div>
+                  <div className="remove" onClick={() => handleClose(product)}><i className="material-icons">X</i></div>
+                </div>
+              </div>
+            </div>
+            <div className="inside">
+              <div className="icon"><i className="material-icons">details</i></div>
+              <div className="contents">
+                <p>{`Details about ${product.title}`}</p>
+                <p>{product.description}</p>
+              </div>
+            </div>
+          </div>
+        ))
+      )}
     </div>
   );
 }
-
 export default Products;
-
-
-/*
-
-/*
-import React, { useState } from "react";
-
-
-const MyComponent = () => {
-  const [clicked, setClicked] = useState(false);
-
-  const handleRemove = () => {
-    setClicked(clicked);
-  };
-
-  const handleClick = () => {
-    setClicked(false);
-  };
-
-  return (
-    <div className="wrapper">
-      <div className="container">
-        <div className="top"></div>
-        <div className={`bottom${!clicked ? " clicked" : ""}`}>
-          <div className="left">
-            <div className="details">
-              <h1>Title</h1>
-              <p>Description</p>
-            </div>
-            <div className="buy" onClick={handleClick}>
-              <i className="fas fa-cart-plus" >buy</i>
-            </div>
-          </div>
-          <div className="right">
-            <div className="details">
-              <h1>Title</h1>
-              <p>Remove</p>
-            </div>
-            <div className="done">
-              <i className="fas fa-check"></i>
-            </div>
-            <div className="remove" onClick={handleRemove}>
-              <i className="fas fa-times">x</i>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="inside" >
-        <div className="icon">
-          <i className="fas fa-mouse-pointer"></i>
-        </div>
-        <div className="contents">
-          <h2>Click Me</h2>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default MyComponent;
-
-
-*/
