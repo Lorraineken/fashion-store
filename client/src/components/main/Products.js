@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from 'react-redux';
+import { addToCart, removeFromCart } from '../../features/cart/slice';
 import "../main/product.css";
 function Products() {
   const [products, setProducts] = useState([]);
@@ -6,6 +8,8 @@ function Products() {
   const [error, setError] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [clickedProducts, setClickedProducts] = useState([]);
+
+  const dispatch = useDispatch()
   useEffect(() => {
     fetch("https://api.npoint.io/61f48a63e201ea40f86f/products/")
       .then((response) => response.json())
@@ -20,9 +24,11 @@ function Products() {
   }, []);
   const handleClick = (product) => {
     setClickedProducts([...clickedProducts, product.id]);
+    dispatch(addToCart(product))
   };
   const handleClose = (product) => {
     setClickedProducts(clickedProducts.filter(id => id !== product.id));
+    dispatch(removeFromCart(product.id))
   };
   const handleCategoryChange = (event) => {
     setSelectedCategory(event.target.value);
