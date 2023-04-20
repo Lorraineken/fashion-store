@@ -21,6 +21,9 @@ class ApplicationController < ActionController::API
   def authorize
     unauthorized unless session.include? :user_id
   end
+  def authorize_admin
+    return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :admin_user
+  end
 
   def not_found(message: "Not found")
     app_response(status_code: 404, message: message)

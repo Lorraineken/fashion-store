@@ -1,4 +1,7 @@
 class CategoriesController < ApplicationController
+    before_action :authorize_admin
+    skip_before_action :authorize_admin, only: [:index, :show]
+
     def create 
         category = Category.create!(category_params)
         if category.valid? 
