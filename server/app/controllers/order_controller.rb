@@ -1,4 +1,6 @@
 class OrderController < ApplicationController
+    before_action :authorize
+
   def index
     @orders = current_user.orders
     render json: @orders, status: :ok

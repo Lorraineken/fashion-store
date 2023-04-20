@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+    before_action :authorize
+    skip_before_action :authorize, only: [:index,:show]
 
     def create 
         review = Review.create!(reviews_params)

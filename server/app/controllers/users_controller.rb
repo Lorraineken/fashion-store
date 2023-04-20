@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
     before_action :authorize_admin
     skip_before_action :authorize_admin, only: [:show, :update]
+    before_action :authorize
 
    def index 
     user =User.all 
