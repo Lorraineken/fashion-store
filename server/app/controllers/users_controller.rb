@@ -1,14 +1,6 @@
 class UsersController < ApplicationController
-     
-   def create 
-    user = User.create!(user_params)
-    if user.valid? 
-        render json: user, status: :created
-    else 
-        render json:{error:"Invalid user detail"}, status: :unprocessable_entity
-
-    end
-   end
+    before_action :authorize_admin
+    skip_before_action :authorize_admin, only: [:show, :update]
 
    def index 
     user =User.all 
