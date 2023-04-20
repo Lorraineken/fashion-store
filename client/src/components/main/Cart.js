@@ -6,7 +6,7 @@ function Cart() {
   const deliveryOption = useSelector(state => state.cart.deliveryOption);
   const dispatch = useDispatch()
   const handleQuantityChange  = (event, id) => {
-
+    console.log(cartData)
     const quantity = Number(event.target.value);
     console.log('quantity:', quantity)
     console.log('id:', id)
@@ -76,26 +76,29 @@ function Cart() {
           <li class="subtotal">Subtotal</li>
         </ul>
       </div>
+      {cartData.map((product)=>(
       <div class="basket-product">
-        <div class="item">
-          <div class="product-image">
-            <img src="http://placehold.it/120x166" alt="Placholder Image 2" class="product-frame"/>
-          </div>
-          <div class="product-details">
-            <h1><strong><span class="item-quantity">4</span> x Eliza J</strong> Lace Sleeve Cuff Dress</h1>
-            <p><strong>Navy, Size 18</strong></p>
-            <p>Product Code - 232321939</p>
-          </div>
+      <div class="item">
+        <div class="product-image">
+          <img src="http://placehold.it/120x166" alt="Placholder Image 2" class="product-frame"/>
         </div>
-        <div class="price">26.00</div>
-        <div class="quantity">
-  {cartData[0] && <input type="number" value={cartData[0].quantity} min="1" class="quantity-field" onChange={(event) => handleQuantityChange(event, cartData[0].id)}/>}
-</div>
-        <div class="subtotal">104.00</div>
-        <div class="remove">
-          <button>Remove</button>
+        <div class="product-details">
+          <h1><strong><span class="item-quantity">4</span> x Eliza J</strong> Lace Sleeve Cuff Dress</h1>
+          <p><strong>Navy, Size 18</strong></p>
+          <p>Product Code - 232321939</p>
         </div>
       </div>
+      <div class="price">26.00</div>
+      <div class="quantity">
+{cartData[0] && <input type="number" value={cartData[0].quantity} min="1" class="quantity-field" onChange={(event) => handleQuantityChange(event, cartData[0].id)}/>}
+</div>
+      <div class="subtotal">104.00</div>
+      <div class="remove">
+        <button>Remove</button>
+      </div>
+    </div>
+     ))}
+
     </div>
     <aside>
     <div class="summary">
