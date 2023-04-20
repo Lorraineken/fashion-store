@@ -9,11 +9,9 @@ class Product < ApplicationRecord
     validates :price, {
         presence: true,
         numericality: {
-            greater_than_or_equal_to: 2
+            greater_than_or_equal_to: 2.00
         }
     }
-    validates :description, {
-        length: {minimum:10}
-    }
+  
 end
 

@@ -6,7 +6,9 @@ class ReviewsController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :validation_error
 
     def create 
-        review = Review.create!(reviews_params)
+        review = Review.new(reviews_params)
+        review.user_id = session[:user_id]
+        review.save
         if review.valid? 
             render json: review, status: :created
         else 
@@ -39,7 +41,7 @@ class ReviewsController < ApplicationController
     
        private
     
-       def comment_params 
+       def reviews_params 
         params.permit(:comments,:rating,:product_id)
        end
     

@@ -39,7 +39,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.permit(:name, :category_id, :price, :description)
+    params.permit(:name, :category_id, :price, :description, :image_url, :gender)
   end
 
   def product_record_missing 
