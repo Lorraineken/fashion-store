@@ -2,6 +2,10 @@ class CategoriesController < ApplicationController
     before_action :authorize_admin
     skip_before_action :authorize_admin, only: [:index, :show]
 
+
+    rescue_from ActiveRecord::RecordNotFound, with: :category_record_missing
+    rescue_from ActiveRecord::RecordInvalid, with: :validation_error
+
     def create 
         category = Category.create!(category_params)
         if category.valid? 
@@ -38,5 +42,13 @@ class CategoriesController < ApplicationController
     
        def category_params 
         params.permit(:name)
+       end
+
+       def category_record_missing 
+        render json: { "error": "Category not found"}, status: :not_found
+      end
+    
+       def validation_error 
+        render json:  {"errors": ["validation errors"]}, status: :unprocessable_entity
        end
 end

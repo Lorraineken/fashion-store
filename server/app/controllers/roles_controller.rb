@@ -1,6 +1,10 @@
 class RolesController < ApplicationController
     before_action :authorize_admin
 
+
+    rescue_from ActiveRecord::RecordNotFound, with: :role_record_missing
+    rescue_from ActiveRecord::RecordInvalid, with: :validation_error
+
     def create 
         role = Role.create!(role_params)
         if role.valid? 
@@ -37,5 +41,13 @@ class RolesController < ApplicationController
     
        def role_params 
         params.permit(:name)
+       end
+
+       def role_record_missing 
+        render json: { "error": "role not found"}, status: :not_found
+       end
+    
+       def validation_error 
+        render json:  {"errors": ["validation errors"]}, status: :unprocessable_entity
        end
 end
