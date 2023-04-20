@@ -6,7 +6,7 @@ class CreateProducts < ActiveRecord::Migration[6.1]
       t.text :image_url
       t.text :description
       t.string :gender
-      t.integer :category_id
+      t.belongs_to :category, null: false, foreign_key: true
 
       t.timestamps
     end
