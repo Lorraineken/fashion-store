@@ -1,24 +1,8 @@
 import React, { useState } from 'react'
-
+import { useSelector } from 'react-redux';
 function Cart() {
-  
-  const [cartData, setCartData] = useState([
-    {
-      id: 1,
-      name: 'Lace Sleeve Cuff Dress',
-      price: 26.00,
-      quantity: 4,
-    },
-    {
-      id: 2,
-      name: 'Amella Lace Midi Dress',
-      price: 26.00,
-      quantity: 1,
-    },
-  ]);
-  
-  const [deliveryOption, setDeliveryOption] = useState('collection');
-
+  const cartData = useSelector(state => state.cart.items);
+  const deliveryOption = useSelector(state => state.cart.deliveryOption);
 
   const updateQuantity = (event, id) => {
     const newCartData = cartData.map(item => {
