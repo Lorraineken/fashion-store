@@ -12,6 +12,7 @@ import ProductTable from './features/products/components';
 import UserTable from './features/users/components';
 import OrdersTable from './features/orders/components';
 import Sidebar from './components/admin/Sidebar';
+import UserReview from './components/admin/UserReview';
 
 const App = () => {
   return (
@@ -29,7 +30,7 @@ const App = () => {
             <Route path="/table" element={<ProductTable/>} />
             <Route path="/usertable" element={<UserTable/>} />
             <Route path="/orderstable" element={<OrdersTable/>} />
-            <Route path="/sidebar" element={<Sidebar/>} />
+            <Route path="/sidebar" element={<UserReview/>} />
         </Routes>
         </BrowserRouter>
     </div>

@@ -7,6 +7,7 @@ export const fetchProducts = createAsyncThunk(
     if (!response.ok) {
       throw new Error('Failed to fetch products');
     }
+    console.log(response.json)
     return response.json();
   }
 );
@@ -22,6 +23,7 @@ export const addProduct = createAsyncThunk(
     if (!response.ok) {
       throw new Error('Failed to add product');
     }
+    console.log(response.json)
     return response.json();
   }
 );

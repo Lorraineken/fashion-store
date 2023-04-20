@@ -21,12 +21,6 @@
   ],
   "users": [
     {
-      "id": 1,
-      "name": "John Doe",
-      "email": "john.doe@example.comm",
-      "password": "password1"
-    },
-    {
       "id": 2,
       "name": "Jane Doe",
       "email": "jane.doe@example.com",
@@ -34,18 +28,6 @@
     }
   ],
   "orders": [
-    {
-      "id": 1,
-      "userId": 1,
-      "products": [
-        {
-          "id": 1,
-          "quantity": 2
-        }
-      ],
-      "status": "pending",
-      "createdAt": "2022-04-18T14:30:00.000Z"
-    },
     {
       "id": 2,
       "userId": 2,

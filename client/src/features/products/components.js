@@ -11,6 +11,7 @@ function ProductTable() {
   const [editingProductId, setEditingProductId] = useState(null);
 
   // Fetch products on component mount
+  console.log(products)
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);

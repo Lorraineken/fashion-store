@@ -74,24 +74,13 @@ export const reviewSlice = createSlice({
         state.status = "success";
         state.list = action.payload;
       })
-      .addCase(fetchReviews.rejected, (state, action) => {
-        state.status = "failed";
-        state.error = action.error.message;
-      })
-      .addCase(addReview.pending, (state) => {
-        state.status = "loading";
-      })
+  
       .addCase(addReview.fulfilled, (state, action) => {
         state.status = "success";
         state.list.push(action.payload);
       })
-      .addCase(addReview.rejected, (state, action) => {
-        state.status = "failed";
-        state.error = action.error.message;
-      })
-      .addCase(updateReview.pending, (state) => {
-        state.status = "loading";
-      })
+
+
       .addCase(updateReview.fulfilled, (state, action) => {
         state.status = "success";
         const index = state.list.findIndex(
@@ -101,13 +90,7 @@ export const reviewSlice = createSlice({
           state.list[index] = action.payload;
         }
       })
-      .addCase(updateReview.rejected, (state, action) => {
-        state.status = "failed";
-        state.error = action.error.message;
-      })
-      .addCase(deleteReview.pending, (state) => {
-        state.status = "loading";
-      })
+    
       .addCase(deleteReview.fulfilled, (state, action) => {
         state.status = "success";
         const index = state.list.findIndex(
@@ -117,10 +100,7 @@ export const reviewSlice = createSlice({
           state.list.splice(index, 1);
         }
       })
-      .addCase(deleteReview.rejected, (state, action) => {
-        state.status = "failed";
-        state.error = action.error.message;
-      });
+
   },
 });
 
