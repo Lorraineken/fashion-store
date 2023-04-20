@@ -4,6 +4,7 @@ import userReducer from './features/users/slice'
 import ordersReducer from './features/orders/slice'
 import reviewsReducer from './features/reviews/slice'
 import cartReducer from './features/cart/slice'
+import { persistStore, persistReducer } from 'redux-persist';
 
 const store = configureStore({
   reducer: {

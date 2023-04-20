@@ -1,27 +1,40 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { setDeliveryOption, updateItemQuantity } from '../../features/cart/slice';
 function Cart() {
   const cartData = useSelector(state => state.cart.items);
   const deliveryOption = useSelector(state => state.cart.deliveryOption);
+  const dispatch = useDispatch()
+  const handleQuantityChange  = (event, id) => {
 
-  const updateQuantity = (event, id) => {
-    const newCartData = cartData.map(item => {
-      if (item.id === id) {
-        return { ...item, quantity: event.target.value };
-      }
-      return item;
-    });
-    setCartData(newCartData);
-    setTotalCost(getTotalCost());
+    const quantity = Number(event.target.value);
+    dispatch(updateItemQuantity({ id, quantity }));
+
+    // const newCartData = cartData.map(item => {
+    //   if (item.id === id) {
+    //     return { ...item, quantity: event.target.value };
+    //   }
+    //   return item;
+    // });
+    // setCartData(newCartData);
+    // setTotalCost(getTotalCost());
+
   }
 
   const handleDeliveryOptionChange = (event) => {
-    setDeliveryOption(event.target.value);
-    setTotalCost(getTotalCost());
+    dispatch(setDeliveryOption(event.target.value));
+    // setDeliveryOption(event.target.value);
+    // setTotalCost(getTotalCost());
   }
 
   const getSubtotal = () => {
-    return cartData.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+    const subtotal = cartData.reduce((acc, item) => {
+      if (typeof item.quantity === 'number') {
+        return acc + (item.price * item.quantity);
+      }
+      return acc;
+    }, 0);
+    return subtotal;
   }
 
   const getTotalItems = () => {
@@ -39,6 +52,10 @@ function Cart() {
     
   }
   const [totalCost, setTotalCost] = useState(getTotalCost());
+  
+  if (cartData.length === 0) {
+    return <div>Your cart is empty</div>;
+  }
   return (
     <div> 
     <div class="basket">
@@ -68,8 +85,8 @@ function Cart() {
         </div>
         <div class="price">26.00</div>
         <div class="quantity">
-          <input type="number" value={cartData[0].quantity} min="1" class="quantity-field" onChange={(event) => updateQuantity(event, cartData[0].id)}/>
-        </div>
+  {cartData[0] && <input type="number" value={cartData[0].quantity} min="1" class="quantity-field" onChange={(event) => handleQuantityChange(event, cartData[0].id)}/>}
+</div>
         <div class="subtotal">104.00</div>
         <div class="remove">
           <button>Remove</button>
