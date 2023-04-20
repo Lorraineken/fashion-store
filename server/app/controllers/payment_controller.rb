@@ -1,4 +1,6 @@
 class PaymentController < ApplicationController
+   before_action :authorize
+
   def index
     @payments = Payment.includes(order: :user).all
     render json: @payments, status: :ok

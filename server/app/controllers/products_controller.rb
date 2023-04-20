@@ -1,4 +1,10 @@
 class ProductsController < ApplicationController
+    before_action :authorize_admin
+    skip_before_action :authorize_admin, only: [:index, :show]
+
+    rescue_from ActiveRecord::RecordNotFound, with: :product_record_missing
+    rescue_from ActiveRecord::RecordInvalid, with: :validation_error
+
   def create
     product = Product.create!(product_params)
     if product.valid?
@@ -35,4 +41,12 @@ class ProductsController < ApplicationController
   def product_params
     params.permit(:name, :category_id, :price, :description)
   end
+
+  def product_record_missing 
+    render json: { "error": "Product not found"}, status: :not_found
+  end
+
+   def validation_error 
+    render json:  {"errors": ["validation errors"]}, status: :unprocessable_entity
+   end
 end
