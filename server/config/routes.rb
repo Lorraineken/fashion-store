@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :user_roles
   resources :categories
   resources :products
-  resources :comments
+  resources :reviews
   resources :users, only: [:index, :show, :update, :destroy]
 
   # Routes for OrderController
