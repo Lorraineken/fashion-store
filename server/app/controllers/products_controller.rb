@@ -1,4 +1,7 @@
 class ProductsController < ApplicationController
+    before_action :authorize_admin
+    skip_before_action :authorize_admin, only: [:index, :show]
+
   def create
     product = Product.create!(product_params)
     if product.valid?

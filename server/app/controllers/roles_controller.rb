@@ -1,4 +1,6 @@
 class RolesController < ApplicationController
+    before_action :authorize_admin
+
     def create 
         role = Role.create!(role_params)
         if role.valid? 
