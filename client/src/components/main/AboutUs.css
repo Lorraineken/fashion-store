@@ -15,7 +15,7 @@
     -webkit-animation: blink 12s infinite;
     float: left;
     margin-left: 50px;
-    margin-top: -850px;
+    margin-top: -580px;
   }
   
   body {
@@ -90,6 +90,6 @@
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 45px;
-  margin-top: -55%;
+  margin-top: -35%;
 }
 

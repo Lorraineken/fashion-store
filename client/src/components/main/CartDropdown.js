@@ -1,21 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 
-export default function CartDropdown() {
-  const [cartItems, setCartItems] = useState([]);
-
-  // function to add an item to the cart
-  const addToCart = (item) => {
-    setCartItems([...cartItems, item]);
-  };
-
+export default function CartDropdown({ cartItems, removeFromCart, addToCart }) {
   return (
     <div className="cart-dropdown">
       <ul>
-        {addToCart}
-        {cartItems.map((item) => (
-          <li key={item.id}>{item.name}</li>
-        ))}
+        {cartItems.length === 0 ? (
+          <li>Your cart is empty</li>
+        ) : (
+          cartItems.map((item) => (
+            <li key={item.id}>
+              {item.name} - ${item.price.toFixed(2)}{" "}
+              <button onClick={() => removeFromCart(item)}>X</button>
+            </li>
+          ))
+        )}
       </ul>
+      <button onClick={() => addToCart(cartItems)}>Checkout</button>
     </div>
   );
 }

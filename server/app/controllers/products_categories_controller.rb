@@ -1,4 +1,10 @@
 class ProductsCategoriesController < ApplicationController
+    before_action :authorize_admin
+    skip_before_action :authorize_admin, only: [:index, :show]
+
+    rescue_from ActiveRecord::RecordNotFound, with: :product_categories_record_missing
+    rescue_from ActiveRecord::RecordInvalid, with: :validation_error
+
     def create 
         procat = ProductsCategory.create!(procat_params)
         if procat.valid? 
@@ -36,4 +42,13 @@ class ProductsCategoriesController < ApplicationController
        def procat_params 
         params.permit(:product_id,:category_id)
        end
+
+
+  def product_categories_record_missing 
+    render json: { "error": "Product_categories not found"}, status: :not_found
+  end
+
+   def validation_error 
+    render json:  {"errors": ["validation errors"]}, status: :unprocessable_entity
+   end
 end

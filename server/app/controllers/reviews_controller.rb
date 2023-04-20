@@ -1,6 +1,14 @@
 class ReviewsController < ApplicationController
+    before_action :authorize
+    skip_before_action :authorize, only: [:index,:show]
+
+    rescue_from ActiveRecord::RecordNotFound, with: :review_record_missing
+    rescue_from ActiveRecord::RecordInvalid, with: :validation_error
+
     def create 
-        review = Review.create!(reviews_params)
+        review = Review.new(reviews_params)
+        review.user_id = session[:user_id]
+        review.save
         if review.valid? 
             render json: review, status: :created
         else 
@@ -33,9 +41,16 @@ class ReviewsController < ApplicationController
     
        private
     
-       def comment_params 
+       def reviews_params 
         params.permit(:comments,:rating,:product_id)
        end
     
+       def review_record_missing 
+        render json: { "error": "Review not found"}, status: :not_found
+       end
+    
+       def validation_error 
+        render json:  {"errors": ["validation errors"]}, status: :unprocessable_entity
+       end
 
 end

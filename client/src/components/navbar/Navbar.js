@@ -5,10 +5,19 @@ import CartDropdown from "../main/CartDropdown";
 
 export default function Navbar() {
   const [showCartDropdown, setShowCartDropdown] = useState(false);
+  const [cartItems, setCartItems] = useState([]);
 
-  // function to toggle the visibility of the cart dropdown
   const toggleCartDropdown = () => {
     setShowCartDropdown(!showCartDropdown);
+  };
+
+  const addToCart = (product) => {
+    setCartItems([...cartItems, ...product]);
+  };
+
+  const removeFromCart = (product) => {
+    const updatedCartItems = cartItems.filter((item) => item.id !== product.id);
+    setCartItems(updatedCartItems);
   };
 
   return (
@@ -64,7 +73,13 @@ export default function Navbar() {
         <Link to="#" className="nav-link" onClick={toggleCartDropdown}>
           <i className="fa fa-shopping-bag" aria-hidden="true"></i>
         </Link>
-        {showCartDropdown && <CartDropdown />}
+        {showCartDropdown && (
+          <CartDropdown
+            cartItems={cartItems}
+            removeFromCart={removeFromCart}
+            addToCart={addToCart}
+          />
+        )}
       </li>
     </nav>
   );

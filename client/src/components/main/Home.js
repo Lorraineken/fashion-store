@@ -2,7 +2,7 @@ import React from 'react'
 import './Home.css'
 import { Link } from 'react-router-dom';
 import Video from "../assets/video1.mp4"
-import image1 from "../assets/img1.jpg"
+// import image1 from "../assets/img1.jpg"
 import AboutUs from './AboutUs';
 
 const Home = () => {
@@ -22,7 +22,7 @@ const Home = () => {
         </video>
       </div>
       <div className="img">
-      <img className="imgg"src={image1} alt=""/>
+      <img className="imgg"src='https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80' alt=""/>
       </div>
       <AboutUs />
     </div>

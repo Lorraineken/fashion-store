@@ -1,14 +1,10 @@
 class UsersController < ApplicationController
-     
-   def create 
-    user = User.create!(user_params)
-    if user.valid? 
-        render json: user, status: :created
-    else 
-        render json:{error:"Invalid user detail"}, status: :unprocessable_entity
+    before_action :authorize_admin
+    skip_before_action :authorize_admin, only: [:show, :update]
+    before_action :authorize
 
-    end
-   end
+    rescue_from ActiveRecord::RecordNotFound, with: :user_record_missing
+    rescue_from ActiveRecord::RecordInvalid, with: :validation_error
 
    def index 
     user =User.all 
@@ -36,6 +32,14 @@ class UsersController < ApplicationController
 
    def user_params 
     params.permit(:username, :password, :email)
+   end
+
+   def user_record_missing 
+    render json: { "error": "User not found"}, status: :not_found
+   end
+
+   def validation_error 
+    render json:  {"errors": ["validation errors"]}, status: :unprocessable_entity
    end
 
 end
