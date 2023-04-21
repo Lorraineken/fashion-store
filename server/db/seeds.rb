@@ -20,8 +20,13 @@ Role.create!(name: "customer")
 
 # Create some users
 10.times do
+  username = Faker::Internet.username
+  until username.length >= 4
+    username = Faker::Internet.username
+  end
+
   User.create!(
-    username: Faker::Internet.username,
+    username: username,
     email: Faker::Internet.email,
     password: "password",
   )

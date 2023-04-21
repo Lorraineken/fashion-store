@@ -1,21 +1,28 @@
 import React from "react";
-
-export default function CartDropdown({ cartItems, removeFromCart, addToCart }) {
+import { useSelector, useDispatch } from 'react-redux';
+import { removeFromCart } from "../../features/cart/slice";
+export default function CartDropdown() {
+ const dispatch = useDispatch()
+const cartDropDown = useSelector((state)=> state.cart.items);
+function removeProduct(item){
+dispatch(removeFromCart(item.id))
+console.log(cartDropDown)
+}
   return (
     <div className="cart-dropdown">
       <ul>
-        {cartItems.length === 0 ? (
+        {cartDropDown == null ? (
           <li>Your cart is empty</li>
         ) : (
-          cartItems.map((item) => (
+          cartDropDown.map((item) => (
             <li key={item.id}>
-              {item.name} - ${item.price.toFixed(2)}{" "}
-              <button onClick={() => removeFromCart(item)}>X</button>
+               <img src= {item.image}  alt="" srcset="" /> -  ${item.price} 
+              <button onClick={() => removeProduct(item)}>X</button>
             </li>
           ))
         )}
       </ul>
-      <button onClick={() => addToCart(cartItems)}>Checkout</button>
+      <button>Checkout</button>
     </div>
   );
 }

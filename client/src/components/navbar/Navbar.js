@@ -48,6 +48,31 @@ export default function Navbar() {
             SignUp
           </Link>
         </li>
+        <li className="nav-item">
+          <Link to="/table" className="nav-link">
+            admin
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link to="/usertable" className="nav-link">
+            userss
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link to="/orderstable" className="nav-link">
+            orders
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link to="/sidebar" className="nav-link">
+            sidebar
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link to="/cart" className="nav-link">
+            cart
+          </Link>
+        </li>
       </ul>
       <li className="font">
         <Link to="#" className="nav-link" onClick={toggleCartDropdown}>

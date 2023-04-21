@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@iconscout/react-unicons": "^2.0.2",
     "browser": "^0.2.6",
     "font-awesome": "^4.7.0",
     "icons": "^1.0.0",
