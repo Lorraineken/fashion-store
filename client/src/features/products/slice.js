@@ -9,6 +9,8 @@ export const fetchProducts = createAsyncThunk(
     }
     console.log(response.json)
     return response.json();
+    // const products = await response.json();
+    // return products.map(product => ({ ...product, quantity: 1 }));
   }
 );
 

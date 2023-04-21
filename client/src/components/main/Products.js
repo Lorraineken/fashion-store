@@ -5,11 +5,12 @@ import { fetchProducts } from '../../features/products/slice';
 import "../main/product.css";
 
 function Products() {
+  
   const products = useSelector(state => state.products.list);
+  const cartItems = useSelector(state => state.cart.items);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState("");
-  const [clickedProducts, setClickedProducts] = useState([]);
 
   const dispatch = useDispatch()
   useEffect(() => {
@@ -22,17 +23,20 @@ function Products() {
   }, [dispatch]);
   
   const handleClick = (product) => {
-    setClickedProducts([...clickedProducts, product.id]);
     dispatch(addToCart(product))
   };
   
   const handleClose = (product) => {
-    setClickedProducts(clickedProducts.filter(id => id !== product.id));
+    console.log('handleClose called with product:', product);
     dispatch(removeFromCart(product.id))
   };
   
   const handleCategoryChange = (event) => {
     setSelectedCategory(event.target.value);
+  };
+  
+  const isProductInCart = (productId) => {
+    return cartItems.some(item => item.id === productId);
   };
   
   const filteredProducts =
@@ -64,21 +68,25 @@ function Products() {
               <div className="top">
                 <img className='pdt'src={product.image} alt={product.title} />
               </div>
-              <div className={`bottom ${clickedProducts.includes(product.id) ? "clicked" : ""}`}>
+              <div className={`bottom ${isProductInCart(product.id) ? "clicked" : ""}`}>
                 <div className="left">
                   <div className="details">
                     <h1>{product.title}</h1>
                     <p>{`$${product.price}`}</p>
                   </div>
-                  <div className="buy" onClick={() => handleClick(product)}><i className="material-icons">add</i></div>
+                  {!isProductInCart(product.id) && (
+                    <div className="buy" onClick={() => handleClick(product)}><i className="material-icons">add</i></div>
+                  )}
                 </div>
-                <div className="right">
-                  <div className="done"><i class="fa-solid fa-check"></i></div>
-                  <div className="details">
-                    <p>Added to your cart</p>
+                {isProductInCart(product.id) && (
+                  <div className="right">
+                    <div className="done"><i class="fa-solid fa-check"></i></div>
+                    <div className="details">
+                      <p>Added to your cart</p>
+                    </div>
+                    <div className="remove" onClick={() => handleClose(product)}><i className="material-icons">X</i></div>
                   </div>
-                  <div className="remove" onClick={() => handleClose(product)}><i className="material-icons">X</i></div>
-                </div>
+                )}
               </div>
             </div>
             <div className="inside">
