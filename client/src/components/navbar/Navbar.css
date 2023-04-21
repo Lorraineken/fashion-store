@@ -4,7 +4,6 @@
     justify-content: space-between;
     margin: 0px;
     align-items: center;
-    /* background-color: grey; */
     color: black;
     padding: 1rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -18,12 +17,10 @@
     padding: 0;
     margin-left: 60%;
     justify-content: space-between;
-    margin-top: -3px;
-       /* margin-right: 50%; */
+    margin-top: -3px
   }
   
   .nav-item {
-    /* margin-right: 50%; */
     margin-right: 1rem;
     margin-top: -3px;
   }
@@ -36,8 +33,6 @@
   }
   
   .nav-link:hover {
-    /* text-decoration: underline; */
-    /* background-color: orange; */
     color: orange;
   }
   
@@ -57,7 +52,6 @@
     right: 10px;
     background-color: #fff; /* Updated to white */
     border: 1px solid #ccc;
-    /* padding: 100px; */
     height: 400px;
     min-width: 250px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
