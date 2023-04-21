@@ -16,7 +16,7 @@ console.log(cartDropDown)
         ) : (
           cartDropDown.map((item) => (
             <li key={item.id}>
-              {item.name} - ${item.price}
+               <img src= {item.image}  alt="" srcset="" /> -  ${item.price} 
               <button onClick={() => removeProduct(item)}>X</button>
             </li>
           ))
