@@ -53,6 +53,8 @@ function ProductTable() {
     <div className='admin_table'>
       <main className='main'> 
       <section className={modal ? "table-form" : "table_body"}>    
+      <input type="text" placeholder='search'/>
+      <button onClick={()=>setModal(true)}>Add Product</button>
          <table>
         <thead>
           <tr>
@@ -84,8 +86,11 @@ function ProductTable() {
        <div className="userForm">
       <h1> Products Table</h1>
       <form onSubmit={handleFormSubmit}>
+        <label htmlFor="">image</label>
         <input type="text" name="name" value={formData.name || ''} onChange={handleFormChange} />
-        <input type="text" name="description" value={formData.description || ''} onChange={handleFormChange} />
+        <label htmlFor="">Description</label>
+        <textarea type="text" name="description" value={formData.description || ''} onChange={handleFormChange} />
+        <label htmlFor="">Price</label>
         <input type="number" name="price" value={formData.price || ''} onChange={handleFormChange} />
         <button type="submit">{editing ? 'Update Product' : 'Add Product'}</button>
       </form>

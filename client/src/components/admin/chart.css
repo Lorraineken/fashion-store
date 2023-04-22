@@ -1,3 +1,9 @@
-.customerReview{
-    height: 59vh;
-}
+ 
+
+.chart {
+    width: 60%;
+    height: 300px;
+    display: flex;
+    margin-left: 20%;
+    margin-top: 10%;
+  }

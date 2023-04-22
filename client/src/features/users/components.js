@@ -53,10 +53,10 @@ function UserTable() {
     <div className="admin_table">
             <main className="main ">
        
-    <h1>Customers Table</h1>
+  
         
         <section className={modal ? "table-form" : "table_body"}>
-
+        <h1>Customers Table</h1>
        
       <table>
         <thead>

@@ -79,9 +79,9 @@ const Sidebar = () => {
     <div className='admin-panel'>
     <div className='Sidebar'>
       <div className='logo'>
-        <img src='' alt='log'/>
+        
         <span>
-          Sh<span>o</span>ps
+          Fashion
         </span>
       </div>
       {/* Menu */}
@@ -109,7 +109,7 @@ const Sidebar = () => {
       {selected === 2 && <UserTable /> }
       {selected === 3 && <ProductTable /> }
       {selected === 1 && <OrdersTable /> }
-      {selected === 4 && <OrdersTable /> }
+      {selected === 4 && <UserReview /> }
       
     </div>
     </div>

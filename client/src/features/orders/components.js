@@ -49,8 +49,9 @@ function OrdersTable() {
   return (
     <div className="admin_table">
       <main className="main">
-      <h1>Orders Table</h1>
+     
         <section className={modal ? "table-form" : "table_body"}>
+        <h1>Orders Table</h1>
         <table>
         <thead>
           <tr>

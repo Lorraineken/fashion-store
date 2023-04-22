@@ -31,8 +31,9 @@ const UserReview = () => {
     ],
     options: {
       chart: {
-        type: "bar",
-        height: 20,
+        type: "area",
+        height: 1,
+        width:'20%',
       },
       fill: {
         colors: ["#ff929f"],
@@ -41,10 +42,10 @@ const UserReview = () => {
       dataLabels: {
         enabled: false,
       },
-      // stroke: {
-      //   curve: "smooth",
-      //   colors: ["#ff929f"],
-      // },
+      stroke: {
+        curve: "smooth",
+        colors: ["#ff929f"],
+      },
       tooltip: {
         x: {
           format: "dd/MM/yy HH:mm",
@@ -67,7 +68,7 @@ const UserReview = () => {
   };
   
   return <div className="customerReview">
-    <Chart options={data.options} series={data.series} type="area" />
+    <Chart options={data.options} series={data.series} type="area"  className= "chart"/>
   </div>;
 };
 
