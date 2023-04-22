@@ -31,7 +31,7 @@ const App = () => {
             <Route path="/table" element={<ProductTable/>} />
             <Route path="/usertable" element={<UserTable/>} />
             <Route path="/orderstable" element={<OrdersTable/>} />
-            <Route path="/sidebar" element={<UserReview/>} />
+            <Route path="/sidebar" element={<Sidebar/>} />
             <Route path="/cart" element={<Cart/>} />
         </Routes>
         </BrowserRouter>

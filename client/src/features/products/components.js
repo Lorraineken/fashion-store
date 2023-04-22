@@ -9,6 +9,8 @@ function ProductTable() {
   const [formData, setFormData] = useState({});
   const [editing, setEditing] = useState(false);
   const [editingProductId, setEditingProductId] = useState(null);
+  const [modal, setModal] = useState(false)
+  
 
   // Fetch products on component mount
   console.log(products)
@@ -31,6 +33,7 @@ function ProductTable() {
       dispatch(addProduct(formData));
     }
     setFormData({});
+    setModal(false);
   };
 
   // Handle delete product
@@ -43,18 +46,14 @@ function ProductTable() {
     setFormData(products.find((product) => product.id === productId));
     setEditing(true);
     setEditingProductId(productId);
+    setModal(true);
   };
 
   return (
-    <div>
-      <h1> Products Table</h1>
-      <form onSubmit={handleFormSubmit}>
-        <input type="text" name="name" value={formData.name || ''} onChange={handleFormChange} />
-        <input type="text" name="description" value={formData.description || ''} onChange={handleFormChange} />
-        <input type="number" name="price" value={formData.price || ''} onChange={handleFormChange} />
-        <button type="submit">{editing ? 'Update Product' : 'Add Product'}</button>
-      </form>
-      <table>
+    <div className='admin_table'>
+      <main className='main'> 
+      <section className={modal ? "table-form" : "table_body"}>    
+         <table>
         <thead>
           <tr>
             <th>Name</th>
@@ -70,13 +69,30 @@ function ProductTable() {
               <td>{product.description}</td>
               <td>{product.price}</td>
               <td>
-                <button onClick={() => handleDeleteProduct(product.id)}>Delete</button>
-                <button onClick={() => handleEditProduct(product.id)}>Edit</button>
+                <button onClick={() => handleDeleteProduct(product.id)} className="fas fa-trash-alt"></button>
+                <button onClick={() => handleEditProduct(product.id)} className="fas fa-edit"></button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+       </section>
+       </main>
+       {modal && (
+        <>
+       <div className="modal">
+       <div className="userForm">
+      <h1> Products Table</h1>
+      <form onSubmit={handleFormSubmit}>
+        <input type="text" name="name" value={formData.name || ''} onChange={handleFormChange} />
+        <input type="text" name="description" value={formData.description || ''} onChange={handleFormChange} />
+        <input type="number" name="price" value={formData.price || ''} onChange={handleFormChange} />
+        <button type="submit">{editing ? 'Update Product' : 'Add Product'}</button>
+      </form>
+      </div>
+</div>
+</>
+)}
     </div>
   );
 }

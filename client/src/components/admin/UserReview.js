@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Chart from 'react-apexcharts';
 import { fetchReviews} from "../../features/reviews/slice";
+import './chart.css'
 
 
 const UserReview = () => {
@@ -65,8 +66,8 @@ const UserReview = () => {
     },
   };
   
-  return <div className="CustomerReview">
-    <Chart options={data.options} series={data.series} type="bar" />
+  return <div className="customerReview">
+    <Chart options={data.options} series={data.series} type="area" />
   </div>;
 };
 
