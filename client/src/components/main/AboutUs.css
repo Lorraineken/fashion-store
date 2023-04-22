@@ -1,95 +1,97 @@
+
+ 
+
 .abt {
-    font-size: calc(0px + 7vh);
-    line-height: calc(20px +40vh);
-    /*   text-shadow: 0 0 5px #f562ff, 0 0 15px #f562ff, 0 0 25px #f562ff,
-      0 0 20px #f562ff, 0 0 30px #890092, 0 0 80px #890092, 0 0 80px #890092;
-    color: #fccaff; */
+  font-size: calc(0px + 7vh);
+  line-height: calc(20px +40vh);
+  /*   text-shadow: 0 0 5px #f562ff, 0 0 15px #f562ff, 0 0 25px #f562ff,
+    0 0 20px #f562ff, 0 0 30px #890092, 0 0 80px #890092, 0 0 80px #890092;
+  color: #fccaff; */
+  text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500,
+    0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+  color: #fff6a9;
+  font-family: "Sacramento", cursive;
+  text-align: center;
+  margin-right: 700px;
+  margin-top: 0px;
+  animation: blink 12s infinite;
+  -webkit-animation: blink 12s infinite;
+  float: left;
+  margin-left: 50px;
+  margin-top: -580px;
+}
+
+body {
+  padding: 2vw;
+  /* overflow-y: scroll; */
+}
+
+@-webkit-keyframes blink {
+  20%,
+  24%,
+  55% {
+    color: #111;
+    text-shadow: none;
+  }
+
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    /*     color: #fccaff;
+    text-shadow: 0 0 5px #f562ff, 0 0 15px #f562ff, 0 0 25px #f562ff,
+      0 0 20px #f562ff, 0 0 30px #890092, 0 0 80px #890092, 0 0 80px #890092; */
     text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500,
       0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
     color: #fff6a9;
-    font-family: "Sacramento", cursive;
-    text-align: center;
-    margin-right: 700px;
-    margin-top: 0px;
-    animation: blink 12s infinite;
-    -webkit-animation: blink 12s infinite;
-    float: left;
-    margin-left: 50px;
-    margin-top: -580px;
   }
-  
-  body {
-    padding: 2vw;
-    /* overflow-y: scroll; */
+}
+
+@keyframes blink {
+  20%,
+  24%,
+  55% {
+    color: #111;
+    text-shadow: none;
   }
-  
-  @-webkit-keyframes blink {
-    20%,
-    24%,
-    55% {
-      color: #111;
-      text-shadow: none;
-    }
-  
-    0%,
-    19%,
-    21%,
-    23%,
-    25%,
-    54%,
-    56%,
-    100% {
-      /*     color: #fccaff;
-      text-shadow: 0 0 5px #f562ff, 0 0 15px #f562ff, 0 0 25px #f562ff,
-        0 0 20px #f562ff, 0 0 30px #890092, 0 0 80px #890092, 0 0 80px #890092; */
-      text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500,
-        0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
-      color: #fff6a9;
-    }
+
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    /*     color: #fccaff;
+    text-shadow: 0 0 5px #f562ff, 0 0 15px #f562ff, 0 0 25px #f562ff,
+      0 0 20px #f562ff, 0 0 30px #890092, 0 0 80px #890092, 0 0 80px #890092; */
+    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500,
+      0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    color: #fff6a9;
   }
-  
-  @keyframes blink {
-    20%,
-    24%,
-    55% {
-      color: #111;
-      text-shadow: none;
-    }
-  
-    0%,
-    19%,
-    21%,
-    23%,
-    25%,
-    54%,
-    56%,
-    100% {
-      /*     color: #fccaff;
-      text-shadow: 0 0 5px #f562ff, 0 0 15px #f562ff, 0 0 25px #f562ff,
-        0 0 20px #f562ff, 0 0 30px #890092, 0 0 80px #890092, 0 0 80px #890092; */
-      text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500,
-        0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
-      color: #fff6a9;
-    }
-  }
+}
 
 .paragraph{
-    color: white;
-    float: left;
-    margin-left: 100px;
-    font-size: large;
-    height: 20%;
-    width: 40%;
-    margin-top: -30%;
-    margin-top: -3%;
+  color: white;
+  float: left;
+  margin-left: 100px;
+  font-size: large;
+  height: 20%;
+  width: 40%;
+  margin-top: -30%;
+  margin-top: -3%;
 }
 .paragraph {
-  font-size: 18px;
-  line-height: 1.5;
-  margin: 20px 0;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 45px;
-  margin-top: -35%;
+font-size: 18px;
+line-height: 1.5;
+margin: 20px 0;
+padding: 10px;
+border: 1px solid #ddd;
+border-radius: 45px;
+margin-top: -35%;
 }
-

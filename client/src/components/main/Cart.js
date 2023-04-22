@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
+import './Cart.css'
 import { setDeliveryOption, updateItemQuantity, removeFromCart } from '../../features/cart/slice';
 function Cart() {
   const cartData = useSelector(state => state.cart.items);
@@ -77,7 +78,7 @@ function Cart() {
         <button class="promo-code-cta">Apply</button>
       </div>
       <div class="basket-labels">
-        <ul>
+        <ul className='list'>
           <li class="item item-heading">Item</li>
           <li class="price">Price</li>
           <li class="quantity">Quantity</li>
@@ -88,7 +89,7 @@ function Cart() {
       <div class="basket-product">
       <div class="item">
         <div class="product-image">
-          <img src={product.image} alt="Placholder Image 2" class="product-frame"/>
+          <img clasName='img'src={product.image} alt="Placholder Image 2" class="product-frame"/>
         </div>
         <div class="product-details">
           <h1><strong><span class="item-quantity">4</span> x Eliza J</strong> Lace Sleeve Cuff Dress</h1>
