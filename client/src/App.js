@@ -1,6 +1,7 @@
 
 import React from 'react'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import './App.css'
 import Home from '../src/components/main/Home';
 import Categories from '../src/components/main/Categories';
 import ContactUs from '../src/components/main/ContactUs';
@@ -31,7 +32,7 @@ const App = () => {
             <Route path="/table" element={<ProductTable/>} />
             <Route path="/usertable" element={<UserTable/>} />
             <Route path="/orderstable" element={<OrdersTable/>} />
-            <Route path="/sidebar" element={<UserReview/>} />
+            <Route path="/sidebar" element={<Sidebar/>} />
             <Route path="/cart" element={<Cart/>} />
         </Routes>
         </BrowserRouter>

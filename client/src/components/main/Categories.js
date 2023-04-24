@@ -12,7 +12,7 @@ const categories = [
 const Categories = () => {
   return (
     <div className='categories'>
-      <h1>Categories</h1>
+
       <ul>
         {categories.map(category => (
           <li key={category.id}>{category.name}</li>

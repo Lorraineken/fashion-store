@@ -21,33 +21,35 @@
       "id": 4,
       "quantity": 1
     }
-  
   ],
   "users": [
     {
-      "id": 2,
-      "name": "Jane Doe",
-      "email": "jane.doe@example.com",
-      "password": "password2"
+      "name": "Emmanuel Barsulai",
+      "email": "woman@woman.com",
+      "password": "welcome12",
+      "id": 1
+    },
+    {
+      "name": "Writing",
+      "email": "woman@woman.com",
+      "password": "w",
+      "id": 2
     }
   ],
   "orders": [
     {
+      "id": 1,
+      "user_id": 2,
+      "status": "processing",
+      "product_id": 456,
+      "quantity": 2
+    },
+    {
       "id": 2,
-      "userId": 2,
-      "products": [
-        {
-          "id": 1,
-          "quantity": 1
-        },
-        {
-          "id": 2,
-          "quantity": 3
-        }
-      ],
-      "status": "shipped",
-      "createdAt": "2022-04-17T10:15:00.000Z",
-      "updatedAt": "2022-04-18T14:30:00.000Z"
+      "user_id": 1,
+      "status": "processing",
+      "product_id": 1,
+      "quantity": 5
     }
   ],
   "reviews": [

@@ -1,3 +1,9 @@
+.admin-panel{
+display: flex;
+justify-content: center;
+border: 2px solid black;
+}
+
 .Sidebar{
     display: flex;
     flex-direction: column;
@@ -5,7 +11,11 @@
     padding-top: 4rem;
     transition:all 300ms ease;
     width: 200px;
-
+border: 2px solid black;
+}
+.userTable{
+    flex: 1;
+    border: 1px solid black;
 }
 
 .logo{
@@ -24,7 +34,7 @@
     height: 3rem;
 }
 .logo >span >span{
-    color: rgb(222, 181, 181);
+    color: rgb(147, 118, 228);
 }
 
 .menu{
@@ -50,7 +60,7 @@
 }
 
 .active{
-    background: rgb(237, 211, 216);
+    background: rgb(164, 136, 240);
     margin-left: 0;
 }
 
@@ -58,7 +68,7 @@
     content: "";
     width: 8px;
     height: 100%;
-    background: pink;
+    background: rgb(107, 41, 230);
     margin-right: calc(1rem - 8px);
 
 }

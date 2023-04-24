@@ -13,6 +13,7 @@ puts "Creating seed data..."
 Category.create!(name: "Shirts")
 Category.create!(name: "Pants")
 Category.create!(name: "Shoes")
+Category.create!(name: "Dresses")
 
 # Create some roles
 Role.create!(name: "admin")
@@ -20,7 +21,7 @@ Role.create!(name: "customer")
 
 # Create some users
 10.times do
-  username = Faker::Internet.username
+ username = Faker::Internet.username
   until username.length >= 4
     username = Faker::Internet.username
   end
@@ -47,45 +48,43 @@ admin.roles << Role.find_by(name: "admin")
     price: Faker::Commerce.price(range: 10..100.0),co
     image_url: Faker::LoremFlickr.image(size: "300x300"),
     description: Faker::Lorem.paragraph,
+    category_id: rand(1..4),
     gender: ["male", "female"].sample,
   )
 end
 
-# Assign categories to products
-Product.all.each do |product|
-  product.categories << Category.all.sample
-end
+
 
 # Create some orders
-User.all.each do |user|
-  3.times do
-    product = Product.all.sample
-    Order.create(
-      user_id: user.id,
-      product_id: product.id,
-      total_amount: product.price,
-      status: ["pending", "shipped", "delivered"].sample,
-      address: Faker::Address.full_address,
-    )
-  end
-end
+#User.all.each do |user|
+#  3.times do
+#    product = Product.all.sample
+#    Order.create!(
+#      user_id: user.id,
+#      product_id: product.id,
+#      total_amount: product.price,
+#      status: ["pending", "shipped", "delivered"].sample,
+#      address: Faker::Address.full_address,
+#    )
+#  end
+#end
 
 # Create some payments
-Order.all.each do |order|
-  Payment.create!(
-    order_id: order.id,
-    payment_method: ["credit card", "paypal", "cash"].sample,
-    amount: order.total_amount,
-    status: ["paid", "pending", "failed"].sample,
-  )
-end
+#Order.all.each do |order|
+ # Payment.create!(
+ #   order_id: order.id,
+ #   payment_method: ["credit card", "paypal", "cash"].sample,
+ #   amount: order.total_amount,
+ #   status: ["paid", "pending", "failed"].sample,
+ # )
+#end
 
 # Create some reviews
 User.all.each do |user|
   3.times do
     product = Product.all.sample
     Review.create!(
-      comments: Faker::Lorem.paragraph,
+      comments: Faker::Lorem.sentence,
       rating: rand(1..5),
       user_id: user.id,
       product_id: product.id,
