@@ -16,7 +16,7 @@ class AuthenticationController < ApplicationController
       
       #check for admin
       role = user.roles.where(name: "admin").first
-      if role.name == "admin"
+      if role && role.name == "admin"
         session[:admin_user] = "admin"
       end
       

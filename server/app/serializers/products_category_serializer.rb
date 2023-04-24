@@ -1,5 +1,5 @@
 class ProductsCategorySerializer < ActiveModel::Serializer
   attributes :id
-  has_one :product
-  has_one :category
+  belongs_to :product
+  belongs_to :category
 end
