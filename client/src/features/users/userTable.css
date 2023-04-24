@@ -1,6 +1,12 @@
 /* .body{
     background: url() center/cover;
 } */
+/* .admin_table{
+    display: flex;
+} */
+.admin_table h1{
+    margin-left: 11%;
+}
 td img{
     width: 36px;
     height: 36px;
@@ -11,8 +17,17 @@ td img{
 table, th, td{
     padding: 1rem;
 }
-main .table{
-    width: 82vh;
+.main {
+    border: 1px solid black;
+    display: inline-block;
+    max-height: 50vh;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+  }
+
+.main .table{
+    width: auto;
     height: 90vh;
     background-color: #fff5;
     backdrop-filter: blur(7px);
@@ -21,14 +36,14 @@ main .table{
     overflow: hidden;
 }
 .table_header{
-    width: 10%;
+    width: auto;
     height: 10%;
     background-color: #fff5;
     padding: .8rem 1rem;
     margin-left: 35%;
 }
 .table_body{
-    width: 30%;
+    width: auto;
     max-height: calc(89% - 1.6rem);
     background-color: #fffb;
 
@@ -38,6 +53,7 @@ main .table{
     overflow: auto;
     overflow: overlay;
 }
+
 .table_body::-webkit-scrollbar{
     width: 0.5rem;
     height: 0.5rem;
@@ -65,6 +81,10 @@ thead th {
     background-color: #d5d1defe;
     cursor: pointer;
     text-transform: capitalize;
+
+}
+thead{
+    width: 100%;
 }
 
 tbody tr:nth-child(even) {
@@ -80,3 +100,66 @@ tbody tr.hide {
     opacity: 0;
     transform: translateX(100%);
 }
+
+    .table-action-btn button{
+    margin: 5px;
+    }
+.userForm {
+    border: 1px solid black;
+    width: 400px;
+    margin: 0 auto;
+    font-family: sans-serif;
+  }
+  .userForm h1 {
+    text-align: center;
+    color: #3b5998;
+  }
+  .userForm form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .userForm input[type="text"],
+  .userForm input[type="number"],
+  .userForm input[type="password"] {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid #3b5998;
+  }
+  .userForm textarea{
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid #3b5998;
+  }
+  .userForm input[type="text"]:focus,
+  .userForm input[type="password"]:focus {
+    outline: none;
+    border-bottom: 2px solid #3b5998;
+  }
+  .userForm button[type="submit"] {
+    width: 50%;
+    background-color: #3b5998;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .modal{
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+
+  }
+  .table-form{
+    display: none;
+  }

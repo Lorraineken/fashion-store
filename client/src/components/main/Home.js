@@ -4,9 +4,12 @@ import { Link } from 'react-router-dom';
 import Video from "../assets/video1.mp4"
 // import image1 from "../assets/img1.jpg"
 import AboutUs from './AboutUs';
+import LandingP from './LandingP';
 
 const Home = () => {
   return (
+  
+  
     <div className='container'>
       <div className='hero'>
         <h1>Welcome !<br />To F@shion Store</h1>

@@ -55,7 +55,7 @@ export default function Navbar() {
         </li>
         <li className="nav-item">
           <Link to="/usertable" className="nav-link">
-            userss
+            users
           </Link>
         </li>
         <li className="nav-item">
