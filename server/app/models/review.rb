@@ -6,6 +6,6 @@ class Review < ApplicationRecord
         presence: true
     }
     validates :comments, {
-        length: {maximum:20}
+        length: {maximum:50}
     }
 end
