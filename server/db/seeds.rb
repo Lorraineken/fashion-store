@@ -46,7 +46,7 @@ admin.roles << Role.find_by(name: "admin")
   Product.create!(
     name: Faker::Commerce.product_name,
     price: Faker::Commerce.price(range: 10..100.0),
-    image_url: Faker::LoremFlickr.image(size: "300x300"),
+    image_url: Faker::LoremFlickr.image(size: "300x300",  search_terms: ['fashion']),
     description: Faker::Lorem.paragraph,
     gender: ["male", "female"].sample,
   )
