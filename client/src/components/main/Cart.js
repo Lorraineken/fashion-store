@@ -89,7 +89,7 @@ function Cart() {
       <div class="basket-product">
       <div class="item">
         <div class="product-image">
-          <img clasName='img'src={product.image} alt="Placholder Image 2" class="product-frame"/>
+          <img clasName='image'src={product.image} alt="Placholder Image 2" class="product-frame"/>
         </div>
         <div class="product-details">
           <h1><strong><span class="item-quantity">4</span> x Eliza J</strong> Lace Sleeve Cuff Dress</h1>
