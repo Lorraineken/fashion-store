@@ -68,8 +68,8 @@ function OrdersTable() {
               <td>{order.user_id}</td>
               <td>{order.status}</td>
               <td>
-                <button onClick={() => handleDeleteOrder(order.id)}>Delete</button>
-                <button onClick={() => handleEditOrder(order.id)}>Edit</button>
+                <button onClick={() => handleDeleteOrder(order.id)} className="fas fa-trash-alt"></button>
+                <button onClick={() => handleEditOrder(order.id)} className="fas fa-edit"></button>
               </td>
             </tr>
           ))}

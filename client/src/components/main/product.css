@@ -1,20 +1,27 @@
 @import url("https://fonts.googleapis.com/css?family=Sacramento&display=swap");
-.card_product_container{
-    /* display: grid;
-  grid-template-columns: repeat(3, 1fr);  */
+
+
+  .card_product_container{
+      display: grid;
+    grid-template-columns: repeat(3, 23%);  
+    grid-gap: 10px;
+    grid-row-gap: 3%;
+  justify-content: center;
+  background-color: rgb(232, 223, 241);
+  flex: 1;
   
-   margin-top: 3%;
-  margin-left: 20%;
-  
-  flex-wrap: wrap; 
-   display: inline-block; 
-  display: flex;
-}
+    /* margin-top: 3%;
+    margin-left: 20%;
+    
+    flex-wrap: wrap; 
+    display: inline-block; 
+    display: flex; */
+  }
 .wrapper {
-  width: 240px;
+  width: 300px;
   height: 380px;
   background: white;
-  margin: auto;
+  /* margin: auto; */
   position: relative;
   overflow: hidden;
   border-radius: 10px 10px 10px 10px;
@@ -29,7 +36,7 @@
 .wrapper .container {
   width: 100%;
   height: 100%;
-  display: inline-block;
+  
 }
 .wrapper .container .top {
   height: 80%;
@@ -37,8 +44,16 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
+  justify-content: center;
+  background: radial-gradient(circle at center, rgb(236, 235, 235), #f7f6f6);
 }
-
+ .top img {
+  padding: 50px;
+} 
+.bottom:hover{
+  cursor: pointer;
+}
 .wrapper .container .bottom {
   width: 200%;
   height: 50%;
@@ -47,16 +62,16 @@
 .wrapper .container .bottom.clicked {
   transform: translateX(-50%);
 }
-.wrapper .container .bottom h1 {
+.wrapper .container .bottom h3, h2{
   margin: 0;
   padding: 0;
 }
-.wrapper .container .bottom p {
+.wrapper .container .bottom p, h3 {
   margin: 0;
   padding: 0;
 }
 .wrapper .container .bottom .left {
-  height: 100%;
+  height: 49%;
   width: 50%;
   background: #f4f4f4;
   position: relative;
@@ -77,7 +92,7 @@
 }
 .wrapper .container .bottom .left .buy i {
   font-size: 30px;
-  padding: 30px;
+  padding: 20px;
   color: #254053;
   transition: transform 0.5s;
 }
@@ -102,13 +117,16 @@
   background: #a6cdde;
   color: white;
   float: right;
-  height: 200%;
+  height: 100%;
   overflow: hidden;
 }
 .wrapper .container .bottom .right .details {
-  padding: 6px;
+  padding-top: 25px;
+  padding-right: 25px;
   float: right;
   width: calc(70% - 40px);
+  display: flex;
+  justify-content: center;
 }
 .wrapper .container .bottom .right .done {
   width: calc(30% - 2px);
@@ -119,14 +137,14 @@
 }
 .wrapper .container .bottom .right .done i {
   font-size: 30px;
-  padding: 15px;
+  padding: 22px;
   color: white;
 }
 .wrapper .container .bottom .right .remove {
   width: calc(30% - 1px);
   clear: both;
   border-right: solid thin rgba(255, 255, 255, 0.3);
-  height: 50%;
+  height: 56%;
   background: #bc3b59;
   transition: transform 0.5s, background 0.5s;
 }
@@ -144,6 +162,9 @@
 }
 .wrapper .container .bottom .right:hover .remove, .wrapper .container .bottom .right:hover .done {
   transform: translateY(-100%);
+}
+.inside:hover{
+cursor: pointer;
 }
 .wrapper .inside {
   z-index: 9;
@@ -199,31 +220,31 @@
   font-size: 13px;
 } 
 
-.pdt{
+/* .pdt{
   object-fit: cover;
   height: 80%;
+  display: flex;
+  justify-content: center;
   
-}
+} */
 
 /* Style the dropdown container */
+ .category-dropdown {
+  border: 1px solid black;
+} 
 /* .category-dropdown {
-  margin-bottom: 20px;
-  margin-right: 80%;
-  float: left;
-
-} */
-.category-dropdown {
   position: absolute;
   margin-top: 8%;
   margin-left: 5%;
   top: 0;
   left: 0;
-}
+} */
 
 
 /* Style the select element */
 .category-dropdown select {
-  width: 100%;
+ 
+  width: 10%;
   padding: 10px;
   font-size: 16px;
   border: none;
@@ -239,7 +260,8 @@
 
 /* Style the select arrow */
 .category-dropdown select::-ms-expand {
-  display: none;
+  
+  height: 30vh;
 }
 
 .category-dropdown select::after {
@@ -251,11 +273,11 @@
 }
 
 /* Style the option elements */
-.category-dropdown option {
+/* .category-dropdown option {
   font-size: 16px;
   background-color: #f1f1f1;
   color: #555;
-}
+} */
 
 .category-dropdown option:hover {
   background-color: #ddd;
@@ -264,6 +286,12 @@
 .contents{
   color: black;
 }
-.top{
+/* .top{
   object-fit: cover;
+} */
+.product-container{
+  display: flex;
+  justify-content: space-between;
+  background: rgb(232, 223, 241);
+  margin: 0;
 }
