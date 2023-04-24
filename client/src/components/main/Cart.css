@@ -46,7 +46,7 @@
     height: 10%;
   }
   
-  img {
+  .product-image img {
     width: 70%; 
     height: auto; 
   }

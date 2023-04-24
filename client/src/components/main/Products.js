@@ -48,17 +48,23 @@ function Products() {
     <>
     <Categories/>
     <div className="product-container">
-    <div className="category-dropdown">
-  <ul>
-    <li onClick={() => handleCategoryChange("")}>All products</li>
-    <li onClick={() => handleCategoryChange("men's clothing")}>Mens clothing</li>
-    <li onClick={() => handleCategoryChange("women's clothing")}>Womens clothing</li>
-    <li onClick={() => handleCategoryChange("sneakers")}>Sneakers</li>
-    <li onClick={() => handleCategoryChange("jewelry")}>Jewelry</li>
-    <li onClick={() => handleCategoryChange("Hoodies")}>Hoodies</li>
-    <li onClick={() => handleCategoryChange("Denims")}>Denims</li>
-  </ul>
+    <div class="sidebar">
+  <div class="sidebar-header">History</div>
+  <div class="sidebar-content">
+    <div class="category-dropdown">
+      <ul>
+        <li>All products</li>
+        <li>Men's clothing</li>
+        <li>Women's clothing</li>
+        <li>Sneakers</li>
+        <li>Jewelry</li>
+        <li>Hoodies</li>
+        <li>Denims</li>
+      </ul>
+    </div>
+  </div>
 </div>
+
    
     <div className="card_product_container">
 

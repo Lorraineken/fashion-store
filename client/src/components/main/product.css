@@ -3,12 +3,13 @@
 
   .card_product_container{
       display: grid;
-    grid-template-columns: repeat(3, 23%);  
-    grid-gap: 10px;
+    grid-template-columns: repeat(4, 23%);  
+    grid-gap: 0px;
     grid-row-gap: 3%;
   justify-content: center;
   background-color: rgb(232, 223, 241);
   flex: 1;
+  
   
     /* margin-top: 3%;
     margin-left: 20%;
@@ -294,4 +295,44 @@ cursor: pointer;
   justify-content: space-between;
   background: rgb(232, 223, 241);
   margin: 0;
+}
+.sidebar {
+  width: 20%;
+  max-width: 250px;
+  background-color: #F2F2F2;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.sidebar-header {
+  background-color: #383838;
+  color: #FFF;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+}
+
+.sidebar-content {
+  padding: 10px;
+}
+
+.category-dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.category-dropdown li {
+  padding: 5px 10px;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.category-dropdown li:hover {
+  background-color: #FFF;
 }
