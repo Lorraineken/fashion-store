@@ -41,16 +41,15 @@ admin = User.create(username: "admin", email: "admin@example.com", password: "pa
 admin.roles << Role.find_by(name: "admin")
 
 # Create some products
-# 10.times do
-#   product = Product.create!(
-#     name: Faker::Commerce.product_name,
-#     price: Faker::Commerce.price(range: 10..100.0),co
-#     image_url: Faker::LoremFlickr.image(size: "300x300"),
-#     description: Faker::Lorem.paragraph,
-#     gender: ["male", "female"].sample,
-#   )
-#   product.categories << Category.all.sample
-# end
+10.times do
+  product = Product.create!(
+    name: Faker::Commerce.product_name,
+    price: Faker::Commerce.price(range: 10..100.0),co
+    image_url: Faker::LoremFlickr.image(size: "300x300"),
+    description: Faker::Lorem.paragraph,
+    gender: ["male", "female"].sample,
+  )
+end
 
 # Assign categories to products
 Product.all.each do |product|
