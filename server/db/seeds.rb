@@ -44,7 +44,7 @@ admin.roles << Role.find_by(name: "admin")
 # 10.times do
 #   product = Product.create!(
 #     name: Faker::Commerce.product_name,
-#     price: Faker::Commerce.price(range: 10..100.0),
+#     price: Faker::Commerce.price(range: 10..100.0),co
 #     image_url: Faker::LoremFlickr.image(size: "300x300"),
 #     description: Faker::Lorem.paragraph,
 #     gender: ["male", "female"].sample,
