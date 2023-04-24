@@ -48,7 +48,6 @@ admin.roles << Role.find_by(name: "admin")
     price: Faker::Commerce.price(range: 10..100.0),co
     image_url: Faker::LoremFlickr.image(size: "300x300"),
     description: Faker::Lorem.paragraph,
-    category_id: rand(1..4),
     gender: ["male", "female"].sample,
   )
 end
@@ -61,7 +60,6 @@ end
 #    product = Product.all.sample
 #    Order.create!(
 #      user_id: user.id,
-#      product_id: product.id,
 #      total_amount: product.price,
 #      status: ["pending", "shipped", "delivered"].sample,
 #      address: Faker::Address.full_address,

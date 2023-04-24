@@ -33,13 +33,11 @@ ActiveRecord::Schema.define(version: 2023_04_19_073125) do
 
   create_table "orders", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "product_id", null: false
     t.float "total_amount", null: false
     t.string "status"
     t.string "address"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["product_id"], name: "index_orders_on_product_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -59,10 +57,8 @@ ActiveRecord::Schema.define(version: 2023_04_19_073125) do
     t.text "image_url"
     t.text "description"
     t.string "gender"
-    t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["category_id"], name: "index_products_on_category_id"
   end
 
   create_table "products_categories", force: :cascade do |t|
@@ -110,10 +106,8 @@ ActiveRecord::Schema.define(version: 2023_04_19_073125) do
 
   add_foreign_key "order_products", "orders"
   add_foreign_key "order_products", "products"
-  add_foreign_key "orders", "products"
   add_foreign_key "orders", "users"
   add_foreign_key "payments", "orders"
-  add_foreign_key "products", "categories"
   add_foreign_key "products_categories", "categories"
   add_foreign_key "products_categories", "products"
   add_foreign_key "reviews", "products"
