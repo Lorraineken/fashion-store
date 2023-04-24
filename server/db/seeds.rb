@@ -41,17 +41,55 @@ end
 admin = User.create(username: "admin", email: "admin@example.com", password: "password")
 admin.roles << Role.find_by(name: "admin")
 
-# Create some products
-10.times do
+3.times do
   Product.create!(
     name: Faker::Commerce.product_name,
     price: Faker::Commerce.price(range: 10..100.0),
-    image_url: Faker::LoremFlickr.image(size: "300x300",  search_terms: ['fashion']),
+    image_url: Faker::LoremFlickr.image(size: "300x300",  search_terms: ['shirts']),
+    description: Faker::Lorem.paragraph,
+    gender: ["male", "female"].sample,
+  )
+end
+3.times do
+  Product.create!(
+    name: Faker::Commerce.product_name,
+    price: Faker::Commerce.price(range: 10..100.0),
+    image_url: Faker::LoremFlickr.image(size: "300x300",  search_terms: ['Pants']),
+    description: Faker::Lorem.paragraph,
+    gender: ["male", "female"].sample,
+  )
+end
+3.times do
+  Product.create!(
+    name: Faker::Commerce.product_name,
+    price: Faker::Commerce.price(range: 10..100.0),
+    image_url: Faker::LoremFlickr.image(size: "300x300",  search_terms: ['shoes']),
+    description: Faker::Lorem.paragraph,
+    gender: ["male", "female"].sample,
+  )
+end
+3.times do
+  Product.create!(
+    name: Faker::Commerce.product_name,
+    price: Faker::Commerce.price(range: 10..100.0),
+    image_url: Faker::LoremFlickr.image(size: "300x300",  search_terms: ['dresses']),
     description: Faker::Lorem.paragraph,
     gender: ["male", "female"].sample,
   )
 end
 
+ProductsCategory.create!(product_id:1, category_id:1)
+ProductsCategory.create!(product_id:2, category_id:1)
+ProductsCategory.create!(product_id:3, category_id:1)
+ProductsCategory.create!(product_id:4, category_id:2)
+ProductsCategory.create!(product_id:5, category_id:2)
+ProductsCategory.create!(product_id:6, category_id:2)
+ProductsCategory.create!(product_id:7, category_id:3)
+ProductsCategory.create!(product_id:8, category_id:3)
+ProductsCategory.create!(product_id:9, category_id:3)
+ProductsCategory.create!(product_id:10, category_id:4)
+ProductsCategory.create!(product_id:11, category_id:4)
+ProductsCategory.create!(product_id:12, category_id:4)
 
 
 # Create some orders
