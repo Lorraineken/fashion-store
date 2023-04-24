@@ -1,10 +1,106 @@
-body {
+
+
+/* body {
   margin: 0%;
   background-color: black;
-  /* overflow-y: scroll; */
-}
+
+} */
 
 /* glitch text styling */
+
+/* .grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-row-gap:20px
+  
+}
+.grid-item img:nth-child(1) {
+  animation: slideInFromTop 4s ease-in-out ;
+}
+
+.grid-item img:nth-child(2) {
+  animation: slideInFromTop 3s ease-in-out ;
+}
+
+.grid-item img:nth-child(3) {
+  animation: slideInFromTop 2s ease-in-out ;
+}
+.grid-item img:nth-child(4) {
+  animation: slideInFromTop 1s ease-in-out;
+}
+
+/* define more animations for other images */
+/* @keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(300%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(300%);
+    opacity: 0;
+  }
+}
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(300%);
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+@keyframes zoomIn {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.grid-container > :nth-child(odd) img {
+  animation: slideInFromTop 2s ease-in-out forwards;
+}
+
+.grid-container > :nth-child(even) img {
+  animation: slideInFromBottom 2s ease-in-out forwards;
+}
+.grid-container > :nth-child(3) img:nth-last-child(-n + 3) {
+  animation: zoomIn 2s ease-in-out forwards;
+}
+
+.grid-container > :nth-child(3) img:nth-last-child(2) {
+  animation: zoomIn 3s ease-in-out forwards;
+}
+
+.grid-container > :nth-child(3) img:last-child {
+  animation: zoomIn 4s ease-in-out forwards;
+}
+.grid-container > :nth-child(1) img:nth-child(1) {
+  animation: slideInFromTop 2s ease-in-out;
+}
+
+.grid-container > :nth-child(1) img:nth-child(2) {
+  animation: slideInFromTop 3s ease-in-out;
+}
+
+.grid-container > :nth-child(1) img:nth-child(3) {
+  animation: slideInFromTop 4s ease-in-out;
+}  */
+/* .grid-item img {
+  
+} */
 @import url("https://fonts.googleapis.com/css?family=Sacramento&display=swap");
 
 .hero {
@@ -25,8 +121,10 @@ body {
 }
 
 body {
-  padding: 2vw;
-  /* overflow-y: scroll; */
+  /* padding: 2vw;
+   overflow-y: scroll;  */
+   padding: 0;
+   margin: 0;
 }
 
 @-webkit-keyframes blink {

@@ -7,6 +7,8 @@ function OrdersTable() {
   const orders = useSelector((state) => state.orders.list);
   const [formData, setFormData] = useState({});
   const [editing, setEditing] = useState(false);
+  const [modal, setModal] = useState(false)
+ 
 
   useEffect(() => {
     dispatch(fetchOrders());
@@ -28,6 +30,7 @@ function OrdersTable() {
       dispatch(addOrder(formData));
     }
     setFormData({});
+    setModal(false);
   };
 
   const handleDeleteOrder = (id) => {
@@ -39,12 +42,45 @@ function OrdersTable() {
     if (order) {
       setFormData(order);
       setEditing(true);
+      setModal(true);
     }
   };
 
   return (
-    <div>
-      <h1>Orders Table</h1>
+    <div className="admin_table">
+      <main className="main">
+     
+        <section className={modal ? "table-form" : "table_body"}>
+        <h1>Orders Table</h1>
+        <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>User ID</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {orders.map((order) => (
+            <tr key={order.id}>
+              <td>{order.id}</td>
+              <td>{order.user_id}</td>
+              <td>{order.status}</td>
+              <td>
+                <button onClick={() => handleDeleteOrder(order.id)} className="fas fa-trash-alt"></button>
+                <button onClick={() => handleEditOrder(order.id)} className="fas fa-edit"></button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+        </section>
+      </main>
+      {modal && (
+        <>
+        <div className="modal">
+        <div className="userForm">
       <form onSubmit={handleFormSubmit}>
         <input
           type="number"
@@ -60,30 +96,12 @@ function OrdersTable() {
         />
         <button type="submit">{editing ? "Update Order" : "Add Order"}</button>
       </form>
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>User ID</th>
-            <th>Status</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {orders.map((order) => (
-            <tr key={order.id}>
-              <td>{order.id}</td>
-              <td>{order.userId}</td>
-              <td>{order.status}</td>
-              <td>
-                <button onClick={() => handleDeleteOrder(order.id)}>Delete</button>
-                <button onClick={() => handleEditOrder(order.id)}>Edit</button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      </div>
+      </div>
+      </>
+      )}
     </div>
+
   );
 }
 
