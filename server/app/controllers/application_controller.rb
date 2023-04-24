@@ -26,8 +26,8 @@ class ApplicationController < ActionController::API
     unauthorized unless session.include? :user_id
   end
 
-  # authorize using JWT
-  def authorize_jwt
+   # authorize using JWT
+   def authorize_jwt
     jwt_data = decode_data(request.headers["token"])
     app_response(body: jwt_data)
   end

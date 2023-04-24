@@ -25,11 +25,11 @@ class AuthenticationController < ApplicationController
                    })
 
       #check for admin
-      # role = user.roles.where(name: "admin").first
-      # if role.name == "admin"
-      #   session[:admin_user] = "admin"
-      # end
-
+      role = user.roles.where(name: "admin").first
+      if role && role.name == "admin"
+        session[:admin_user] = "admin"
+      end
+      
       app_response(message: "Log in success", body: user)
     else
       app_response(status_code: 401, message: "Invalid username or password")
