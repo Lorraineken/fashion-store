@@ -11,7 +11,7 @@ To use this repo on your machine, you require some simple steps:
 ## Step one
 Open a terminal / command line interface on your computer
 
-
+Clone the repo by using the following:
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
