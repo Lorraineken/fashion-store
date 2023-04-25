@@ -84,11 +84,7 @@ GEM
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     jsonapi-renderer (0.2.2)
-<<<<<<< HEAD
-    jwt (2.7.0)
-=======
     jwt (1.5.6)
->>>>>>> 92da8a7f94452d32e64a780ad0641223bd4b5766
     listen (3.5.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -198,11 +194,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   faker (~> 3.2)
-<<<<<<< HEAD
-  jwt
-=======
   jwt (~> 1.5, >= 1.5.4)
->>>>>>> 92da8a7f94452d32e64a780ad0641223bd4b5766
   listen (~> 3.3)
   pg (~> 1.1)
   puma (~> 5.0)
