@@ -1,31 +1,31 @@
 class ApplicationController < ActionController::API
-  include ActionController::Cookies
+  def encode_token(payload)
+      JWT.encode(payload, 'secret')
+  end
 
-  # application response body
-  def app_response(status_code: 200, message: "Success", body: nil, serializer: nil)
-    if serializer
-      render json: {
-               status: status_code,
-               message: message,
-               body: ActiveModelSerializers::SerializableResource.new(body, serializer: serializer),
-             }, status: status_code
-    else
-      render json: {
-               status: status_code,
-               message: message,
-               body: body,
-             }, status: status_code
-    end
+  def decode_token
+      # Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTIzIn0.AOXUao_6a_LbIcwkaZU574fPqvW6mPvHhwKC7Fatuws
+
+      auth_header = request.headers['Authorization']
+      if auth_header
+          token = auth_header.split(' ')[1]
+          begin
+              JWT.decode(token, 'secret', true, algorithm: 'HS256')
+          rescue JWT::DecodeError
+              nil
+          end
+      end
+  end
+
+  def authorized_user
+      decoded_token = decode_token()
+      if decoded_token
+          user_id = decoded_token[0]['user_id']
+          @user = User.find_by(id: user_id)
+      end
   end
 
   def authorize
-    unauthorized unless session.include? :user_id
-  end
-  def authorize_admin
-    return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :admin_user
-  end
-
-  def not_found(message: "Not found")
-    app_response(status_code: 404, message: message)
+      render json: { message: 'You have to log in.' }, status: :unauthorized unless authorized_user
   end
 end

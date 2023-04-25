@@ -1,45 +1,66 @@
 class UsersController < ApplicationController
-    before_action :authorize_admin
-    skip_before_action :authorize_admin, only: [:show, :update]
-    before_action :authorize
+  # before_action :authorize_admin
+  # skip_before_action :authorize_admin, only: [:show, :update]
+  # before_action :authorize
 
-    rescue_from ActiveRecord::RecordNotFound, with: :user_record_missing
-    rescue_from ActiveRecord::RecordInvalid, with: :validation_error
+  rescue_from ActiveRecord::RecordNotFound, with: :user_record_missing
+  rescue_from ActiveRecord::RecordInvalid, with: :validation_error
 
-   def index 
-    user =User.all 
+  def create
+    @user = User.create(user_params)
+
+    if @user.valid?
+      token = encode_token({ user_id: @user.id })
+      render json: { user: @user, token: token }, status: :ok
+    else
+      render json: { error: "Invalid username or password" }, status: :unprocessable_entity
+    end
+  end
+
+  def login
+    @user = User.find_by(username: user_params[:username])
+
+    if @user && @user.authenticate(user_params[:password])
+      token = encode_token({ user_id: @user.id })
+      render json: { user: @user, token: token }, status: :ok
+    else
+      render json: { error: "Invalid username or password" }, status: :unprocessable_entity
+    end
+  end
+
+  def index
+    user = User.all
     render json: user, status: :ok
-   end
+  end
 
-   def show 
+  def show
     user = User.find(session[:user_id])
     render json: user, status: :ok
-   end
+  end
 
-   def update 
-    user =User.find(params[:id])
+  def update
+    user = User.find(params[:id])
     user.update!(user_params)
     render json: user, status: :accepted
-   end
+  end
 
-   def destroy 
-    user =User.find(params[:id])
-    user.destroy 
+  def destroy
+    user = User.find(params[:id])
+    user.destroy
     head :no_content
-   end
+  end
 
-   private
+  private
 
-   def user_params 
+  def user_params
     params.permit(:username, :password, :email)
-   end
+  end
 
-   def user_record_missing 
-    render json: { "error": "User not found"}, status: :not_found
-   end
+  def user_record_missing
+    render json: { "error": "User not found" }, status: :not_found
+  end
 
-   def validation_error 
-    render json:  {"errors": ["validation errors"]}, status: :unprocessable_entity
-   end
-
+  def validation_error
+    render json: { "errors": ["validation errors"] }, status: :unprocessable_entity
+  end
 end
