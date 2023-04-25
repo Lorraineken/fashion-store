@@ -9,6 +9,8 @@ A computer that runs on either of the following; (Windows 7+, Linux, Mac OS) rub
 To use this repo on your machine, you require some simple steps:
 
 ## Step one
+Open a terminal / command line interface on your computer
+
 
 ### `npm run build`
 
