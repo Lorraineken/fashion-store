@@ -5,13 +5,10 @@
 In order for you to use the content on this repo ensure you have the following:
 
 A computer that runs on either of the following; (Windows 7+, Linux, Mac OS) ruby
+### Installation
+To use this repo on your machine, you require some simple steps:
+
 ### 
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
