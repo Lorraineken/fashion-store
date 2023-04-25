@@ -2,6 +2,7 @@ import "../navbar/Navbar.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import CartDropdown from "../main/CartDropdown";
+import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 
 export default function Navbar() {
   const [showCartDropdown, setShowCartDropdown] = useState(false);
@@ -20,6 +21,10 @@ export default function Navbar() {
     setCartItems(updatedCartItems);
   };
 
+  const scrollToAboutUs = () => {
+    scroll.scrollTo(document.querySelector(".card").offsetTop);
+  };
+
   return (
     <nav className="navbar">
       <ul className="navbar-nav">
@@ -34,33 +39,21 @@ export default function Navbar() {
           </Link>
         </li>
         <li className="nav-item">
-          <Link to="/Categories" className="nav-link">
-            Categories
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/About Us" className="nav-link">
-            About us
-          </Link>
+          <ScrollLink
+            to="about-us"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            className="nav-link"
+            onClick={scrollToAboutUs}
+          >
+            AboutUs
+          </ScrollLink>
         </li>
         <li className="nav-item">
           <Link to="/signup" className="nav-link">
             SignUp
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/table" className="nav-link">
-            admin
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/usertable" className="nav-link">
-            users
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/orderstable" className="nav-link">
-            orders
           </Link>
         </li>
         <li className="nav-item">
