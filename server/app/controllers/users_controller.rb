@@ -1,15 +1,18 @@
 class UsersController < ApplicationController
-  before_action :authorize_admin
-  skip_before_action :authorize_admin, only: [:show, :update]
-  before_action :authorize
+   # before_action :verify_auth
+    # skip_before_action :authorize_admin, only: [:show, :update]
+     before_action :authorize
 
   rescue_from ActiveRecord::RecordNotFound, with: :user_record_missing
   rescue_from ActiveRecord::RecordInvalid, with: :validation_error
 
-  def index
-    user = User.all
-    render json: user, status: :ok
-  end
+   def index
+    user = User.find_by(id: @uid)
+    user =User.all 
+      if check_admin == true
+        render json: user, status: :ok
+      end   
+   end
 
   def show
     user = User.find_by(id: decoded_token["user_id"])
@@ -22,11 +25,13 @@ class UsersController < ApplicationController
     render json: user, status: :accepted
   end
 
-  def destroy
-    user = User.find_by(id: decoded_token["user_id"])
-    user.destroy
-    head :no_content
-  end
+   def destroy 
+    user =User.find(params[:id])
+    if check_admin == true 
+        user.destroy 
+        head :no_content
+    end
+   end
 
   private
 

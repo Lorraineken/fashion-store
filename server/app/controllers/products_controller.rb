@@ -1,17 +1,22 @@
 class ProductsController < ApplicationController
-    before_action :authorize_admin
-    skip_before_action :authorize_admin, only: [:index, :show]
+    before_action :authorize
+    skip_before_action :authorize, only: [:index, :show]
 
     rescue_from ActiveRecord::RecordNotFound, with: :product_record_missing
     rescue_from ActiveRecord::RecordInvalid, with: :validation_error
 
   def create
-    product = Product.create!(product_params)
-    if product.valid?
-      render json: product, status: :created
-    else
-      render json: { error: "Invalid product detail" }, status: :unprocessable_entity
+    if check_admin == true 
+      product = Product.create!(product_params)
+      if product.valid?
+        render json: product, status: :created
+      else
+        render json: { error: "Invalid product detail" }, status: :unprocessable_entity
+      end
+    else 
+      render json:{error:"Unauthorized user - Not Admin"}
     end
+    
   end
 
   def index
@@ -25,15 +30,27 @@ class ProductsController < ApplicationController
   end
 
   def update
-    product = Product.find(params[:id])
-    product.update!(product_params)
-    render json: product, status: :accepted
+
+    if check_admin == true 
+      product = Product.find(params[:id])
+      product.update!(product_params)
+      render json: product, status: :accepted
+    else 
+      render json:{error:"Unauthorized user - Not Admin"}
+    end
+    
   end
 
   def destroy
-    product = Product.find(params[:id])
-    product.destroy
-    head :no_content
+
+    if check_admin == true 
+      product = Product.find(params[:id])
+      product.destroy
+      head :no_content
+    else 
+      render json:{error:"Unauthorized user - Not Admin"}
+    end
+    
   end
 
   private
