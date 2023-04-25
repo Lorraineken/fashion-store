@@ -2,11 +2,11 @@
 
 
 ## How to get started
-In order for you to use the content on this repo ensure you have the following:
+- In order for you to use the content on this repo ensure you have the following:
 
-A computer that runs on either of the following; (Windows 7+, Linux, Mac OS) ruby
+- A computer that runs on either of the following; (Windows 7+, Linux, Mac OS) ruby
 ### Installation
-To use this repo on your machine, you require some simple steps:
+- To use this repo on your machine, you require some simple steps:
 
 ## Step one
 - Open a terminal / command line interface on your computer
