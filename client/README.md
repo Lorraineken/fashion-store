@@ -8,7 +8,8 @@ A computer that runs on either of the following; (Windows 7+, Linux, Mac OS) rub
 ### Installation
 To use this repo on your machine, you require some simple steps:
 
-### 
+## Step one
+
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
