@@ -22,11 +22,7 @@ Clone the repo by using the following:
 
 `sudo apt-get install ruby`
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Bundler: Bundler is a package manager for Ruby, which makes it easy to manage dependencies. You can install it by running the following command:
 
 ### Code Splitting
 
