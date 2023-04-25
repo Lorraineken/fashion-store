@@ -39,6 +39,10 @@ Verify that Rails is installed by running the following command:
 
 `rails --version`
 
+This should output the version number of Rails that you just installed.
+
+
+
 ### Making a Progressive Web App
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
