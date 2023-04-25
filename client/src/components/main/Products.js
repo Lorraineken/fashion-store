@@ -137,7 +137,7 @@ function Products() {
                   <div className="top">
                     <img
                       className="pdt"
-                      src={product.image}
+                      src={product.image_url}
                       alt={product.title}
                     />
                   </div>
