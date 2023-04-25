@@ -35,9 +35,9 @@ Install Rails by running the following command:
 
 `gem install rails`
 
-### Analyzing the Bundle Size
+Verify that Rails is installed by running the following command:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+`rails --version`
 
 ### Making a Progressive Web App
 
