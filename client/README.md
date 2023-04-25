@@ -31,7 +31,9 @@ Install Rails Once you have Ruby and Bundler installed, you can install Rails by
 
 Open a terminal or command prompt on your computer.
 
+Install Rails by running the following command:
 
+`gem install rails`
 
 ### Analyzing the Bundle Size
 
