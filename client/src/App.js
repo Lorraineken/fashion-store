@@ -15,6 +15,7 @@ import ProductTable from './features/products/components';
 import Sidebar from './components/admin/Sidebar';
 // import UserReview from './components/admin/UserReview';
 import Cart from './components/main/Cart';
+// import Footer from './components/main/footer';
 
 
 const App = () => {
@@ -36,6 +37,7 @@ const App = () => {
             <Route path="/sidebar" element={<Sidebar/>} />
             <Route path="/cart" element={<Cart/>} />
         </Routes>
+        {/* <Footer /> */}
         </BrowserRouter>
     </div>
   )
