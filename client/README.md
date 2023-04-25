@@ -63,9 +63,13 @@
 
 `npm install`
 
-To run the server, run
+- To run the server, run
 
 `npm start`
+
+`Then navigate to  to view the website`
+
+
 
 
 
