@@ -3,7 +3,8 @@ class AuthenticationController < ApplicationController
     user = User.create(create_params)
     if user.valid?
       create_user_session(user.id)
-      app_response(status_code: 201, message: "Account created successfully", body: user)
+      token = encode_token(user_id: user.id)
+      app_response(status_code: 201, message: "Account created successfully", body: {user: user, token:token})
     else
       app_response(status_code: 422, message: "Invalid input", body: user.errors.full_messages)
     end
@@ -14,13 +15,16 @@ class AuthenticationController < ApplicationController
     if user&.authenticate(params[:password])
       create_user_session(user.id)
       
+     token = encode_data(user_id: user.id)
+
       #check for admin
       role = user.roles.where(name: "admin").first
-      if role.name == "admin"
+      if role && role.name == "admin"
         session[:admin_user] = "admin"
       end
-      
-      app_response(message: "Log in success", body: user)
+     
+     
+     app_response(message: "Log in success", body: {user: user,token:token})
     else
       app_response(status_code: 401, message: "Invalid username or password")
     end
