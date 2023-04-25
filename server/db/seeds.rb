@@ -105,4 +105,20 @@ User.all.each do |user|
     )
   end
 end
+
+#create orders
+order1 = Order.create(total_amount: 31.98, status: "pending", address: "123 Main St.")
+order2 = Order.create(total_amount: 41.98, status: "shipped", address: "456 Elm St.")
+
+
+ 
+# Create some payments
+Order.all.each do |order|
+  Payment.create!(
+    order_id: order.id,
+    payment_method: ["credit card", "paypal", "cash"].sample,
+    amount: order.total_amount,
+    status: ["paid", "pending", "failed"].sample,
+  )
+end
 puts "Done seeding!"
