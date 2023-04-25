@@ -39,17 +39,17 @@ Verify that Rails is installed by running the following command:
 
 `rails --version`
 
-This should output the version number of Rails that you just installed.
+- This should output the version number of Rails that you just installed.
 
-To run the migrations, run
+- To run the migrations, run
 
 ` rails db:migrate`
 
-To install all the gems, run
+- To install all the gems, run
 
 ` bundle install`
 
-To run the rails server, run
+- To run the rails server, run
 
 ` rails s`
 
