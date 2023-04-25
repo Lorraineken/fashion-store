@@ -57,5 +57,9 @@
 
 ## Frontend
 
+- The front end to this repo is stored under client
+
+- After cloning and forking the repo, Install JavaScript dependencies
+
 
 
