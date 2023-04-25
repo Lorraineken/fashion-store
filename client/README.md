@@ -14,11 +14,11 @@ Open a terminal / command line interface on your computer
 Clone the repo by using the following:
 
 `https://github.com/Lorraineken/fashion-store`
-### Change directory to the repo folder:
+Change directory to the repo folder:
 
 `cd phase-5-project`
 
-### Before installing Rails, you need to have the following software installed on your computer:
+Before installing Rails, you need to have the following software installed on your computer:
 
 `sudo apt-get install ruby`
 
