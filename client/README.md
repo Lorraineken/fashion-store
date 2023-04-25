@@ -14,6 +14,7 @@ Open a terminal / command line interface on your computer
 Clone the repo by using the following:
 
 `https://github.com/Lorraineken/fashion-store`
+
 Change directory to the repo folder:
 
 `cd phase-5-project`
