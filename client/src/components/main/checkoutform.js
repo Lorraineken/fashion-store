@@ -13,7 +13,7 @@ const CheckoutForm = ({ cartData, totalCost }) => {
     setPaymentMethod(event.target.value);
   };
 
-  return (
+  return ( 
     <form onSubmit={handleSubmit}>
       <h2>Checkout Form</h2>
       <h3>Order Summary:</h3>
