@@ -9,10 +9,10 @@ const categories = [
   {id: 5, name: 'Bags'},
   {id: 6, name: 'sneakers'}
 ];
-const CategoriesPage = () => {
+const Categories = () => {
   return (
     <div className='categories'>
-      <h1>Categories</h1>
+
       <ul>
         {categories.map(category => (
           <li key={category.id}>{category.name}</li>
@@ -22,4 +22,4 @@ const CategoriesPage = () => {
   );
 };
 
-export default CategoriesPage
+export default Categories
