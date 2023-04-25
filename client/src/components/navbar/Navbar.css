@@ -29,7 +29,7 @@
 }
 
 .nav-link {
-  color: white;
+  color:  orange;
   text-decoration: none;
   font-weight: bold;
   font-size: 1.2rem;
@@ -87,6 +87,4 @@
   cursor: pointer;
 }
 
-.cart-dropdown button:hover {
-  /* background-color: #0069d9; */
-}
+

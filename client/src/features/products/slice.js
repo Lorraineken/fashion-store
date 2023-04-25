@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 export const fetchProducts = createAsyncThunk(
   'products/fetchProducts',
   async () => {
-    const response = await fetch('https://api.npoint.io/61f48a63e201ea40f86f/products');
+    const response = await fetch('http://localhost:3000/products');
     if (!response.ok) {
       throw new Error('Failed to fetch products');
     }
@@ -21,7 +21,7 @@ export const fetchProducts = createAsyncThunk(
 export const addProduct = createAsyncThunk(
   'products/addProduct',
   async (product) => {
-    const response = await fetch('https://api.npoint.io/61f48a63e201ea40f86f/products', {
+    const response = await fetch('http://localhost:3000/products', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(product),
@@ -37,7 +37,7 @@ export const addProduct = createAsyncThunk(
 export const deleteProduct = createAsyncThunk(
   'products/deleteProduct',
   async (productId) => {
-    const response = await fetch(`https://api.npoint.io/61f48a63e201ea40f86f/products/${productId}`, {
+    const response = await fetch(`http://localhost:3000/products/${productId}`, {
       method: 'DELETE',
     });
     if (!response.ok) {
@@ -50,7 +50,7 @@ export const deleteProduct = createAsyncThunk(
 export const updateProduct = createAsyncThunk(
   'products/updateProduct',
   async (product) => {
-    const response = await fetch(`https://api.npoint.io/61f48a63e201ea40f86f/products/${product.id}`, {
+    const response = await fetch(`http://localhost:3000/products/${product.id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(product),

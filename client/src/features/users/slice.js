@@ -3,7 +3,14 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 export const fetchUsers = createAsyncThunk(
   "users/fetchUsers",
   async () => {
-    const response = await fetch("http://localhost:3000/users");
+    // Retrieve the JWT token from local storage
+    const token = localStorage.getItem('token');
+    
+    const response = await fetch("http://localhost:3000/users", {
+      headers: {
+        Authorization:`Bearer${token}`,
+      },
+    });
     if (!response.ok) {
       throw new Error("Failed to fetch users");
     }
@@ -30,7 +37,7 @@ export const addUser = createAsyncThunk(
 export const updateUser = createAsyncThunk(
   "users/updateUser",
   (user) => {
-    return fetch(`http://localhost:3000/users/${user.id}`, {
+    return fetch(`http://localhost:3000/users`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user),
@@ -46,7 +53,7 @@ export const updateUser = createAsyncThunk(
 export const deleteUser = createAsyncThunk(
   "users/deleteUser",
   (id) => {
-    return fetch(`http://localhost:3000/users/${id}`, {
+    return fetch(`http://localhost:3000/users`, {
       method: "DELETE",
     }).then((res) => {
       if (!res.ok) {

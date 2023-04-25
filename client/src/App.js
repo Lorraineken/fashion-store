@@ -15,6 +15,7 @@ import OrdersTable from './features/orders/components';
 import Sidebar from './components/admin/Sidebar';
 import UserReview from './components/admin/UserReview';
 import Cart from './components/main/Cart';
+import UserTest from './components/admin/UserTest';
 
 const App = () => {
   return (
@@ -33,7 +34,7 @@ const App = () => {
             <Route path="/usertable" element={<UserTable/>} />
             <Route path="/orderstable" element={<OrdersTable/>} />
             <Route path="/sidebar" element={<Sidebar/>} />
-            <Route path="/cart" element={<Cart/>} />
+            <Route path="/cart" element={<UserTest/>} />
         </Routes>
         </BrowserRouter>
     </div>

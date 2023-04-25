@@ -26,7 +26,7 @@ function UserTable() {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     if (editing) {
-      dispatch(updateUser(formData));
+      // dispatch(updateUser(formData));
       setEditing(false);
     } else {
       dispatch(addUser(formData));
@@ -37,7 +37,7 @@ function UserTable() {
   };
 
   const handleDeleteUser = (id) => {
-    dispatch(deleteUser(id));
+    // dispatch(deleteUser(id));
   };
 
   const handleEditUser = (id) => {
@@ -72,9 +72,9 @@ function UserTable() {
           {users.map((user) => (
             <tr key={user.id}>
               <td>{user.id}</td>
-              <td>{user.name}</td>
+              <td>{user.username}</td>
               <td>{user.email}</td>
-              <td>{user.password}</td>
+              
               <td className="table-action-btn">
                 <button onClick={() => handleDeleteUser(user.id)} className="fas fa-trash-alt"></button>
                 <button onClick={() => handleEditUser(user.id)} className="fas fa-edit"></button>
