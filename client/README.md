@@ -67,7 +67,7 @@
 
 `npm start`
 
-`Then navigate to http://localhost:4000/ to view the website`
+- Then navigate to http://localhost:4000/ to view the website
 
 
 
