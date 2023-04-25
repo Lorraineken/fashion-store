@@ -25,6 +25,8 @@ Before installing Rails, you need to have the following software installed on yo
 
 Bundler: Bundler is a package manager for Ruby, which makes it easy to manage dependencies. You can install it by running the following command:
 
+`gem install bundler`
+
 ### Code Splitting
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
