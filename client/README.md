@@ -31,7 +31,7 @@
 
 - Open a terminal or command prompt on your computer.
 
--  nstall Rails by running the following command:
+-  install Rails by running the following command:
 
 `gem install rails`
 
