@@ -13,7 +13,7 @@ Open a terminal / command line interface on your computer
 
 Clone the repo by using the following:
 
-- https://github.com/Lorraineken/fashion-store
+# https://github.com/Lorraineken/fashion-store
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
