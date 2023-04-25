@@ -43,7 +43,7 @@ This should output the version number of Rails that you just installed.
 
 To run the migrations, run
 
-
+` rails db:migrate`
 
 ### Making a Progressive Web App
 
