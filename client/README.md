@@ -61,5 +61,7 @@
 
 - After cloning and forking the repo, Install JavaScript dependencies
 
+`npm install`
+
 
 
