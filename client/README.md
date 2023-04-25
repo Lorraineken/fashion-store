@@ -71,6 +71,8 @@
 
 - The front end is deployed in the below link:
 
+- This is how the website should look once you click the link:
+
 
 
 
