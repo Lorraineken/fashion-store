@@ -1,9 +1,11 @@
 class CreateRoles < ActiveRecord::Migration[6.1]
   def change
-    create_table :roles do |t|
-      t.string :name, null:false, default: "customer"
+    unless table_exists?(:roles)
+      create_table :roles do |t|
+        t.string :name, null: false, default: "customer"
 
-      t.timestamps
+        t.timestamps
+      end
     end
   end
 end
