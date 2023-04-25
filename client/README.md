@@ -41,6 +41,8 @@ Verify that Rails is installed by running the following command:
 
 This should output the version number of Rails that you just installed.
 
+To run the migrations, run
+
 
 
 ### Making a Progressive Web App
