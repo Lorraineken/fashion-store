@@ -47,6 +47,8 @@ To run the migrations, run
 
 To install all the gems, run
 
+` bundle install`
+
 
 
 ### Making a Progressive Web App
