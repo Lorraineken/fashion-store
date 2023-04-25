@@ -63,5 +63,9 @@
 
 `npm install`
 
+To run the server, run
+
+
+
 
 
