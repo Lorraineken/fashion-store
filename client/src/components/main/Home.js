@@ -5,15 +5,16 @@ import Video from "../assets/video1.mp4";
 // import image1 from "../assets/img1.jpg"
 import AboutUs from "./AboutUs";
 import LandingP from "./LandingP";
+import Footer from "./footer";
 
 const Home = () => {
   return (
     <div className="container">
       <div className="hero">
-        <h1>
+        <p>
           Welcome !<br />
           To F@shion Store
-        </h1>
+        </p>
         <p>Shop now or explore the collection</p>
       </div>
       <button className="btnnn">
@@ -34,7 +35,12 @@ const Home = () => {
           alt=""
         />
       </div>
-      <AboutUs />
+      <div id="about" className="about">
+        <AboutUs />
+      </div>
+      <div className="fterr">
+       <Footer />
+      </div>
     </div>
   );
 };

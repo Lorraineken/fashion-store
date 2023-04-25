@@ -1,9 +1,9 @@
-// import React from 'react'
+import React from 'react'
 
-// const CartIcon = () => {
-//   return (
-//     <div></div>
-//   )
-// }
+const CartIcon = () => {
+  return (
+    <div></div>
+  )
+}
 
-// export default CartIcon
+export default CartIcon

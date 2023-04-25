@@ -1,21 +1,19 @@
 body {
   margin: 0%;
-  background-color: black;
+  background-color: #5A5A5A;
   /* overflow-y: scroll; */
 }
 
 /* glitch text styling */
 @import url("https://fonts.googleapis.com/css?family=Sacramento&display=swap");
 
+
 .hero {
   font-size: calc(0px + 7vh);
   line-height: calc(20px +40vh);
-  /*   text-shadow: 0 0 5px #f562ff, 0 0 15px #f562ff, 0 0 25px #f562ff,
-    0 0 20px #f562ff, 0 0 30px #890092, 0 0 80px #890092, 0 0 80px #890092;
-  color: #fccaff; */
-  text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500,
-    0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
-  color: #fff6a9;
+  text-shadow: 0 0 5px #ffffff, 0 0 15px #ffffff, 0 0 20px #ffffff,
+    0 0 40px #ffffff, 0 0 60px #ffffff, 0 0 10px #ffffff, 0 0 98px #ffffff;
+  color: #ffffff;
   font-family: "Sacramento", cursive;
   text-align: center;
   margin-right: 780px;
@@ -26,7 +24,6 @@ body {
 
 body {
   padding: 2vw;
-  /* overflow-y: scroll; */
 }
 
 @-webkit-keyframes blink {
@@ -45,12 +42,8 @@ body {
   54%,
   56%,
   100% {
-    /*     color: #fccaff;
-    text-shadow: 0 0 5px #f562ff, 0 0 15px #f562ff, 0 0 25px #f562ff,
-      0 0 20px #f562ff, 0 0 30px #890092, 0 0 80px #890092, 0 0 80px #890092; */
-    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500,
-      0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
-    color: #fff6a9;
+    text-shadow: 0 0 5px #ffffff, 0 0 15px #ffffff, 0 0 20px #ffffff, 0 0 40px #ffffff, 0 0 60px #ffffff, 0 0 10px #ffffff, 0 0 98px #ffffff;
+    color: #ffffff;
   }
 }
 
@@ -70,14 +63,11 @@ body {
   54%,
   56%,
   100% {
-    /*     color: #fccaff;
-    text-shadow: 0 0 5px #f562ff, 0 0 15px #f562ff, 0 0 25px #f562ff,
-      0 0 20px #f562ff, 0 0 30px #890092, 0 0 80px #890092, 0 0 80px #890092; */
-    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500,
-      0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
-    color: #fff6a9;
+    text-shadow: 0 0 5px #ffffff, 0 0 15px #ffffff, 0 0 20px #ffffff, 0 0 40px #ffffff, 0 0 60px #ffffff, 0 0 10px #ffffff, 0 0 98px #ffffff;
+    color: #ffffff;
   }
 }
+
 
 .btnnn {
   margin-left: 200px;
@@ -88,7 +78,7 @@ body {
   border-radius: 8px;
   border: none;
   cursor: pointer;
-  margin-top: 80px;
+  margin-top: 150px;
 }
 
 .btnnn:hover {
@@ -104,7 +94,7 @@ body {
   overflow: hidden;
   color: white;
   float: right;
-  margin-top: -25%;
+  margin-top: -15%;
   margin-right: 6%;
 }
 
@@ -119,7 +109,7 @@ body {
 }
 
 .img {
-  margin-top: 150px;
+  margin-top: 160px;
   height: 200%;
   width: 20%;
   float: left;
@@ -129,33 +119,7 @@ body {
 .imgg {
   height: 40%;
   border-radius: 60px;
+  float: left;
+  margin-left: 45%;
 }
 
-/* img {
-  height: 50px;
-} */
-
-/* @media screen and (max-width:500%) {
-  .container {
-      font-size: 14px;
-  }
-}   */
-
-/* @media (max-width: 768px) {
-.container {
-  width: 100%;
-}
-.hero {
-  font-size: 24px;
-}
-.gify video {
-  width: 100%;
-}
-.img {
-  display: none;
-}
-} */
-
-@media screen and (max-width: 360px){
-  
-}
