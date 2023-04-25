@@ -2,14 +2,10 @@
 
 
 ## How to get started
+In order for you to use the content on this repo ensure you have the following:
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+A computer that runs on either of the following; (Windows 7+, Linux, Mac OS) ruby
+### 
 
 ### `npm test`
 
