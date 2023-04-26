@@ -28,6 +28,8 @@ Fashion store is an online website that is a budget-friendly clothing store that
 
 `gem install bundler`
 
+## Backend
+
 - Install Rails Once you have Ruby and Bundler installed, you can install Rails by following these steps:
 
 - Open a terminal or command prompt on your computer.
