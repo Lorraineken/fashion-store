@@ -6,6 +6,7 @@ import Video from "../assets/video1.mp4";
 import AboutUs from "./AboutUs";
 import LandingP from "./LandingP";
 import Footer from "./footer";
+import CheckoutForm from "./checkoutform";
 
 const Home = () => {
   return (

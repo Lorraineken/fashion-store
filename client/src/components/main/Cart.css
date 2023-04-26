@@ -270,4 +270,24 @@
   .title {
     color: black;
   }
-  
+  .cart-header{
+    color: white;
+    font-size: 200%;
+    margin-left: 40%;
+    margin-top: 20%;
+  }
+  .checkout-cta{
+    background-color: grey;
+    color: white;
+    border-radius: 5px;
+    margin-top: -15%;
+    margin-left: 10px;
+    font-size: 24px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+  }
+  .checkout-cta:hover{
+    background: black;
+  }

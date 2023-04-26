@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import "./Cart.css";
+import '../main/checkoutform'
 import {
   setDeliveryOption,
   updateItemQuantity,
   removeFromCart,
 } from "../../features/cart/slice";
+import checkoutform from "../main/checkoutform";
 function Cart() {
   const cartData = useSelector((state) => state.cart.items);
   const deliveryOption = useSelector((state) => state.cart.deliveryOption);
@@ -68,7 +71,7 @@ function Cart() {
   const [totalCost, setTotalCost] = useState(getTotalCost());
 
   if (cartData.length === 0) {
-    return <div>Your cart is empty</div>;
+    return <div className="cart-header">Your cart is empty</div>;
   }
   return (
     <div>
@@ -169,7 +172,9 @@ function Cart() {
             </div>
           </div>
           <div class="summary-checkout">
-            <button class="checkout-cta">Go to Secure Checkout</button>
+            <Link to="/checkoutform">
+            <button onClick={checkoutform}className="checkout-cta">Go to Secure Checkout</button>
+            </Link>
           </div>
         </div>
       </aside>

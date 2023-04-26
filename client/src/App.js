@@ -15,6 +15,7 @@ import ProductTable from './features/products/components';
 import Sidebar from './components/admin/Sidebar';
 // import UserReview from './components/admin/UserReview';
 import Cart from './components/main/Cart';
+import CheckoutForm from './components/main/checkoutform';
 // import Footer from './components/main/footer';
 
 
@@ -36,8 +37,10 @@ const App = () => {
             {/* <Route path="/orderstable" element={<OrdersTable/>} /> */}
             <Route path="/sidebar" element={<Sidebar/>} />
             <Route path="/cart" element={<Cart/>} />
+            <Route path="/checkoutform" element={<CheckoutForm/>} />
         </Routes>
         {/* <Footer /> */}
+        {/* <CheckoutForm /> */}
         </BrowserRouter>
     </div>
   )

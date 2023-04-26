@@ -1,46 +1,83 @@
-import React, { useState } from "react";
+import React from "react";
+import "../main/checkoutform.css";
+import Image from "../assets/card_img.png";
 
-const CheckoutForm = ({ cartData, totalCost }) => {
-  const [paymentMethod, setPaymentMethod] = useState("");
+const checkoutform = () => {
+  return (
+    <div className="checkform">
+      <div class="container">
+        <form action="">
+          <div class="row">
+            <div class="col">
+              <h3 class="title">billing address</h3>
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // handle form submission here
-    console.log("Form submitted");
-  };
+              <div class="inputBox">
+                <span>full name :</span>
+                <input type="text" placeholder="john deo" />
+              </div>
+              <div class="inputBox">
+                <span>email :</span>
+                <input type="email" placeholder="example@example.com" />
+              </div>
+              <div class="inputBox">
+                <span>address :</span>
+                <input type="text" placeholder="room - street - locality" />
+              </div>
+              <div class="inputBox">
+                <span>city :</span>
+                <input type="text" placeholder="mumbai" />
+              </div>
 
-  const handlePaymentMethodChange = (event) => {
-    setPaymentMethod(event.target.value);
-  };
+              <div class="flex">
+                <div class="inputBox">
+                  <span>state :</span>
+                  <input type="text" placeholder="india" />
+                </div>
+                <div class="inputBox">
+                  <span>zip code :</span>
+                  <input type="text" placeholder="123 456" />
+                </div>
+              </div>
+            </div>
 
-  return ( 
-    <form onSubmit={handleSubmit}>
-      <h2>Checkout Form</h2>
-      <h3>Order Summary:</h3>
-      <ul>
-        {cartData.map((product) => (
-          <li key={product.id}>
-            {product.name} - {product.quantity} x ${product.price.toFixed(2)}
-          </li>
-        ))}
-      </ul>
-      <h3>Total Cost: ${totalCost.toFixed(2)}</h3>
-      <div>
-        <label htmlFor="payment-method">Payment Method:</label>
-        <select
-          id="payment-method"
-          value={paymentMethod}
-          onChange={handlePaymentMethodChange}
-          required
-        >
-          <option value="">-- Select Payment Method --</option>
-          <option value="mpesa">Mpesa</option>
-          <option value="debit-card">Debit Card</option>
-        </select>
+            <div class="col">
+              <h3 class="title">payment</h3>
+
+              <div class="inputBox">
+                <span>cards accepted :</span>
+                <img src={Image} alt="" />
+              </div>
+              <div class="inputBox">
+                <span>name on card :</span>
+                <input type="text" placeholder="mr. john deo" />
+              </div>
+              <div class="inputBox">
+                <span>credit card number :</span>
+                <input type="number" placeholder="1111-2222-3333-4444" />
+              </div>
+              <div class="inputBox">
+                <span>exp month :</span>
+                <input type="text" placeholder="january" />
+              </div>
+
+              <div class="flex">
+                <div class="inputBox">
+                  <span>exp year :</span>
+                  <input type="number" placeholder="2023" />
+                </div>
+                <div class="inputBox">
+                  <span>CVV :</span>
+                  <input type="text" placeholder="1234" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <input type="submit" value="proceed to checkout" class="submit-btn" />
+        </form>
       </div>
-      <button type="submit">Submit Order</button>
-    </form>
+    </div>
   );
 };
 
-export default CheckoutForm;
+export default checkoutform;
