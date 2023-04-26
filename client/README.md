@@ -1,4 +1,5 @@
 # Fashion Store
+Fashion store is an online website that is a budget-friendly clothing store that has colorful and trendy pieces for both men and women.Their selection of graphic 
 
 
 ## How to get started
