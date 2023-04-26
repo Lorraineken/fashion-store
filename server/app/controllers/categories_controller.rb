@@ -1,24 +1,19 @@
 class CategoriesController < ApplicationController
-    before_action :authorize
-    skip_before_action :authorize, only: [:index, :show]
+    before_action :authorize_admin
+    skip_before_action :authorize_admin, only: [:index, :show]
 
 
     rescue_from ActiveRecord::RecordNotFound, with: :category_record_missing
     rescue_from ActiveRecord::RecordInvalid, with: :validation_error
 
     def create 
-        if check_admin == true
-            category = Category.create!(category_params)
-            if category.valid? 
-                render json: category, status: :created
-            else 
-                render json:{error:"Invalid category detail"}, status: :unprocessable_entity
-        
-            end
-        else
-            render json: {error:"Unauthorized user - Not Admin"}
+        category = Category.create!(category_params)
+        if category.valid? 
+            render json: category, status: :created
+        else 
+            render json:{error:"Invalid category detail"}, status: :unprocessable_entity
+    
         end
-        
        end
     
        def index 
@@ -32,27 +27,15 @@ class CategoriesController < ApplicationController
        end
     
        def update 
-        
-        if check_admin == true
-          category =Category.find(params[:id])
-          category.update!(category_params)
-          render json: category, status: :accepted
-        else 
-            render json: {error:"Unauthorized User -Not Admin"}
-        end
-       
+        category =Category.find(params[:id])
+        category.update!(category_params)
+        render json: category, status: :accepted
        end
 
        def destroy 
-
-        if check_admin == true
-            category =Category.find(params[:id])
-            category.destroy 
-            head :no_content
-        else 
-            render json: {error:"Unauthorized User -Not Admin"}
-        end
-       
+        category =Category.find(params[:id])
+        category.destroy 
+        head :no_content
        end
     
        private
