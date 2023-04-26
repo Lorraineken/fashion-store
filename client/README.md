@@ -60,6 +60,8 @@ Fashion store is an online website that is a budget-friendly clothing store that
 
 - The front end to this repo is stored under client
 
+`cd client`
+
 - After cloning and forking the repo, Install JavaScript dependencies
 
 `npm install`
