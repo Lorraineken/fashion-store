@@ -1,4 +1,4 @@
-# 
+# Fashion Store
 
 
 ## How to get started
