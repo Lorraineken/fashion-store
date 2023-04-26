@@ -54,7 +54,7 @@ Fashion store is an online website that is a budget-friendly clothing store that
 
 ` rails s`
 
-- This backend is currently deployed to:
+
 
 ## Frontend
 
