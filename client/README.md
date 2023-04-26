@@ -18,7 +18,7 @@ Fashion store is an online website that is a budget-friendly clothing store that
 
 - Change directory to the repo folder:
 
-`cd phase-5-project`
+`cd fashion-store`
 
 - Before installing Rails, you need to have the following software installed on your computer:
 
@@ -42,9 +42,9 @@ Fashion store is an online website that is a budget-friendly clothing store that
 
 - This should output the version number of Rails that you just installed.
 
-- To run the migrations, run
+- To run the migrations and seeds, run
 
-` rails db:migrate`
+` rails db:migrate db:seed`
 
 - To install all the gems, run
 
