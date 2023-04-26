@@ -1,63 +1,38 @@
 class RolesController < ApplicationController
-  before_action :authorize
+  before_action :authorize_admin
 
   rescue_from ActiveRecord::RecordNotFound, with: :role_record_missing
   rescue_from ActiveRecord::RecordInvalid, with: :validation_error
 
   def create
-    if check_admin == true 
-      role = Role.create!(role_params)
-      if role.valid?
-        render json: role, status: :created
-      else
-        render json: { error: "Invalid role detail" }, status: :unprocessable_entity
-      end
-    else 
-      
+    role = Role.create!(role_params)
+    if role.valid?
+      render json: role, status: :created
+    else
+      render json: { error: "Invalid role detail" }, status: :unprocessable_entity
     end
- 
   end
   
   def index
-    if check_admin == true 
-      role = Role.all
-      render json: role, status: :ok
-    else 
-      render json:{error:"Unauthorized user - Not Admin"}
-    end
-    
+    role = Role.all
+    render json: role, status: :ok
   end
 
   def show
-    if check_admin = true 
-      role = Role.find(params[:id])
-      render json: role, status: :ok
-    else 
-      render json:{error:"Unauthorized user - Not Admin"}
-    end
- 
+    role = Role.find(params[:id])
+    render json: role, status: :ok
   end
 
   def update
-
-    if check_admin == true 
-      role = Role.find(params[:id])
-      role.update!(role_params)
-      render json: role, status: :accepted
-    else 
-      render json:{error:"Unauthorized user - Not Admin"} 
-    end
+    role = Role.find(params[:id])
+    role.update!(role_params)
+    render json: role, status: :accepted
   end
 
   def destroy
-    if check_admin == true 
-      role = Role.find(params[:id])
-      role.destroy
-      head :no_content
-    else 
-      render json:{error:"Unauthorized user - Not Admin"} 
-    end
-    
+    role = Role.find(params[:id])
+    role.destroy
+    head :no_content
   end
 
   private

@@ -1,52 +1,39 @@
 class UserRolesController < ApplicationController
-    before_action :authorize
+    before_action :authorize_admin
 
     rescue_from ActiveRecord::RecordNotFound, with: :user_role_record_missing
     rescue_from ActiveRecord::RecordInvalid, with: :validation_error
 
     def create 
-        if check_admin == true 
-            user_role = UserRole.create!(user_role_params)
-            if user_role.valid? 
-                render json: user_role, status: :created
-            else 
-                render json:{error:"Invalid user_role detail"}, status: :unprocessable_entity
-        
-            end
-        end  
-     end
+        user_role = UserRole.create!(user_role_params)
+        if user_role.valid? 
+            render json: user_role, status: :created
+        else 
+            render json:{error:"Invalid user_role detail"}, status: :unprocessable_entity
+    
+        end
+       end
     
        def index 
-        if check_admin == true 
-            user_role =UserRole.all 
-            render json: user_role, status: :ok
-        end
-      
+        user_role =UserRole.all 
+        render json: user_role, status: :ok
        end
     
        def show 
-        if check_admin == true 
-            user_role = UserRole.find(params[:id])
-            render json: user_role, status: :ok
-        end
+        user_role = UserRole.find(params[:id])
+        render json: user_role, status: :ok
        end
     
        def update 
-        if check_admin 
-            user_role =UserRole.find(params[:id])
-            user_role.update!(user_role_params)
-            render json: user_role, status: :accepted
-        end
-        
+        user_role =UserRole.find(params[:id])
+        user_role.update!(user_role_params)
+        render json: user_role, status: :accepted
        end
 
        def destroy 
-        if check_admin 
-            user_role=UserRole.find(params[:id])
-            user_role.destroy 
-            head :no_content
-        end
-        
+        user_role=UserRole.find(params[:id])
+        user_role.destroy 
+        head :no_content
        end
     
        private
