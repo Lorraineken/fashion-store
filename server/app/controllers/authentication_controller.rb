@@ -1,3 +1,4 @@
+
 # class AuthenticationController < ApplicationController
 #   def create_account
 #     user = User.create(create_params)
@@ -42,6 +43,7 @@
 #   def create_params
 #     params.permit(:username, :email, :password)
 #   end
+
 
 #   def create_user_session(user_id)
 #     session[:user_id] ||= user_id

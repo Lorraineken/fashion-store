@@ -41,18 +41,43 @@ end
 admin = User.create(username: "admin", email: "admin@example.com", password: "password")
 admin.roles << Role.find_by(name: "admin")
 
-# Create some products
-categories = Category.all
-10.times do
-  product = Product.create!(
+
     name: Faker::Commerce.product_name,
     price: Faker::Commerce.price(range: 10..100.0),
-    image_url: Faker::LoremFlickr.image(size: "300x300"),
+    image_url: "https://images.pexels.com/photos/5771897/pexels-photo-5771897.jpeg?auto=compress&cs=tinysrgb&w=400",
     description: Faker::Lorem.paragraph,
     gender: ["male", "female"].sample,
     category_id: categories.sample.id,
   )
 end
+3.times do
+  Product.create!(
+    name: Faker::Commerce.product_name,
+    price: Faker::Commerce.price(range: 10..100.0),
+    image_url:"https://images.pexels.com/photos/1598507/pexels-photo-1598507.jpeg?auto=compress&cs=tinysrgb&w=400",
+    description: Faker::Lorem.paragraph,
+    gender: ["male", "female"].sample,
+  )
+end
+3.times do
+  Product.create!(
+    name: Faker::Commerce.product_name,
+    price: Faker::Commerce.price(range: 10..100.0),
+    image_url: "https://images.pexels.com/photos/609771/pexels-photo-609771.jpeg?auto=compress&cs=tinysrgb&w=400",
+    description: Faker::Lorem.paragraph,
+    gender: ["male", "female"].sample,
+  )
+end
+3.times do
+  Product.create!(
+    name: Faker::Commerce.product_name,
+    price: Faker::Commerce.price(range: 10..100.0),
+    image_url: "https://images.pexels.com/photos/985635/pexels-photo-985635.jpeg?auto=compress&cs=tinysrgb&w=400",
+    description: Faker::Lorem.paragraph,
+    gender: "female",
+  )
+end
+
 
 #create orders
 order1 = Order.create(total_amount: 31.98, status: "pending", address: "123 Main St.")
@@ -68,6 +93,7 @@ Order.all.each do |order|
   )
 end
 
+
 # Create some reviews
 User.all.each do |user|
   3.times do
@@ -79,5 +105,21 @@ User.all.each do |user|
       product_id: product.id,
     )
   end
+end
+
+#create orders
+order1 = Order.create(total_amount: 31.98, status: "pending", address: "123 Main St.")
+order2 = Order.create(total_amount: 41.98, status: "shipped", address: "456 Elm St.")
+
+
+ 
+# Create some payments
+Order.all.each do |order|
+  Payment.create!(
+    order_id: order.id,
+    payment_method: ["credit card", "paypal", "cash"].sample,
+    amount: order.total_amount,
+    status: ["paid", "pending", "failed"].sample,
+  )
 end
 puts "Done seeding!"
