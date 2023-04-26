@@ -2,7 +2,7 @@ class ApplicationController < ActionController::API
   include ActionController::Cookies
   
 
-  JWT_SECRET = "qqqwrcgff21234OCKS)(WJMW)"
+  # JWT_SECRET = "qqqwrcgff21234OCKS)(WJMW)"
 
   wrap_parameters format: []
 
@@ -30,25 +30,37 @@ class ApplicationController < ActionController::API
   # ENCODE DATA INTO TOKEN
   def encode_data(data)
     
-    JWT.encode(data, ENV['JWT_SECRET'], "HS256")
+    JWT.encode(data, ENV['fashion'], "HS256")
+  
   end
 
   def decode(token)
-    JWT.decode(token, ENV['JWT_SECRET'], true, { algorithm: 'HS256' })
+    
+    JWT.decode(token, ENV['fashion'], true, { algorithm: 'HS256' })
+    
+
   end
 
   def authorize
     auth_headers = request.headers['Authorization']
+    
+  
     if !auth_headers
+      
         render json:{message: "Not Authorized"}
     else
+    
         token = auth_headers.split(' ')[1]
+       
         save_user_id(token)
+        
     end
   end
 
   def save_user_id(token)
+    
     @uid = decode(token)[0]["user_id"].to_i
+    
   end
 
    def check_admin

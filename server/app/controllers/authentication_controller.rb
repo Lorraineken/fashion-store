@@ -16,6 +16,7 @@ class AuthenticationController < ApplicationController
      # create_user_session(user.id)
      token = encode_data({user_id: user.id})
      
+     
      render json: {message: "Log in success", body: {user: user,token:token}}
     else
       app_response(status_code: 401, message: "Invalid username or password")

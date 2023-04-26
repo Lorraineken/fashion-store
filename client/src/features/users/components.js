@@ -4,11 +4,12 @@ import { fetchUsers, addUser, updateUser, deleteUser } from "./slice";
 import './userTable.css'
 function UserTable() {
   const dispatch = useDispatch();
-  const users = useSelector((state) => state.users.list);
+  const users = useSelector((state) => state.users.users);
   const [formData, setFormData] = useState({});
   const [editing, setEditing] = useState(false);
   const [modal, setModal] = useState(false)
-
+ 
+console.log(users)
   useEffect(() => {
     dispatch(fetchUsers());
   }, [dispatch]);
@@ -26,7 +27,7 @@ function UserTable() {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     if (editing) {
-      // dispatch(updateUser(formData));
+       dispatch(updateUser(formData));
       setEditing(false);
     } else {
       dispatch(addUser(formData));
@@ -37,7 +38,9 @@ function UserTable() {
   };
 
   const handleDeleteUser = (id) => {
-    // dispatch(deleteUser(id));
+     dispatch(deleteUser(id));
+ 
+     
   };
 
   const handleEditUser = (id) => {
@@ -75,6 +78,7 @@ function UserTable() {
               <td>{user.username}</td>
               <td>{user.email}</td>
               
+              
               <td className="table-action-btn">
                 <button onClick={() => handleDeleteUser(user.id)} className="fas fa-trash-alt"></button>
                 <button onClick={() => handleEditUser(user.id)} className="fas fa-edit"></button>
@@ -95,8 +99,8 @@ function UserTable() {
       <label htmlFor="">Username</label>
         <input
           type="text"
-          name="name"
-          value={formData.name || ""}
+          name="username"
+          value={formData.username || ""}
           onChange={handleFormChange}
         />
         <label htmlFor="">Email</label>
@@ -104,13 +108,6 @@ function UserTable() {
           type="text"
           name="email"
           value={formData.email || ""}
-          onChange={handleFormChange}
-        />
-        <label htmlFor="">Password</label>
-        <input
-          type="password"
-          name="password"
-          value={formData.password || ""}
           onChange={handleFormChange}
         />
         <button type="submit">{editing ? "Update User" : "Add User"}</button>

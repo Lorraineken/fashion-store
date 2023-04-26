@@ -29,9 +29,13 @@ export const loginAccount = (userData) => async (dispatch) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(userData),
+        
       });
       const data = await response.json();
-      if (data.status === 200) {
+      console.log(data)
+      const token = data.body.token;
+      localStorage.setItem('token', token);
+      if (data.ok) {
         // Extract the JWT token from the response
         console.log(data)
         const token = data.body.token;
@@ -42,9 +46,11 @@ export const loginAccount = (userData) => async (dispatch) => {
         
         dispatch(setUser(data.body));
       } else {
+        console.log(data.message)
         dispatch(setError(data.message));
       }
     } catch (error) {
+      console.log(error)
       dispatch(setError(error.message));
     }
   };

@@ -6,9 +6,10 @@ function UserTest() {
 
     useEffect(()=>{
         fetch('http://localhost:3000/users', {
-            credentials: 'include',
+
+          method:'GET',
             headers: {
-              'Authorization': 'Bearer ' + token
+              Authorization:`Bearer ${localStorage.getItem('token')}`
             }
           })
           .then(response => response.json())
