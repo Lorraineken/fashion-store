@@ -21,7 +21,7 @@ Role.create!(name: "customer")
 
 # Create some users
 10.times do
- username = Faker::Internet.username
+  username = Faker::Internet.username
   until username.length >= 4
     username = Faker::Internet.username
   end
@@ -34,7 +34,7 @@ Role.create!(name: "customer")
 end
 
 # Assign roles to users
- User.all.each do |user|
+User.all.each do |user|
   user.roles << Role.find_by(name: "customer")
 end
 
@@ -50,7 +50,7 @@ categories = Category.all
     image_url: Faker::LoremFlickr.image(size: "300x300"),
     description: Faker::Lorem.paragraph,
     gender: ["male", "female"].sample,
-    category_id: categories.sample.id
+    category_id: categories.sample.id,
   )
 end
 
@@ -58,8 +58,6 @@ end
 order1 = Order.create(total_amount: 31.98, status: "pending", address: "123 Main St.")
 order2 = Order.create(total_amount: 41.98, status: "shipped", address: "456 Elm St.")
 
-
- 
 # Create some payments
 Order.all.each do |order|
   Payment.create!(
