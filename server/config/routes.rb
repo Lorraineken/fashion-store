@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   resources :categories
   resources :products
   resources :reviews
-  resources :users, only: [:index, :show, :update, :destroy]
-
+  resources :users, only: [:create, :index, :show, :update, :destroy]
+  post "/login", to: "users#login"
+  
   # Routes for OrderController
   resources :orders, only: [:index, :show, :destroy]
   post '/make_order', to: 'orders#make_order'

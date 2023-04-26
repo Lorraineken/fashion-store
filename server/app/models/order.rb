@@ -1,9 +1,9 @@
 class Order < ApplicationRecord
- # enum :status, [:pending, :completed, :cancelled]
+
+  # enum :status, [:pending, :shipped, :delivered]
+
   belongs_to :user
-  #belongs_to :product
-  has_many :order_products
-  has_many :products, through: :order_products
-  has_many :payments
   
+  has_many :order_products
+  has_many :payments
 end
