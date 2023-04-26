@@ -1,14 +1,17 @@
 class UsersController < ApplicationController
-    before_action :authorize_admin
-    skip_before_action :authorize_admin, only: [:show, :update]
-    before_action :authorize
+   # before_action :verify_auth
+    # skip_before_action :authorize_admin, only: [:show, :update]
+     before_action :authorize
 
     rescue_from ActiveRecord::RecordNotFound, with: :user_record_missing
     rescue_from ActiveRecord::RecordInvalid, with: :validation_error
 
-   def index 
+   def index
+    user = User.find_by(id: @uid)
     user =User.all 
-    render json: user, status: :ok
+      if check_admin == true
+        render json: user, status: :ok
+      end   
    end
 
    def show 
@@ -24,8 +27,10 @@ class UsersController < ApplicationController
 
    def destroy 
     user =User.find(params[:id])
-    user.destroy 
-    head :no_content
+    if check_admin == true 
+        user.destroy 
+        head :no_content
+    end
    end
 
    private
