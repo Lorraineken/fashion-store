@@ -4,7 +4,7 @@ import "../main/AboutUs.css";
 const AboutUs = () => {
   return (
     <div className="card">
-      <h1 className="abt">About us</h1>
+      <p className="abt">About us</p>
       <p className="paragraph">
       Our fashion website is your ultimate destination for the latest trends in designer clothing, sneakers, handbags, and more. Our team of passionate fashion experts work tirelessly to bring you the most stylish and highest quality products from top fashion brands worldwide. We strive to offer a diverse collection of clothing, footwear, and accessories that cater to every taste and style, so you can express yourself through fashion. Whether you're after the hottest designer sneakers, a statement handbag, or a stunning dress for a special occasion, we have something for you.
 
