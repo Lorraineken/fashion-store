@@ -66,6 +66,23 @@
 .top img {
   padding: 50px;
 }
+.top i{
+  position: absolute;
+  top: 33%;
+  left: 43%;
+  background-color:#fffb;
+  font-size: larger;
+  padding: 10px;
+
+  display: none;
+}
+.top i:hover{
+  cursor: pointer;
+}
+.top:hover i{
+  display: block;
+}
+
 .bottom:hover {
   cursor: pointer;
 }

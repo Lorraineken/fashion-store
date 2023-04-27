@@ -148,11 +148,14 @@ function Products() {
                   
                   <div className="top">
                   <p id="price">{`$${product.price}`}</p>
-                    <img onClick={()=>handleProductDetails(product)}
+                    <img 
                       className="pdt"
                       src={product.image_url}
                       alt={product.name}
+                      
                     />
+                    <i className="fas fa-search" onClick={()=>handleProductDetails(product)}></i>
+                   
                   </div>
                   <div
                     className={`bottom ${
