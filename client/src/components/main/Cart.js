@@ -58,9 +58,9 @@ function Cart() {
   const getTotalCost = () => {
     let total = getSubtotal();
     if (deliveryOption === "delivery") {
-      total += 200;
+      total += 0;
     } else if (deliveryOption === "collection") {
-      total -= 10;
+      total += 0;
     }
     console.log("getTotalCost returned:", total);
     return total;
@@ -76,7 +76,7 @@ function Cart() {
   return (
     <div>
       <div class="basket">
-        <div class="basket-module">
+        {/* <div class="basket-module">
           <label for="promo-code">Enter a promotional code</label>
           <input
             id="promo-code"
@@ -86,7 +86,7 @@ function Cart() {
             class="promo-code-field"
           />
           <button class="promo-code-cta">Apply</button>
-        </div>
+        </div> */}
         <div class="basket-labels">
           <ul className="list">
             <li class="item item-heading">Item</li>
@@ -101,7 +101,7 @@ function Cart() {
               <div class="product-image">
                 <img
                   clasName="image"
-                  src={product.image}
+                  src={product.image_url}
                   alt="Placholder Image 2"
                   class="product-frame"
                 />
@@ -109,14 +109,14 @@ function Cart() {
               <div class="product-details">
                 <h1>
                   <strong>
-                    <span class="item-quantity">4</span> x Eliza J
+                    <span class="item-quantity">{}</span> {product.name}
                   </strong>{" "}
-                  Lace Sleeve Cuff Dress
+                
                 </h1>
                 <p>
-                  <strong>Navy, Size 18</strong>
+                  {/* <strong>Navy, Size 18</strong> */}
                 </p>
-                <p>Product Code - 232321939</p>
+                {/* <p>Product Code - 232321939</p> */}
               </div>
             </div>
             <div class="price">26.00</div>

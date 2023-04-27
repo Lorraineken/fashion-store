@@ -1,9 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
+const token = localStorage.getItem("token");
+
 export const fetchProducts = createAsyncThunk(
   'products/fetchProducts',
   async () => {
-    const response = await fetch('https://api.npoint.io/61f48a63e201ea40f86f/products');
+    const response = await fetch('http://localhost:3000/products');
     if (!response.ok) {
       throw new Error('Failed to fetch products');
     }
@@ -11,7 +13,7 @@ export const fetchProducts = createAsyncThunk(
     // return response.json();
     const products = await response.json();
     
-    return products.map(product => ({ ...product, quantity: 1 }));
+    return products.map(product => ({ ...product, quantity: 0 }));
   }
 );
 
@@ -22,9 +24,12 @@ export const fetchProducts = createAsyncThunk(
 export const addProduct = createAsyncThunk(
   'products/addProduct',
   async (product) => {
-    const response = await fetch('https://api.npoint.io/61f48a63e201ea40f86f/products', {
+    const response = await fetch('http://localhost:3000/products', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+       headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      },
       body: JSON.stringify(product),
     });
     if (!response.ok) {
@@ -38,7 +43,7 @@ export const addProduct = createAsyncThunk(
 export const deleteProduct = createAsyncThunk(
   'products/deleteProduct',
   async (productId) => {
-    const response = await fetch(`https://api.npoint.io/61f48a63e201ea40f86f/products/${productId}`, {
+    const response = await fetch(`http://localhost:3000/products/products/${productId}`, {
       method: 'DELETE',
     });
     if (!response.ok) {
@@ -51,9 +56,12 @@ export const deleteProduct = createAsyncThunk(
 export const updateProduct = createAsyncThunk(
   'products/updateProduct',
   async (product) => {
-    const response = await fetch(`https://api.npoint.io/61f48a63e201ea40f86f/products/${product.id}`, {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
+    const response = await fetch(`http://localhost:3000/products/${product.id}`, {
+      method: 'PUTS',
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      },
       body: JSON.stringify(product),
     });
     if (!response.ok) {

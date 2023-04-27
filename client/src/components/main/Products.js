@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart, removeFromCart } from "../../features/cart/slice";
-import { fetchProducts } from "../../features/products/slice";
+import { fetchProducts, updateProduct} from "../../features/products/slice";
 import "../main/product.css";
+import StarRatings from 'react-star-ratings';
 import Categories from "./Categories";
 
 
@@ -39,6 +40,16 @@ function Products() {
   const isProductInCart = (productId) => {
     return cartItems.some((item) => item.id === productId);
   };
+  const handleRatingChange = (product, newRating) => {
+    const updatedProduct = {
+      ...product,
+      rating: newRating
+    };
+    dispatch(updateProduct(updatedProduct));
+  }
+  function handleProductDetails(product){
+    
+  }
 
   const filteredProducts =
     selectedCategory === ""
@@ -136,12 +147,17 @@ function Products() {
             filteredProducts.map((product) => (
               <div key={product.id} className="wrapper">
                 <div className="container">
+                  
                   <div className="top">
-                    <img
+                  <p id="price">{`$${product.price}`}</p>
+                    <img 
                       className="pdt"
-                      src={product.image}
-                      alt={product.title}
+                      src={product.image_url}
+                      alt={product.name}
+                      
                     />
+                    <i className="fas fa-search" onClick={()=>handleProductDetails(product)}></i>
+                   
                   </div>
                   <div
                     className={`bottom ${
@@ -149,9 +165,20 @@ function Products() {
                     }`}
                   >
                     <div className="left">
+                      <div className="star">
+                      <StarRatings
+            rating={product.rating}
+            starRatedColor="gold"
+            starDimension="20px"
+            numberOfStars={5}
+            name='rating'
+            changeRating={(newRating) => handleRatingChange(product, newRating)}
+          />
+          </div>
                       <div className="details">
-                        <h3>{product.title}</h3>
-                        <p>{`$${product.price}`}</p>
+                        
+                        <h3>{product.name}</h3>
+                       
                       </div>
                       {!isProductInCart(product.id) && (
                         <div
