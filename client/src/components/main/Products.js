@@ -4,6 +4,8 @@ import { addToCart, removeFromCart } from "../../features/cart/slice";
 import { fetchProducts } from "../../features/products/slice";
 import "../main/product.css";
 import Categories from "./Categories";
+
+
 function Products() {
   const products = useSelector((state) => state.products.list);
   const cartItems = useSelector((state) => state.cart.items);
