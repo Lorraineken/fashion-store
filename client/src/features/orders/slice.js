@@ -1,13 +1,31 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
+// export const fetchOrders = createAsyncThunk(
+//   "orders/fetchOrder",
+//   async () => {
+//     const response = await fetch("http://localhost:3000/orders");
+//     if (!response.ok) {
+//       throw new Error("Failed to fetch orders");
+//     }
+//     return response.json();
+//   }
+// );
 export const fetchOrders = createAsyncThunk(
   "orders/fetchOrder",
-  async () => {
-    const response = await fetch("http://localhost:3000/orders");
-    if (!response.ok) {
-      throw new Error("Failed to fetch orders");
-    }
-    return response.json();
+  () => {
+    const token = localStorage.getItem("token");
+    return fetch("http://localhost:3000/orders", {
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      }
+    }).then((res) => {
+      if (!res.ok) {
+        throw new Error("Failed to fetch Orders");
+      }
+      console.log(res.json)
+      return res.json();
+    });
   }
 );
 
