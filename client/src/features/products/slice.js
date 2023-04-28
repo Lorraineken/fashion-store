@@ -43,7 +43,7 @@ export const addProduct = createAsyncThunk(
 export const deleteProduct = createAsyncThunk(
   'products/deleteProduct',
   async (productId) => {
-    const response = await fetch(`http://localhost:3000/products/products/${productId}`, {
+    const response = await fetch(`http://localhost:3000/products/${productId}`, {
       method: 'DELETE',
     });
     if (!response.ok) {
@@ -57,7 +57,7 @@ export const updateProduct = createAsyncThunk(
   'products/updateProduct',
   async (product) => {
     const response = await fetch(`http://localhost:3000/products/${product.id}`, {
-      method: 'PUTS',
+      method: 'PUT',
       headers: {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${token}`

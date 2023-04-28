@@ -22,12 +22,12 @@ export const fetchUsers = createAsyncThunk(
 export const addUser = createAsyncThunk(
   "users/addUser",
   (user) => {
-    const token = localStorage.getItem("token");
+  //  const token = localStorage.getItem("token");
     return fetch("http://localhost:3000/create_account", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`
+        // "Authorization": `Bearer ${token}`
       },
       body: JSON.stringify(user),
     }).then((res) => {

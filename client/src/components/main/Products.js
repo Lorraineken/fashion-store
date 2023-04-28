@@ -143,6 +143,7 @@ function Products() {
             <p>{error.message}</p>
           ) : (
             filteredProducts.map((product) => (
+              
               <div key={product.id} className="wrapper">
                 <div className="container">
                   
@@ -165,7 +166,13 @@ function Products() {
                     <div className="left">
                       <div className="star">
                       <StarRatings
-            rating={product.rating}
+            rating={
+              product.reviews.length > 0
+                ? Math.round(
+                    product.reviews.map(review => review.rating).reduce((a, b) => a + b, 0) / product.reviews.length
+                  )
+                : 0
+            }
             starRatedColor="gold"
             starDimension="20px"
             numberOfStars={5}

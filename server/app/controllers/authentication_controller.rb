@@ -1,14 +1,24 @@
 class AuthenticationController < ApplicationController
+  # def create_account
+  #   user = User.create(create_params)
+  #   if user.valid?
+  #     create_user_session(user.id)
+  #     token = encode_token(user_id: user.id)
+  #     app_response(status_code: 201, message: "Account created successfully", body: {user: user, token:token})
+  #   else
+  #     app_response(status_code: 422, message: "Invalid input", body: user.errors.full_messages)
+  #   end
+  # end
   def create_account
     user = User.create(create_params)
     if user.valid?
-      create_user_session(user.id)
-      token = encode_token(user_id: user.id)
-      app_response(status_code: 201, message: "Account created successfully", body: {user: user, token:token})
+        save_user(user.id)
+        app_response(message: 'Registration was successful', status: :created, data: user)
     else
-      app_response(status_code: 422, message: "Invalid input", body: user.errors.full_messages)
+        app_response(message: 'Something went wrong during registration', status: :unprocessable_entity, data: user.errors)
     end
-  end
+end
+
 
   def login_account
     user = User.find_by(email: params[:email])
