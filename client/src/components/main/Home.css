@@ -122,20 +122,3 @@ body {
   float: left;
   margin-left: 45%;
 }
-
-@media only screen and (max-width: 1440px) {
-  /* styles for Samsung Galaxy S23 */
-  .container {
-    max-width: 100%;
-    padding: 0 1rem;
-  }
-  .hero {
-    font-size: 2rem;
-  }
-  .btnnn {
-    font-size: 1.2rem;
-  }
-  .imgg {
-    width: 100%;
-  }
-}

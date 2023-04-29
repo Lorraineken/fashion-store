@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart, removeFromCart } from "../../features/cart/slice";
-import { fetchProducts, updateProduct} from "../../features/products/slice";
+import { fetchProducts, updateProduct } from "../../features/products/slice";
 import "../main/product.css";
-import StarRatings from 'react-star-ratings';
+import StarRatings from "react-star-ratings";
 import Categories from "./Categories";
-
 
 function Products() {
   const products = useSelector((state) => state.products.list);
@@ -43,13 +42,11 @@ function Products() {
   const handleRatingChange = (product, newRating) => {
     const updatedProduct = {
       ...product,
-      rating: newRating
+      rating: newRating,
     };
     dispatch(updateProduct(updatedProduct));
-  }
-  function handleProductDetails(product){
-    
-  }
+  };
+  function handleProductDetails(product) {}
 
   const filteredProducts =
     selectedCategory === ""
@@ -147,17 +144,17 @@ function Products() {
             filteredProducts.map((product) => (
               <div key={product.id} className="wrapper">
                 <div className="container">
-                  
                   <div className="top">
-                  <p id="price">{`$${product.price}`}</p>
-                    <img 
+                    <p id="price">{`$${product.price}`}</p>
+                    <img
                       className="pdt"
                       src={product.image_url}
                       alt={product.name}
-                      
                     />
-                    <i className="fas fa-search" onClick={()=>handleProductDetails(product)}></i>
-                   
+                    <i
+                      className="fas fa-search"
+                      onClick={() => handleProductDetails(product)}
+                    ></i>
                   </div>
                   <div
                     className={`bottom ${
@@ -166,19 +163,19 @@ function Products() {
                   >
                     <div className="left">
                       <div className="star">
-                      <StarRatings
-            rating={product.rating}
-            starRatedColor="gold"
-            starDimension="20px"
-            numberOfStars={5}
-            name='rating'
-            changeRating={(newRating) => handleRatingChange(product, newRating)}
-          />
-          </div>
+                        <StarRatings
+                          rating={product.rating}
+                          starRatedColor="gold"
+                          starDimension="20px"
+                          numberOfStars={5}
+                          name="rating"
+                          changeRating={(newRating) =>
+                            handleRatingChange(product, newRating)
+                          }
+                        />
+                      </div>
                       <div className="details">
-                        
                         <h3>{product.name}</h3>
-                       
                       </div>
                       {!isProductInCart(product.id) && (
                         <div
