@@ -1,25 +1,33 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Cart.css";
-import '../main/checkoutform'
+import './checkoutform'
 import {
   setDeliveryOption,
   updateItemQuantity,
   removeFromCart,
+  setTotalItems,
+  setSumCost
 } from "../../features/cart/slice";
-import checkoutform from "../main/checkoutform";
+
+import cartReducer from '../../features/cart/slice'
 function Cart() {
+  const redirect = useNavigate()
   const cartData = useSelector((state) => state.cart.items);
   const deliveryOption = useSelector((state) => state.cart.deliveryOption);
+  console.log(deliveryOption)
   console.log(cartData);
   const dispatch = useDispatch();
+
+
+
   const handleQuantityChange = (event, id) => {
     console.log(cartData);
     const quantity = Number(event.target.value);
     console.log("quantity:", quantity);
     console.log("id:", id);
-    setTotalCost(getTotalCost());
+   // setTotalCost(getTotalCost());
     dispatch(updateItemQuantity({ id, quantity }));
 
     // const newCartData = cartData.map(item => {
@@ -34,7 +42,7 @@ function Cart() {
 
   const handleDeliveryOptionChange = (event) => {
     dispatch(setDeliveryOption(event.target.value));
-    setTotalCost(getTotalCost());
+    // setTotalCost(getTotalCost());
     // setDeliveryOption(event.target.value);
     // setTotalCost(getTotalCost());
   };
@@ -46,30 +54,38 @@ function Cart() {
       }
       return acc;
     }, 0);
+  
     return subtotal;
   };
+  //  setTotalCost(subtotal)
 
   const getTotalItems = () => {
     const totalItems = cartData.reduce((acc, item) => acc + item.quantity, 0);
     console.log("getTotalItems returned:", totalItems);
+   
     return totalItems;
   };
 
-  const getTotalCost = () => {
-    let total = getSubtotal();
-    if (deliveryOption === "delivery") {
-      total += 0;
-    } else if (deliveryOption === "collection") {
-      total += 0;
-    }
-    console.log("getTotalCost returned:", total);
-    return total;
-  };
+  // const getTotalCost = () => {
+  //   let total = getSubtotal();
+  //   if (deliveryOption === "delivery") {
+  //     total += 0;
+  //   } else if (deliveryOption === "collection") {
+  //     total += 0;
+  //   }
+  //   console.log("getTotalCost returned:", total);
+  //   return total;
+  // };
   const handleRemove = (product) => {
     dispatch(removeFromCart(product.id));
   };
-  const [totalCost, setTotalCost] = useState(getTotalCost());
+  //const [totalCost, setTotalCost] = useState(getTotalCost());
+function handleCheckout(){
+  dispatch(setTotalItems(getTotalItems()))
+  dispatch(dispatch(setSumCost(getSubtotal().toFixed(2))));
+  redirect('/checkoutform')
 
+}
   if (cartData.length === 0) {
     return <div className="cart-header">Your cart is empty</div>;
   }
@@ -119,7 +135,7 @@ function Cart() {
                 {/* <p>Product Code - 232321939</p> */}
               </div>
             </div>
-            <div class="price">26.00</div>
+            <div class="price">{product.price}</div>
             <div class="quantity">
               <input
                 type="number"
@@ -129,7 +145,7 @@ function Cart() {
                 onChange={(event) => handleQuantityChange(event, product.id)}
               />
             </div>
-            <div class="subtotal">104.00</div>
+            <div class="subtotal">{product.price * product.quantity}</div>
             <div class="remove">
               <button onClick={() => handleRemove(product)}>Remove</button>
             </div>
@@ -148,7 +164,7 @@ function Cart() {
             </div>
 
             <div class="summary-promo hide">
-              <div class="promo-title">Promotion</div>
+              <div class="promo-title">Location/Address</div>
               <div class="promo-value final-value" id="basket-promo"></div>
             </div>
           </div>
@@ -159,22 +175,25 @@ function Cart() {
               onChange={handleDeliveryOptionChange}
             >
               <option value="0" selected="selected">
-                Select Collection or Delivery
+                Select your Location/Address
               </option>
-              <option value="collection">Collection</option>
-              <option value="delivery">Delivery</option>
+              <option value="Nairobi">Nairobi</option>
+              <option value="Kisumu">Kisumu</option>
+              <option value="Eldoret">Eldoret</option>
+              <option value="Mombasa">Mombasa</option>
+              <option value="Nakuru">Nakuru</option>
             </select>
           </div>
           <div class="summary-total">
             <div class="total-title">Total</div>
             <div class="total-value final-value" id="basket-total">
-              {totalCost.toFixed(2)}
+              {getSubtotal().toFixed(2)}
             </div>
           </div>
           <div class="summary-checkout">
-            <Link to="/checkoutform">
-            <button onClick={checkoutform}className="checkout-cta">Go to Secure Checkout</button>
-            </Link>
+            
+            <button onClick={handleCheckout}className="checkout-cta">Go to Secure Checkout</button>
+            
           </div>
         </div>
       </aside>

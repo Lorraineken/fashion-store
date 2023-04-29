@@ -35,20 +35,8 @@ export const loginAccount = (userData) => async (dispatch) => {
       console.log(data)
       const token = data.body.token;
       localStorage.setItem('token', token);
-      if (data.ok) {
-        // Extract the JWT token from the response
-        console.log(data)
-        const token = data.body.token;
-        console.log(token)
-        
-        // Store the JWT token in local storage
-        localStorage.setItem('token', token);
-        
-        dispatch(setUser(data.body));
-      } else {
-        console.log(data.message)
-        dispatch(setError(data.message));
-      }
+      dispatch(setUser(data.body));
+    
     } catch (error) {
       console.log(error)
       dispatch(setError(error.message));

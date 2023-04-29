@@ -1,5 +1,7 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap'); */
 
+
+
 *{
   /* font-family: 'Poppins', sans-serif; */
   margin:0; padding:0;
@@ -8,9 +10,33 @@
   text-transform: capitalize;
   transition: all .2s linear;
 }
+.checkoutFormContainer{
+  display: flex;
+  justify-content: space-evenly;
+}
+.orderDetailsContainer h2{
+  text-align: center;
+}
+.orderDetailsContainer{
+  margin-top: 4%;
+  width: 500px;
+  border: 2px solid red;
+}
+.orderDetailsContainer button{
+  margin-left: 40%;
+  margin-top: 50px;
+  padding: 20px;
+  border-radius: 4px;
+}
+.ordertableRow{
 
+  padding-right: 290px;
+}
+.paymentMethod{
+  margin-left: 150px;
+}
 .checkform{
-    margin-left: 30%;
+  
     margin-top: 4%;
 }
 

@@ -4,7 +4,10 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState: {
     items: [],
-    deliveryOption: 'collection',
+    deliveryOption: '',
+    sumCost: 0,
+    totalItems: 0,
+    productDetail: null
 
   },
   reducers: {
@@ -12,7 +15,7 @@ const cartSlice = createSlice({
       state.items.push(action.payload);
     },
     removeFromCart(state, action) {
-      console.log('removeFromCart reducer called with action:', action);
+      console.log('removeFromCart reducer called with action:', action, state);
       state.items = state.items.filter(product => product.id !== action.payload);
     },
     setDeliveryOption(state, action) {
@@ -27,9 +30,18 @@ const cartSlice = createSlice({
       }
       console.log('updateItemQuantity reducer returned state:', state);
     },
+    setSumCost(state, action){
+      state.sumCost = action.payload
+    },
+    setTotalItems(state, action){
+      state.totalItems = action.payload
+    },
+    setProductDetail(state, action){
+      state.productDetail = action.payload
+    },
   },
 });
 
-export const { addToCart, removeFromCart, setDeliveryOption,updateItemQuantity } = cartSlice.actions;
+export const { addToCart, removeFromCart, setDeliveryOption,updateItemQuantity,setSumCost,setTotalItems, setProductDetail } = cartSlice.actions;
 
 export default cartSlice.reducer;

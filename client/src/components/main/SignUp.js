@@ -6,9 +6,9 @@ import { useNavigate } from 'react-router-dom'
 import { addUser } from '../../features/users/slice';
 
 const SignUp = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [signupEmail, setLoginEmail] = useState("");
+  const [username, setName] = useState("");
+  // const [email, setEmail] = useState("");
+  const [signupEmail, setSignupEmail] = useState("");
   const [signuPassword, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [signInEmail, setSignInEmail] = useState("");
@@ -18,13 +18,13 @@ const SignUp = () => {
 
   const handleSignInSubmit = (event) => {
     event.preventDefault();
-    dispatch(loginAccount({ email: email, password: signInPassword }));
+    dispatch(loginAccount({ email: signInEmail, password: signInPassword }));
     navigate('/')
   };
   const handleSignUpSubmit = (event) => {
     event.preventDefault();
-    dispatch(addUser({ username: name, email: signupEmail, password: signuPassword }));
-    navigate('/')
+    dispatch(addUser({ username: username, email: signupEmail, password: signuPassword }));
+    navigate('/signup')
   };
   return (
     <div className="signup">
@@ -37,8 +37,8 @@ const SignUp = () => {
             <label htmlFor="name">Name:</label>
             <input
               type="text"
-              id="name"
-              value={name}
+              id="username"
+              value={username}
               onChange={(e) => setName(e.target.value)}
               required
             />
@@ -49,7 +49,7 @@ const SignUp = () => {
               type="email"
               id="email"
               value={signupEmail}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setSignupEmail(e.target.value)}
               required
             />
           </div>

@@ -15,8 +15,9 @@ import ProductTable from './features/products/components';
 import Sidebar from './components/admin/Sidebar';
 // import UserReview from './components/admin/UserReview';
 import Cart from './components/main/Cart';
-import CheckoutForm from './components/main/checkoutform';
+import Checkoutform from './components/main/checkoutform';
 // import Footer from './components/main/footer';
+import ProductDetails from './components/main/ProductDetails';
 
 
 const App = () => {
@@ -33,11 +34,11 @@ const App = () => {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/carticon" element={<CartIcon />} />
             <Route path="/table" element={<ProductTable/>} />
-            {/* <Route path="/usertable" element={<UserTable/>} /> */}
+            * <Route path="/details" element={<ProductDetails/>} /> 
             {/* <Route path="/orderstable" element={<OrdersTable/>} /> */}
             <Route path="/sidebar" element={<Sidebar/>} />
             <Route path="/cart" element={<Cart/>} />
-            <Route path="/checkoutform" element={<CheckoutForm/>} />
+            <Route path="/checkoutform" element={<Checkoutform/>} />
         </Routes>
         {/* <Footer /> */}
         {/* <CheckoutForm /> */}

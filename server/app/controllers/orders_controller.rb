@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find(params[:id]).to_json(:include => [{ :product => { :only => :name } }, { :user => { :only => :email } }])
+    @order = Order.find(params[:id]).to_json(:include => [{ :products => { :only => :name } }, { :user => { :only => :email } }])
     render json: @order, status: :ok
   end
 
@@ -25,6 +25,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params[:order].permit(:products_id, :order_id, :quantity, :total_amount, :status, :address)
+    params[:order].permit(:products_id, :quantity, :total_amount, :status, :address)
   end
+  
 end

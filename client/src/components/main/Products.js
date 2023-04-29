@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addToCart, removeFromCart } from "../../features/cart/slice";
+import { addToCart, removeFromCart, setProductDetail } from "../../features/cart/slice";
 import { fetchProducts, updateProduct} from "../../features/products/slice";
 import "../main/product.css";
 import StarRatings from 'react-star-ratings';
@@ -46,7 +46,8 @@ function Products() {
     dispatch(updateProduct(updatedProduct));
   }
   function handleProductDetails(product){
-    
+    console.log(product)
+    dispatch(setProductDetail(product))
   }
 
   const filteredProducts =

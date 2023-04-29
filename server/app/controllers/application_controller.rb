@@ -70,6 +70,11 @@ end
          true
        end
    end
+   def current_user
+    # Retrieve the current user from the session or database
+    # based on a unique identifier such as a session token or user id
+    @current_user ||= User.find_by(id: @uid)
+  end
 
 
   def not_found(message: "Not found")
