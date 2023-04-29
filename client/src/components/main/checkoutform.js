@@ -1,9 +1,23 @@
 import React from "react";
 import "../main/checkoutform.css";
 import Image from "../assets/card_img.png";
+import { useSelector } from "react-redux";
 
-const checkoutform = () => {
+const Checkoutform = () => {
+  
+  const items = useSelector((state) => state.cart.items);
+  const deliveryOption = useSelector((state) => state.cart.deliveryOption);
+  const totalCost = useSelector((state) => state.cart.sumCost);
+  const totalItems = useSelector((state) => state.cart.totalItems);
+
+  console.log(items,'',deliveryOption,'',totalCost,'',totalItems)
+
+  function handleOptionChange(){
+
+  }
   return (
+    <div className="checkoutFormContainer">
+
     <div className="checkform">
       <div class="container">
         <form action="">
@@ -77,7 +91,84 @@ const checkoutform = () => {
         </form>
       </div>
     </div>
+    <div className="orderDetailsContainer">
+<h2>You Order</h2>
+{/* <div className="orderProducts">
+  
+</div> */}
+      <table>
+        <thead>
+          <tr>
+            <th className="ordertableRow">Product</th>
+            <th>Price</th>
+            
+            {/* <th>Email</th>
+            <th>Password</th>
+            <th>Action</th> */}
+          </tr>
+        </thead>
+        <tbody>
+          {items.map((item) => (
+            <tr key={item.id}>
+              <td>{`${item.name} X ${item.quantity}`}</td>
+              <td>{item.quantity * item.price}</td>
+            </tr>
+          ))}
+                        {/* <td>{user.email}</td>
+              <td>{user.password}</td> */} 
+        </tbody>
+        <thead>
+          <tr>
+            <th className="ordertableRow">Quantity </th>
+            <th>Total </th>
+            
+        
+          </tr>
+        </thead>
+        <tbody>
+        <tr>
+              <td>{totalItems}</td>
+              <td>{totalCost}</td>
+            </tr>
+          
+             
+        </tbody>
+        <thead>
+          <tr>
+            <th className="ordertableRow">Location </th>
+            <th>Status </th>
+            
+        
+          </tr>
+        </thead>
+        <tbody>
+        <tr>
+              <td>{deliveryOption}</td>
+              <td>{'Pending'}</td>
+            </tr>
+          
+             
+        </tbody>
+      </table>
+      <select
+              name="payment"
+              className="paymentMethod"
+              onChange={handleOptionChange}
+            >
+              <option value="0" selected="selected">
+                Select your Location/Address
+              </option>
+              <option value="Mpesa">Mpesa</option>
+              <option value="Paypal">Paypal</option>
+              <option value="Bitcoin">Bitcoin</option>
+              <option value="Cash">Cash</option>
+              <option value="Check">Check</option>
+            </select> <br />
+
+            <button>Confirm Order</button>
+</div>
+    </div>
   );
 };
 
-export default checkoutform;
+export default Checkoutform;

@@ -21,6 +21,12 @@ class ApplicationController < ActionController::API
               }, status: status_code
      end
    end
+   def app_response(message: 'success', status: 200, data: nil)
+    render json: {
+        message: message,
+        data: data
+    }, status: status
+end
 
   def uid
     jwt_data = decode_data(request.headers["token"])
@@ -37,6 +43,12 @@ class ApplicationController < ActionController::API
     JWT.decode(token, ENV['JWT_SECRET'], true, { algorithm: 'HS256' })
   end
 
+      # store user id in session
+      def save_user(id)
+        session[:uid] = id
+        session[:expiry] = 6.hours.from_now
+    end
+    
   def authorize
     auth_headers = request.headers['Authorization']
     if !auth_headers
@@ -58,6 +70,11 @@ class ApplicationController < ActionController::API
          true
        end
    end
+   def current_user
+    # Retrieve the current user from the session or database
+    # based on a unique identifier such as a session token or user id
+    @current_user ||= User.find_by(id: @uid)
+  end
 
 
   def not_found(message: "Not found")

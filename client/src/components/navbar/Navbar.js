@@ -66,6 +66,11 @@ export default function Navbar() {
             cart
           </Link>
         </li>
+        <li className="nav-item">
+          <Link to="/details" className="nav-link">
+            Details
+          </Link>
+        </li>
       </ul>
       <li className="font">
         <Link to="#" className="nav-link" onClick={toggleCartDropdown}>

@@ -1,24 +1,31 @@
 import { useState } from "react";
 import '../main/SignUp.css'
+import { useDispatch } from 'react-redux';
+import { loginAccount } from '../../features/users/userLogin';
+import { useNavigate } from 'react-router-dom'
+import { addUser } from '../../features/users/slice';
 
 const SignUp = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setName] = useState("");
+  // const [email, setEmail] = useState("");
+  const [signupEmail, setSignupEmail] = useState("");
+  const [signuPassword, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [signInEmail, setSignInEmail] = useState("");
   const [signInPassword, setSignInPassword] = useState("");
-
-  const handleSignUpSubmit = (event) => {
-    event.preventDefault();
-    // Handle form submission for sign-up
-  };
+  const navigate =   useNavigate()
+  const dispatch = useDispatch();
 
   const handleSignInSubmit = (event) => {
     event.preventDefault();
-    // Handle form submission for sign-in
+    dispatch(loginAccount({ email: signInEmail, password: signInPassword }));
+    navigate('/')
   };
-
+  const handleSignUpSubmit = (event) => {
+    event.preventDefault();
+    dispatch(addUser({ username: username, email: signupEmail, password: signuPassword }));
+    navigate('/signup')
+  };
   return (
     <div className="signup">
       <div className="login">
@@ -30,36 +37,33 @@ const SignUp = () => {
             <label htmlFor="name">Name:</label>
             <input
               type="text"
-              id="name"
-              value={name}
+              id="username"
+              value={username}
               onChange={(e) => setName(e.target.value)}
               required
             />
           </div>
-
           <div className="group">
             <label htmlFor="email">Email:</label>
             <input
               type="email"
               id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={signupEmail}
+              onChange={(e) => setSignupEmail(e.target.value)}
               required
             />
           </div>
-
           <div className="group">
             <label htmlFor="password">Password:</label>
             <input
               type="password"
               id="password"
-              value={password}
+              value={signuPassword}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
           </div>
-
-          <div className="group">
+          {/* <div className="group">
             <label htmlFor="confirmPassword">Confirm Password:</label>
             <input
               type="password"
@@ -68,13 +72,11 @@ const SignUp = () => {
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
             />
-          </div>
-
+          </div> */}
           <button className="btn" type="submit">Sign Up</button>
         </form>
         </div>
         </div>
-
         <div className="sign-In">
           <h3>Already have an account?</h3>
           <h4>Sign in with your email and password</h4>
@@ -89,7 +91,6 @@ const SignUp = () => {
                 required
               />
             </div>
-
             <div className="group">
               <label htmlFor="signInPassword">Password:</label>
               <input
@@ -100,7 +101,6 @@ const SignUp = () => {
                 required
               />
             </div>
-
             <button className="btnn" type="submit">Sign In</button>
             <button className="bt" type="submit">Reset Password</button>
           </form>
@@ -108,5 +108,6 @@ const SignUp = () => {
     </div>
   );
 };
-
 export default SignUp;
+
+
