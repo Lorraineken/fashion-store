@@ -1,6 +1,6 @@
 # Fashion Store API
 
-This project is based on an API that allows users to view and purchase products within a fashion store.The api is built with ruby on rails.
+This project is based on an API that allows users to view and purchase products within a fashion store.The api is built with ruby on rails and working with postgreSQL database.
 
 It's is a server side application which contains categories, products, orders, reviews, users, roles and payments. Access to various endpoints are determined based on the users' roles whereby the main roles are customer and Admin.
 
@@ -12,8 +12,24 @@ The relationship of the models is shown on the ERD model below
 
 The routes available to all users include :
 
-- GET /products
-- GET /
+- GET /products and /products/id
+- GET /categories and /categories/id
+- GET /reviews and reviews/id
+- POST /create_account
+- POST /login_account
+
+The routes for logged-in users i.e. customers include :
+
+- All orders and payments routes
+- GET and PATCH /users/id
+- POST, PATCH and DELETE /reviews
+
+The Admin user has control over the following routes : 
+
+- All UserRoles routes
+- All roles routes 
+- POST ,PATCH and DELETE /products
+- POST , PATCH and DELETE /categories
 
 
 
