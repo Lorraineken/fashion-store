@@ -96,7 +96,7 @@ Fashion store is an online website that is a budget-friendly clothing store that
 -Emmanuel()
 
 
--Sheema Shamil()
+-Sheema Shamil(`https://github.com/sheema-shamil`)
 
 
 -Shuaib Shaban()
