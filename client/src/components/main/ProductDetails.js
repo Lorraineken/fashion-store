@@ -2,10 +2,12 @@ import React from 'react'
 import './productDetails.css'
 import { useSelector } from 'react-redux'
 
+
 function ProductDetails() {
     const productDetail = useSelector((state)=>state.cart.productDetail)
     console.log(productDetail)
   return (
+    <>
     <div> 
         <div class="containers">
     <div class="single-product">
@@ -24,11 +26,7 @@ function ProductDetails() {
                 </div>
             </div>
             <div class="col-6">
-                <div class="breadcrumb">
-                    <span><a href="#">Home</a></span>
-                    <span><a href="#">Product</a></span>
-                    <span class="active">T-shirt</span>
-                </div>
+             
 
                 <div class="product">
                     <div class="product-title">
@@ -43,7 +41,7 @@ function ProductDetails() {
                         <span class="review">( {productDetail.reviews.length} reviews )</span>
                     </div>
                     <div class="product-price">
-                        <span class="offer-price">{productDetail.price - 10}</span>
+                        <span class="offer-price">{productDetail.price - 5}</span>
                         <span class="sale-price">{productDetail.price}</span>
                     </div>
 
@@ -85,9 +83,8 @@ function ProductDetails() {
                     <span class="divider"></span>
 
                     <div class="product-btn-group">
-                        <div class="button buy-now"><i class='bx bxs-zap' ></i> Buy Now</div>
+                       
                         <div class="button add-cart"><i class='bx bxs-cart' ></i> Add to Cart</div>
-                        <div class="button heart"><i class='bx bxs-heart' ></i> Add to Wishlist</div>
                     </div>
                 </div>
             </div>
@@ -95,6 +92,7 @@ function ProductDetails() {
     </div>
 </div>
 </div>
+</>
   )
 }
 

@@ -6,21 +6,21 @@ class ApplicationController < ActionController::API
 
   wrap_parameters format: []
 
-   def app_response(status_code: 200, message: "Success", body: nil, serializer: nil)
-     if serializer
-       render json: {
-                status: status_code,
-                message: message,
-                body: ActiveModelSerializers::SerializableResource.new(body, serializer: serializer),
-              }, status: status_code
-     else
-       render json: {
-                status: status_code,
-                message: message,
-                body: body,
-              }, status: status_code
-     end
-   end
+  #  def app_response(status_code: 200, message: "Success", body: nil, serializer: nil)
+  #    if serializer
+  #      render json: {
+  #               status: status_code,
+  #               message: message,
+  #               body: ActiveModelSerializers::SerializableResource.new(body, serializer: serializer),
+  #             }, status: status_code
+  #    else
+  #      render json: {
+  #               status: status_code,
+  #               message: message,
+  #               body: body,
+  #             }, status: status_code
+  #    end
+  #  end
    def app_response(message: 'success', status: 200, data: nil)
     render json: {
         message: message,
@@ -70,11 +70,11 @@ end
          true
        end
    end
-   def current_user
-    # Retrieve the current user from the session or database
-    # based on a unique identifier such as a session token or user id
-    @current_user ||= User.find_by(id: @uid)
-  end
+  #  def current_user
+  #   # Retrieve the current user from the session or database
+  #   # based on a unique identifier such as a session token or user id
+  #   @current_user ||= User.find_by(id: @uid)
+  # end
 
 
   def not_found(message: "Not found")

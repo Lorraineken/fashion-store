@@ -28,13 +28,13 @@ end
      
      render json: {message: "Log in success", body: {user: user,token:token}}
     else
-      app_response(status_code: 401, message: "Invalid username or password")
+      app_response(status: 401, message: "Invalid username or password")
     end
   end
 
   def logout_account
-    @uid = null
-    app_response(status_code: 200, message: "Log out successfully")
+    @uid = nil
+    app_response(status: 200, message: "Log out successfully")
   end
   
   # Render 404 page for unmapped routes

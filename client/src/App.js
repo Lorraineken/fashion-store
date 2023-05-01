@@ -1,8 +1,8 @@
 
 import React from 'react'
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import './App.css'
-import Home from '../src/components/main/Home';
+// import Home from '../src/components/main/Home';
 // import Categories from '../src/components/main/Categories';
 // import ContactUs from '../src/components/main/ContactUs';
 import Products from '../src/components/main/Products';
@@ -16,8 +16,10 @@ import Sidebar from './components/admin/Sidebar';
 // import UserReview from './components/admin/UserReview';
 import Cart from './components/main/Cart';
 import Checkoutform from './components/main/checkoutform';
-// import Footer from './components/main/footer';
+import SampleHomePage from './components/main/SampleHomePage';
 import ProductDetails from './components/main/ProductDetails';
+// import Footer from './components/main/footer';
+
 
 
 const App = () => {
@@ -25,17 +27,17 @@ const App = () => {
     <div>
 
         <BrowserRouter>
-        <Navbar />
+        <ConditionalNavbar />
         <Routes>
-            <Route path="/" element={<Home />} />
+            {/* <Route path="/" element={<Home />} /> */}
             <Route path="/products" element={<Products />} />
             {/* <Route path="/categories" element={<Categories />} /> */}
             {/* <Route path="/contactus" element={<ContactUs />} /> */}
             <Route path="/signup" element={<SignUp />} />
             <Route path="/carticon" element={<CartIcon />} />
             <Route path="/table" element={<ProductTable/>} />
-            * <Route path="/details" element={<ProductDetails/>} /> 
-            {/* <Route path="/orderstable" element={<OrdersTable/>} /> */}
+            <Route path="/details" element={<ProductDetails/>} />
+            <Route path="/" element={<SampleHomePage/>} />
             <Route path="/sidebar" element={<Sidebar/>} />
             <Route path="/cart" element={<Cart/>} />
             <Route path="/checkoutform" element={<Checkoutform/>} />
@@ -45,6 +47,14 @@ const App = () => {
         </BrowserRouter>
     </div>
   )
+}
+function ConditionalNavbar() {
+  
+  const location = useLocation();
+  if (location.pathname === '/products') {
+    return null;
+  }
+  return <Navbar />;
 }
 
 export default App

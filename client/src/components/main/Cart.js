@@ -87,7 +87,7 @@ function handleCheckout(){
 
 }
   if (cartData.length === 0) {
-    return <div className="cart-header">Your cart is empty</div>;
+    return <div className="cart-header" style={{color:'black'}}>Your cart is empty</div>;
   }
   return (
     <div>
@@ -114,7 +114,7 @@ function handleCheckout(){
         {cartData.map((product) => (
           <div class="basket-product">
             <div class="item">
-              <div class="product-image">
+              <div class="product-image-cart">
                 <img
                   clasName="image"
                   src={product.image_url}
@@ -174,7 +174,7 @@ function handleCheckout(){
               class="summary-delivery-selection"
               onChange={handleDeliveryOptionChange}
             >
-              <option value="0" selected="selected">
+              <option value="0">
                 Select your Location/Address
               </option>
               <option value="Nairobi">Nairobi</option>
