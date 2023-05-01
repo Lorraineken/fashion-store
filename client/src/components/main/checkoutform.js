@@ -4,9 +4,11 @@ import Image from "../assets/card_img.png";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { clearCartState } from "../../features/cart/slice";
-import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 
 const Checkoutform = () => {
+  const redirect = useNavigate()
   const dispatch = useDispatch();
   const items = useSelector((state) => state.cart.items);
   const deliveryOption = useSelector((state) => state.cart.deliveryOption);
@@ -25,8 +27,11 @@ const Checkoutform = () => {
     status:'pending',
   
   };
+  function handleBill(){
+    redirect('/cart')
+  }
   function handleClear() {
-    fetch('http://localhost:3000/make_order', {
+    fetch('https://fashion-store-deployed.onrender.com/make_order', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -123,7 +128,7 @@ const Checkoutform = () => {
             </div>
           </div>
 
-          <input type="submit" value="proceed to checkout" class="submit-btn" />
+          <input type="submit" value="confirmBill" class="submit-btn" onClick={handleBill} />
         </form>
       </div>
     </div>

@@ -27,6 +27,16 @@ console.log(orders)
             ...prevData.role,
             [name.substring(5)]: value,
           },
+          role_id: prevData.role.id
+        };
+      } else if (name.startsWith("user.")) {
+        return {
+          ...prevData,
+          user: {
+            ...prevData.user,
+            [name.substring(5)]: value,
+          },
+          user_id: prevData.user.id
         };
       } else {
         return {
@@ -37,28 +47,24 @@ console.log(orders)
     });
   };
   
+  
+  
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     if (editing) {
       const data = {
         id: formData.id,
-        user: formData.user,
-        role: {
-          ...formData.role,
-          name: formData.name // Use the new name field in the formData object
-        }
+        user_id: formData.user_id,
+        role_id: formData.role_id
       };
   
       dispatch(updateOrder(data));
       setEditing(false);
     } else {
       const data = {
-        user: formData.user,
-        role: {
-          ...formData.role,
-          name: formData.name // Use the new name field in the formData object
-        }
+        user_id: formData.user_id,
+        role_id: formData.role_id
       };
   
      dispatch(addOrder(data));
@@ -67,6 +73,9 @@ console.log(orders)
     setFormData({});
     setModal(false);
   };
+  
+  
+  
   
 
   const handleDeleteOrder = (id) => {
@@ -82,12 +91,12 @@ console.log(orders)
         role: {
           ...order.role
         },
-        name: order.role.name 
       });
       setEditing(true);
       setModal(true);
     }
   };
+  
   
 
   return (
@@ -129,12 +138,20 @@ console.log(orders)
         <div className="modal">
         <div className="userForm">
       <form onSubmit={handleFormSubmit}>
-      <input
+        <label htmlFor="">user</label>
+        <input
   type="text"
-  name="role.name"
-  value={formData.role.name || ""}
+  name="user_id"
+  value={formData.user_id || ""}
   onChange={handleFormChange}
 />
+<input
+  type="text"
+  name="role_id"
+  value={formData.role_id || ""}
+  onChange={handleFormChange}
+/>
+
 
     
         <button type="submit">{editing ? "Update Order" : "Add Order"}</button>
