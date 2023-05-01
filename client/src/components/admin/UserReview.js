@@ -17,7 +17,7 @@ console.log(allReviews)
   }, [dispatch]);
   console.log(allReviews)
   useEffect(() => {
-    fetch('http://localhost:3000/reviews')
+    fetch('https://fashion-store-deployed.onrender.com/reviews')
       .then(response => response.json())
       .then(data => {
         setAllReviews(data)
