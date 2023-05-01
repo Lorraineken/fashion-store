@@ -21,27 +21,27 @@ const Sidebar = () => {
   
   useEffect(() => {
     // Create style element
-    const style = document.createElement('style');
-    style.innerHTML = `
-      body::before {
-        content: "";
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
+    // const style = document.createElement('style');
+    // style.innerHTML = `
+    //   body::before {
+    //     content: "";
+    //     position: fixed;
+    //     top: 0;
+    //     left: 0;
+    //     width: 100%;
+    //     height: 100%;
+    //     z-index: -1;
         
-      }
-    `;
+    //   }
+    // `;
 
     // Append style element to head
-    document.head.appendChild(style);
+    // document.head.appendChild(style);
 
     // Remove style element when component unmounts
-    return () => {
-      document.head.removeChild(style);
-    };
+    // return () => {
+    //   document.head.removeChild(style);
+    // };
   }, []);
     const SidebarData = [
         {
