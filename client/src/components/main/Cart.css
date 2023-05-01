@@ -6,7 +6,7 @@
     background-color: #f9f9f9;
     border-radius: 5px;
     box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.3);
-    margin-top: 3%;
+    margin-top: 6%;
   }
   
   .basket-module {
@@ -46,7 +46,7 @@
     height: 10%;
   }
   
-  .product-image img {
+  .product-image-cart img {
     width: 70%; 
     height: auto; 
   }

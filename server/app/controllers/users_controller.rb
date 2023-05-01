@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :validation_error
 
    def index
-    user = User.find_by(id: @uid)
+    # user = User.find_by(id: @uid)
     user =User.all 
       if check_admin == true
         render json: user, status: :ok
@@ -15,12 +15,12 @@ class UsersController < ApplicationController
    end
 
    def show 
-    user = User.find(session[:user_id])
+    user = User.find_by(id: @uid)
     render json: user, status: :ok
    end
 
    def update 
-    user =User.find(params[:id])
+    user = User.find_by(id: @uid)
     user.update!(user_params)
     render json: user, status: :accepted
    end

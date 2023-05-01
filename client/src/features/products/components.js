@@ -58,8 +58,8 @@ function ProductTable() {
          <table>
         <thead>
           <tr>
+            <th>Image</th>
             <th>Name</th>
-            <th>Description</th>
             <th>Price</th>
             <th>Actions</th>
           </tr>
@@ -67,8 +67,8 @@ function ProductTable() {
         <tbody>
           {products.map((product) => (
             <tr key={product.id}>
+              <td><img src={product.image_url}alt="product" /> </td>
               <td>{product.name}</td>
-              <td>{product.description}</td>
               <td>{product.price}</td>
               <td>
                 <button onClick={() => handleDeleteProduct(product.id)} className="fas fa-trash-alt"></button>
@@ -86,7 +86,9 @@ function ProductTable() {
        <div className="userForm">
       <h1> Products Table</h1>
       <form onSubmit={handleFormSubmit}>
-        <label htmlFor="">image</label>
+      <label htmlFor="">Image</label>
+        <input type="text" name="image_url" value={formData.image_url || ''} onChange={handleFormChange} />
+        <label htmlFor="">Name</label>
         <input type="text" name="name" value={formData.name || ''} onChange={handleFormChange} />
         <label htmlFor="">Description</label>
         <textarea type="text" name="description" value={formData.description || ''} onChange={handleFormChange} />

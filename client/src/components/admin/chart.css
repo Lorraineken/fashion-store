@@ -1,9 +1,9 @@
  
 
-.chart {
-    width: 60%;
-    height: 300px;
+.charts {
+  
+    height: 10px;
     display: flex;
-    margin-left: 20%;
-    margin-top: 10%;
+    margin-left: 10%;
+    margin-top: 5%;
   }

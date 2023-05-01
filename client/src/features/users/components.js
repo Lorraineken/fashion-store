@@ -4,10 +4,11 @@ import { fetchUsers, addUser, updateUser, deleteUser } from "./slice";
 import './userTable.css'
 function UserTable() {
   const dispatch = useDispatch();
-  const users = useSelector((state) => state.users.list);
+  const users = useSelector((state) => state.users.users);
   const [formData, setFormData] = useState({});
   const [editing, setEditing] = useState(false);
   const [modal, setModal] = useState(false)
+  console.log(users)
 
   useEffect(() => {
     dispatch(fetchUsers());
@@ -72,7 +73,7 @@ function UserTable() {
           {users.map((user) => (
             <tr key={user.id}>
               <td>{user.id}</td>
-              <td>{user.name}</td>
+              <td>{user.username}</td>
               <td>{user.email}</td>
               <td>{user.password}</td>
               <td className="table-action-btn">

@@ -7,6 +7,7 @@ export const fetchReviews = createAsyncThunk(
     if (!response.ok) {
       throw new Error("Failed to fetch reviews");
     }
+    console.log(response)
     return response.json();
   }
 );
@@ -73,6 +74,7 @@ export const reviewSlice = createSlice({
       .addCase(fetchReviews.fulfilled, (state, action) => {
         state.status = "success";
         state.list = action.payload;
+        console.log(state.list)
       })
   
       .addCase(addReview.fulfilled, (state, action) => {
