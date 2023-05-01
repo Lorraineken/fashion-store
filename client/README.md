@@ -87,7 +87,7 @@ Fashion store is an online website that is a budget-friendly clothing store that
 
 ## Authors
 
--Lorraine Kupa()
+-Lorraine Kupa(`https://github.com/Lorraineken`)
 
 
 -Mathew Mageto()
