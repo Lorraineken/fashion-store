@@ -19,8 +19,7 @@ import UserReview from './UserReview';
 
 const Sidebar = () => {
   
-  useEffect(() => {
-  }, []);
+
     const SidebarData = [
         {
             icon:UilEstate,
