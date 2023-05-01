@@ -72,11 +72,20 @@
 
   display: none;
 }
-.top i:hover{
+.top i:hover::after {
+  content: "More";
+  position: absolute;
+  top: -80%;
+  left: 100;
+  color: black;
+  background: white;
+  font-size: small;
+  padding: 5px;
   cursor: pointer;
 }
 .top:hover i{
   display: block;
+  cursor: pointer;
 }
 
 .bottom:hover {
