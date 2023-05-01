@@ -13,6 +13,8 @@ export default function Navbar({setProductDetailss}) {
   const dispatch = useDispatch()
   const userLogin = useSelector((state) => state.user.user);
   const usersSignup = useSelector((state) => state.userSignup.users);
+  console.log(userLogin)
+  console.log(usersSignup)
 const redirect  = useNavigate()
   const toggleCartDropdown = () => {
     setShowCartDropdown(!showCartDropdown);
@@ -48,49 +50,31 @@ dispatch(logoutUser())
     <>
   {userLogin || usersSignup ? (  
   <nav className="navbar">
-  <div className="app_name"> <Link to="/sampleHome" className="nav-link" >
+  <div className="app_name"> <Link to="/" className="nav-link" >
        <span>Fashionnova</span>
       </Link></div>
   <ul className="navbar-nav">
   <li className="nav-item">
      
     </li>
-    <li className="nav-item">
-      <Link to="/" className="nav-link" >
-        Home
-      </Link>
-    </li>
+ 
     <li className="nav-item">
       <Link to="/Products" className="nav-link" onClick={handleLinkClick}>
         Products
       </Link>
     </li>
-    <li className="nav-item">
-      <ScrollLink
-        to="about-us"
-        spy={true}
-        smooth={true}
-        offset={-70}
-        duration={500}
-        className="nav-link"
-        onClick={scrollToAboutUs}
-      >
-        AboutUs
-      </ScrollLink>
-    </li>
-    <li className="nav-item">
-      <Link to="/signup" className="nav-link" >
-        SignUp
-      </Link>
-    </li>
-    <li className="nav-item">
-      <Link to="/sidebar" className="nav-link" >
-        sidebar
-      </Link>
-    </li>
+ 
+    {/* Conditionally rendered link for admin users */}
+    {userLogin && userLogin.user.username === "admin" && (
+            <li className="nav-item">
+              <Link to="/sidebar" className="nav-link">
+                Admin
+              </Link>
+            </li>
+          )}
     <li className="nav-item">
     <li className="font">
-    <Link to="cart" className="nav-link">
+    <Link to="/cart" className="nav-link">
       <i className="fa fa-shopping-bag" aria-hidden="true"></i>
     </Link>
     {showCartDropdown && (
@@ -109,7 +93,7 @@ dispatch(logoutUser())
 
 </nav>):(  
 <nav className="navbar">
-<div className="app_name"> <Link to="/sampleHome" className="nav-link" >
+<div className="app_name"> <Link to="/" className="nav-link" >
      <span>Fashionnova</span>
     </Link></div>
 <ul className="navbar-nav">
@@ -147,7 +131,7 @@ dispatch(logoutUser())
   </li> */}
   <li className="nav-item">
   <li className="font">
-  <Link to="cart" className="nav-link">
+  <Link to="/cart" className="nav-link">
     <i className="fa fa-shopping-bag" aria-hidden="true"></i>
   </Link>
   {showCartDropdown && (

@@ -2,7 +2,7 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import './App.css'
-import Home from '../src/components/main/Home';
+// import Home from '../src/components/main/Home';
 // import Categories from '../src/components/main/Categories';
 // import ContactUs from '../src/components/main/ContactUs';
 import Products from '../src/components/main/Products';
@@ -29,7 +29,7 @@ const App = () => {
         <BrowserRouter>
         <ConditionalNavbar />
         <Routes>
-            <Route path="/" element={<Home />} />
+            {/* <Route path="/" element={<Home />} /> */}
             <Route path="/products" element={<Products />} />
             {/* <Route path="/categories" element={<Categories />} /> */}
             {/* <Route path="/contactus" element={<ContactUs />} /> */}
@@ -37,7 +37,7 @@ const App = () => {
             <Route path="/carticon" element={<CartIcon />} />
             <Route path="/table" element={<ProductTable/>} />
             <Route path="/details" element={<ProductDetails/>} />
-            <Route path="/sampleHome" element={<SampleHomePage/>} />
+            <Route path="/" element={<SampleHomePage/>} />
             <Route path="/sidebar" element={<Sidebar/>} />
             <Route path="/cart" element={<Cart/>} />
             <Route path="/checkoutform" element={<Checkoutform/>} />

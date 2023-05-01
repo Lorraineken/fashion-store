@@ -19,7 +19,7 @@ function SampleHomePage() {
         <div className="home_text_content" style={{color:'white'}}>
             <div className='page_text'>
                 <h1 >Fashionnova !</h1>
-                <p>Your ultimate destination for all things trendy.</p>
+                <p>Your ultimate destination for all things trendy.</p> <br />
                 <button onClick={handleClick}>shop</button>
             </div>
         </div>

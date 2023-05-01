@@ -87,7 +87,7 @@ function handleCheckout(){
 
 }
   if (cartData.length === 0) {
-    return <div className="cart-header">Your cart is empty</div>;
+    return <div className="cart-header" style={{color:'black'}}>Your cart is empty</div>;
   }
   return (
     <div>
