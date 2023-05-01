@@ -2,9 +2,12 @@ import React from "react";
 import "../main/checkoutform.css";
 import Image from "../assets/card_img.png";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { clearCartState } from "../../features/cart/slice";
+import { redirect } from "react-router-dom";
 
 const Checkoutform = () => {
-  
+  const dispatch = useDispatch();
   const items = useSelector((state) => state.cart.items);
   const deliveryOption = useSelector((state) => state.cart.deliveryOption);
   const totalCost = useSelector((state) => state.cart.sumCost);
@@ -14,6 +17,39 @@ const Checkoutform = () => {
 
   function handleOptionChange(){
 
+  }
+  const data = {
+    product_id: items,
+    address: deliveryOption,
+    total_amount: totalCost,
+    status:'pending',
+  
+  };
+  function handleClear() {
+    fetch('http://localhost:3000/make_order', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => {
+      if (response.ok) {
+        console.log("Order placed successfully!");
+        dispatch(clearCartState());
+        
+        // Clear cart here
+      } else {
+        console.log("Failed to place order.");
+      }
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  
+  }
+  function handleShop(){
+    redirect('/products')
   }
   return (
     <div className="checkoutFormContainer">
@@ -156,7 +192,7 @@ const Checkoutform = () => {
               onChange={handleOptionChange}
             >
               <option value="0" selected="selected">
-                Select your Location/Address
+                Select payment Method
               </option>
               <option value="Mpesa">Mpesa</option>
               <option value="Paypal">Paypal</option>
@@ -164,8 +200,8 @@ const Checkoutform = () => {
               <option value="Cash">Cash</option>
               <option value="Check">Check</option>
             </select> <br />
-
-            <button>Confirm Order</button>
+{items.length > 0?(<button onClick={handleClear} className="button_order_check">Confirm Order</button>):(<button onClick={handleShop} className="button_order_check">Shop More</button>)}
+            
 </div>
     </div>
   );

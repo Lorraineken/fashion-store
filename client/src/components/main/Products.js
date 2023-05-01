@@ -57,7 +57,7 @@ function Products() {
   }
  // <Navbar setProductDetailss={setProductDetailss} />
 
- const filteredProducts = selectedCategory && selectedCategory !== 'products'
+ const filteredProducts = selectedCategory && selectedCategory !== 'All products'
  ? products.filter(product =>
      product.categories.some(category => category.name === selectedCategory)
    )
@@ -70,7 +70,7 @@ function Products() {
     );
   }
   const filterProductsCat= [
-    'products',
+    'All products',
     'Shirts',
     'Pants',
     'Shoes',

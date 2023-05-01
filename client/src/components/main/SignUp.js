@@ -27,13 +27,13 @@ const SignUp = () => {
 
   useEffect(() => {
     if (userLogin) {
-      navigate('/');
+      navigate('/products');
     }
   }, [userLogin, navigate]);
 
   useEffect(() => {
     if (usersSignup) {
-      redirect('/')
+      redirect('/products')
     }
   }, [usersSignup, navigate]);
 

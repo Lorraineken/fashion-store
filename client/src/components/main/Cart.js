@@ -16,6 +16,8 @@ function Cart() {
   const redirect = useNavigate()
   const cartData = useSelector((state) => state.cart.items);
   const deliveryOption = useSelector((state) => state.cart.deliveryOption);
+  const userLogin = useSelector((state) => state.user.user);
+  const usersSignup = useSelector((state) => state.userSignup.users);
   console.log(deliveryOption)
   console.log(cartData);
   const dispatch = useDispatch();
@@ -81,9 +83,14 @@ function Cart() {
   };
   //const [totalCost, setTotalCost] = useState(getTotalCost());
 function handleCheckout(){
-  dispatch(setTotalItems(getTotalItems()))
-  dispatch(dispatch(setSumCost(getSubtotal().toFixed(2))));
-  redirect('/checkoutform')
+  if(userLogin || usersSignup){
+    dispatch(setTotalItems(getTotalItems()))
+    dispatch(dispatch(setSumCost(getSubtotal().toFixed(2))));
+    redirect('/checkoutform')
+  }else{
+    redirect('/signup')
+  }
+ 
 
 }
   if (cartData.length === 0) {
@@ -105,7 +112,7 @@ function handleCheckout(){
         </div> */}
         <div class="basket-labels">
           <ul className="list">
-            <li class="item item-heading">Item</li>
+            <li class="item item-heading">Prod</li>
             <li class="price">Price</li>
             <li class="quantity">Quantity</li>
             <li class="subtotal">Subtotal</li>
@@ -146,7 +153,7 @@ function handleCheckout(){
               />
             </div>
             <div class="subtotal">{product.price * product.quantity}</div>
-            <div class="remove">
+            <div className="remove_btnn">
               <button onClick={() => handleRemove(product)}>Remove</button>
             </div>
           </div>

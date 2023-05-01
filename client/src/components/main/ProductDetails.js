@@ -90,7 +90,7 @@ function ProductDetails() {
 
                     <div class="product-btn-group">
                        
-                        <div class="button add-cart"><i class='bx bxs-cart' ></i> Add to Cart</div>
+                        {/* <div class="button add-cart"><i class='bx bxs-cart' ></i> Add to Cart</div> */}
                     </div>
                 </div>
             </div>

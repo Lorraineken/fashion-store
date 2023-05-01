@@ -7,12 +7,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logoutUser } from "../../features/users/logoutSlice";
 
 export default function Navbar({setProductDetailss}) {
+  const items = useSelector((state) => state.cart.items);
   console.log('setProductDetailss:', setProductDetailss);
   const [showCartDropdown, setShowCartDropdown] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const dispatch = useDispatch()
   const userLogin = useSelector((state) => state.user.user);
   const usersSignup = useSelector((state) => state.userSignup.users);
+  
   console.log(userLogin)
   console.log(usersSignup)
 const redirect  = useNavigate()
@@ -74,8 +76,8 @@ dispatch(logoutUser())
           )}
     <li className="nav-item">
     <li className="font">
-    <Link to="/cart" className="nav-link">
-      <i className="fa fa-shopping-bag" aria-hidden="true"></i>
+    <Link to="/cart" className="secure_bag nav-link">
+      <i className="sum_contain fa fa-shopping-bag" aria-hidden="true"><span className="num">{items.length}</span></i>
     </Link>
     {showCartDropdown && (
       <CartDropdown
@@ -87,7 +89,7 @@ dispatch(logoutUser())
   </li>
     </li>
     
-  <button  onClick={handleLogout}> logout</button>
+  <button  onClick={handleLogout} id="logout"> logout</button>
     
   </ul>
 
