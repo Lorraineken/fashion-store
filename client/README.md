@@ -78,7 +78,8 @@ Fashion store is an online website that is a budget-friendly clothing store that
 - Then navigate to  to view the website
 
 - The front end is deployed in the below link:
-`https://fashion-store-beta.vercel.app/`
+
+ `https://fashion-store-beta.vercel.app/`
 
 - This is how the website looks when you click the link:
 
