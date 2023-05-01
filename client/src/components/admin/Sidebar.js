@@ -31,7 +31,7 @@ const Sidebar = () => {
         width: 100%;
         height: 100%;
         z-index: -1;
-    
+        
       }
     `;
 
@@ -46,20 +46,20 @@ const Sidebar = () => {
     const SidebarData = [
         {
             icon:UilEstate,
-            heading:'DashBoard'
+            heading:'Products'
         },
-        // {
-        //     icon:UilClipboardAlt,
-        //     heading:'Orders',
-        // },
+        {
+            icon:UilClipboardAlt,
+            heading:'Roles',
+        },
         {
             icon:UilUsersAlt,
             heading:'Customers',
         },
-        {
-            icon:UilPackage,
-            heading:'Products',
-        },
+        // {
+        //     icon:UilPackage,
+        //     heading:'Products',
+        // },
         {
             icon:UilChart,
             heading:'Analytics'
@@ -103,10 +103,10 @@ const Sidebar = () => {
       </div>
     </div>
     <div className='userTable'>
-      {selected === 1 && <UserTable /> }
-      {selected === 2 && <ProductTable /> }
-      {/* {selected === 1 && <OrdersTable /> } */}
-      {selected === 0 && <div><UserReview /> </div>}
+      {selected === 2 && <UserTable /> }
+     
+      {selected === 1 && <OrdersTable /> }
+      {selected === 0 && <ProductTable /> }
       
     </div>
     </div>

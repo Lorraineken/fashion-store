@@ -19,6 +19,7 @@ import Checkoutform from './components/main/checkoutform';
 import SampleHomePage from './components/main/SampleHomePage';
 import ProductDetails from './components/main/ProductDetails';
 // import Footer from './components/main/footer';
+import NotFound from './components/NotFound';
 
 
 
@@ -41,6 +42,7 @@ const App = () => {
             <Route path="/sidebar" element={<Sidebar/>} />
             <Route path="/cart" element={<Cart/>} />
             <Route path="/checkoutform" element={<Checkoutform/>} />
+            <Route path="*" element={<NotFound />} />
         </Routes>
         {/* <Footer /> */}
         {/* <CheckoutForm /> */}

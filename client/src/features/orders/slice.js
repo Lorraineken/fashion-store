@@ -14,7 +14,7 @@ export const fetchOrders = createAsyncThunk(
   "orders/fetchOrder",
   () => {
     const token = localStorage.getItem("token");
-    return fetch("http://localhost:5000/orders", {
+    return fetch("http://localhost:3000/user_roles", {
       headers: {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${token}`
@@ -32,7 +32,7 @@ export const fetchOrders = createAsyncThunk(
 export const addOrder = createAsyncThunk(
   "orders/addOrder",
   (order) => {
-    return fetch("http://localhost:5000/orders", {
+    return fetch("http://localhost:3000/user_roles", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(order),
@@ -48,7 +48,7 @@ export const addOrder = createAsyncThunk(
 export const updateOrder = createAsyncThunk(
   "orders/updateOrder",
   (order) => {
-    return fetch(`http://localhost:5000/orders/${order.id}`, {
+    return fetch(`http://localhost:3000/user_roles/${order.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(order),
@@ -64,7 +64,7 @@ export const updateOrder = createAsyncThunk(
 export const deleteOrder = createAsyncThunk(
   "orders/deleteOrder",
   (id) => {
-    return fetch(`http://localhost:5000/orders/${id}`, {
+    return fetch(`http://localhost:3000/user_roles/${id}`, {
       method: "DELETE",
     }).then((res) => {
       if (!res.ok) {
