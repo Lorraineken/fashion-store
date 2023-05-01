@@ -69,7 +69,7 @@ function ProductDetails() {
                         </div>
                     </div>
                     <div class="product-color">
-                        <h4>Color</h4>
+                        <h4>Colors</h4>
                         <div class="color-layout">
                             <input type="radio" name="color"  value="black" class="color-input"/>
                             <label for="black" class="black"></label>
@@ -78,6 +78,12 @@ function ProductDetails() {
 
                             <input type="radio" name="color"  value="blue" class="color-input"/>
                             <label for="blue" class="blue"></label>
+                            <input type="radio" name="color"  value="green" class="color-input"/>
+                            <label for="green" class="green"></label>
+                            <input type="radio" name="color"  value="brown" class="color-input"/>
+                            <label for="brown" class="brown"></label>
+                            <input type="radio" name="color"  value="grey" class="color-input"/>
+                            <label for="grey" class="grey"></label>
                         </div>
                     </div>
                     <span class="divider"></span>

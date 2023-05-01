@@ -53,8 +53,8 @@ function ProductTable() {
     <div className='admin_table'>
       <main className='main'> 
       <section className={modal ? "table-form" : "table_body"}>    
-      <input type="text" placeholder='search'/>
-      <button onClick={()=>setModal(true)}>Add Product</button>
+    
+      <button onClick={()=>setModal(true)} className='add_mor_products'>Add Product</button>
          <table>
         <thead>
           <tr>

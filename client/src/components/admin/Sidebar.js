@@ -31,11 +31,7 @@ const Sidebar = () => {
         width: 100%;
         height: 100%;
         z-index: -1;
-        background-image: url('https://images.pexels.com/photos/6408282/pexels-photo-6408282.jpeg?auto=compress&cs=tinysrgb&w=1600');
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        opacity: 0.4;
+    
       }
     `;
 

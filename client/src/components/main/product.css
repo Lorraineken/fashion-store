@@ -11,7 +11,8 @@
   flex: 1;
   padding-bottom: 100px;
   height: fit-content;
-  padding-top: 70px;
+  padding-top: 10px;
+  
 }
 
 
@@ -217,7 +218,7 @@ h3 {
 }
 .wrapper .inside {
   z-index: 9;
-  background: black;
+  background: rgb(0, 0, 0, 0.8);
   width: 140px;
   height: 140px;
   position: absolute;
