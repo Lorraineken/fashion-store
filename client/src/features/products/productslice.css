@@ -27,3 +27,11 @@ button {
   display: inline-block;
   font-size: 16px; */
 /* } */
+.add_mor_products{
+padding: 7px;
+background-color: rgb(61, 93, 57);
+
+}
+.add_mor_products:hover{
+  cursor: pointer;
+}

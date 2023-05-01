@@ -166,7 +166,7 @@ function Products() {
 
                           <span>
                             {" "}
-                            <h2>{product.title}</h2>
+                            <h3>{product.name.split(' ')[0]}</h3>
                             <p>Added to cart</p>
                           </span>
                         </div>
@@ -185,8 +185,12 @@ function Products() {
                     <i className="material-icons">details</i>
                   </div>
                   <div className="contents">
-                    <p>{`Details about ${product.title}`}</p>
-                    <p>{product.description}</p>
+                    <h4 style={{color:'white'}}>{`${product.name}`}</h4> <hr /> <br />
+                    
+                    <p>{product.description}</p> <br />
+
+                    <h3 style={{color:'white'}}>{`Quantity: ${product.quantity + Math.floor(Math.random() * 10)}`}</h3>
+
                   </div>
                 </div>
               </div>

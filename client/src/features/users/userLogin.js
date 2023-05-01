@@ -30,7 +30,7 @@ export const { setUser, setError } = userSlice.actions;
 export const loginAccount = (userData) => async (dispatch) => {
   
     
-     fetch('http://localhost:3000/login_account', {
+     fetch('https://fashion-store-deployed.onrender.com/login_account', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
