@@ -90,7 +90,7 @@ function handleCheckout(){
     return <div className="cart-header" style={{color:'black'}}>Your cart is empty</div>;
   }
   return (
-    <div>
+    <div className="cart__content__container">
       <div class="basket">
         {/* <div class="basket-module">
           <label for="promo-code">Enter a promotional code</label>
@@ -116,19 +116,19 @@ function handleCheckout(){
             <div class="item">
               <div class="product-image-cart">
                 <img
-                  clasName="image"
+                  className="image"
                   src={product.image_url}
                   alt="Placholder Image 2"
                   class="product-frame"
                 />
               </div>
               <div class="product-details">
-                <h1>
-                  <strong>
+                <h4>
+                  
                     <span class="item-quantity">{}</span> {product.name}
-                  </strong>{" "}
+                  {" "}
                 
-                </h1>
+                </h4>
                 <p>
                   {/* <strong>Navy, Size 18</strong> */}
                 </p>

@@ -234,6 +234,15 @@
 .product-color .color-layout .blue{
     background-color: blue;
 }
+.product-color .color-layout .green{
+    background-color: green;
+}
+.product-color .color-layout .brown{
+    background-color: brown;
+}
+.product-color .color-layout .grey{
+    background-color: grey;
+}
 
 .product-color .color-layout input[type="radio"]:checked + label{
     box-shadow: 0 3px 6px var(--shadow);
