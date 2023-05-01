@@ -1,24 +1,53 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import '../main/SignUp.css'
+import { useDispatch, useSelector } from 'react-redux';
+import { loginAccount } from '../../features/users/userLogin';
+import { useNavigate } from 'react-router-dom'
+import { addNewUser } from "../../features/users/createUserSlice";
 
 const SignUp = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+ 
+  const [username, setName] = useState("");
+  // const [email, setEmail] = useState("");
+  const [signupEmail, setSignupEmail] = useState("");
+  const [signuPassword, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [signInEmail, setSignInEmail] = useState("");
   const [signInPassword, setSignInPassword] = useState("");
+  const navigate =   useNavigate()
+  const redirect = useNavigate()
+  const dispatch = useDispatch();
+  const userLogin = useSelector((state) => state.user.user);
+  const usersSignup = useSelector((state) => state.userSignup.users);
+  const errorLogin = useSelector((state) => state.user.error);
+  const errorSignup = useSelector((state) => state.userSignup.error);
+  console.log(usersSignup)
+  console.log(userLogin)
+  console.log(errorSignup)
 
-  const handleSignUpSubmit = (event) => {
-    event.preventDefault();
-    // Handle form submission for sign-up
-  };
+  useEffect(() => {
+    if (userLogin) {
+      navigate('/');
+    }
+  }, [userLogin, navigate]);
+
+  useEffect(() => {
+    if (usersSignup) {
+      redirect('/')
+    }
+  }, [usersSignup, navigate]);
+
 
   const handleSignInSubmit = (event) => {
     event.preventDefault();
-    // Handle form submission for sign-in
+    dispatch(loginAccount({ email: signInEmail, password: signInPassword }));
+ 
   };
 
+  const handleSignUpSubmit = (event) => {
+    event.preventDefault();
+    dispatch(addNewUser({ username: username, email: signupEmail, password: signuPassword }));
+  };
   return (
     <div className="signup">
       <div className="login">
@@ -27,54 +56,40 @@ const SignUp = () => {
       <div >
         <form onSubmit={handleSignUpSubmit}>
           <div className="group">
-            <label htmlFor="name">Name:</label>
+           <label htmlFor="username">Username:</label>
             <input
               type="text"
-              id="name"
-              value={name}
+              id="username"
+              value={username}
               onChange={(e) => setName(e.target.value)}
               required
             />
           </div>
-
           <div className="group">
             <label htmlFor="email">Email:</label>
             <input
               type="email"
               id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={signupEmail}
+              onChange={(e) => setSignupEmail(e.target.value)}
               required
             />
           </div>
-
           <div className="group">
             <label htmlFor="password">Password:</label>
             <input
               type="password"
               id="password"
-              value={password}
+              value={signuPassword}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
           </div>
-
-          <div className="group">
-            <label htmlFor="confirmPassword">Confirm Password:</label>
-            <input
-              type="password"
-              id="confirmPassword"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-            />
-          </div>
-
           <button className="btn" type="submit">Sign Up</button>
+          {errorSignup}
         </form>
         </div>
         </div>
-
         <div className="sign-In">
           <h3>Already have an account?</h3>
           <h4>Sign in with your email and password</h4>
@@ -89,7 +104,6 @@ const SignUp = () => {
                 required
               />
             </div>
-
             <div className="group">
               <label htmlFor="signInPassword">Password:</label>
               <input
@@ -100,13 +114,14 @@ const SignUp = () => {
                 required
               />
             </div>
-
             <button className="btnn" type="submit">Sign In</button>
             <button className="bt" type="submit">Reset Password</button>
+           <p> {errorLogin}</p>
           </form>
         </div>
     </div>
   );
 };
-
 export default SignUp;
+
+

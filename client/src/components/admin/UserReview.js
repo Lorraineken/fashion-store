@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Chart from 'react-apexcharts';
 import { fetchReviews} from "../../features/reviews/slice";
@@ -8,19 +8,29 @@ import './chart.css'
 const UserReview = () => {
   
   const dispatch = useDispatch();
-  const allReviews = useSelector(state => state.reviews.list);
-
+ // const allReviews = useSelector(state => state.reviews.list);
+  const [allReviews,setAllReviews] = useState([])
+console.log(allReviews)
   // Fetch reviews on component mount
   useEffect(() => {
     dispatch(fetchReviews());
   }, [dispatch]);
-
+  console.log(allReviews)
+  useEffect(() => {
+    fetch('http://localhost:3000/reviews')
+      .then(response => response.json())
+      .then(data => {
+        setAllReviews(data)
+      });
+  }, []);
+  
   // Sort reviews by date
-  const sortedReviews = [...allReviews].sort((a, b) => new Date(a.date) - new Date(b.date));
+// Sort reviews by date
+const sortedReviews = [...allReviews].sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
 
   // Create arrays of ratings and dates
   const ratings = sortedReviews.map(review => review.rating);
-  const dates = sortedReviews.map(review => review.date);
+  const dates = sortedReviews.map(review => review.created_at);
 
   const data = {
     series: [
@@ -33,10 +43,10 @@ const UserReview = () => {
       chart: {
         type: "area",
         height: 1,
-        width:'20%',
+        width:'1%',
       },
       fill: {
-        colors: ["#ff929f"],
+        colors: ["#A488F0"],
         type: "gradient",
       },
       dataLabels: {
@@ -68,7 +78,8 @@ const UserReview = () => {
   };
   
   return <div className="customerReview">
-    <Chart options={data.options} series={data.series} type="area"  className= "chart"/>
+    <h1 style={{textalign:'center'}}>User Reviews</h1>
+    <Chart options={data.options} series={data.series} type="area"  className= "charts" style={{height:'50vh'}}/>
   </div>;
 };
 

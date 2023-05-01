@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   border: 2px solid black;
+  margin-top: 5%;
 }
 
 .Sidebar {
@@ -13,6 +14,7 @@
   width: 200px;
   border: 2px solid black;
 }
+
 .userTable {
   flex: 1;
   border: 1px solid black;
@@ -55,7 +57,7 @@
   border-radius: 0.7rem;
 }
 .menuItem:hover {
-  cursor: pointer;
+  cursor: pointer;  
 }
 
 .active {

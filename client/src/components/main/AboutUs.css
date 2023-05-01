@@ -21,10 +21,10 @@
   margin-top: -560px;
 }
 
-body {
-  padding: 2vw;
+/* body { */
+  /* padding: 2vw; */
   /* overflow-y: scroll; */
-}
+/* } */
 
 @-webkit-keyframes blink {
   20%,

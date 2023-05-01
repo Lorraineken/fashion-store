@@ -9,7 +9,7 @@ function OrdersTable() {
   const [editing, setEditing] = useState(false);
   const [modal, setModal] = useState(false)
  
-
+console.log(orders)
   useEffect(() => {
     dispatch(fetchOrders());
   }, [dispatch]);
@@ -55,8 +55,7 @@ function OrdersTable() {
         <table>
         <thead>
           <tr>
-            <th>ID</th>
-            <th>User ID</th>
+            <th>Address</th>
             <th>Status</th>
             <th>Actions</th>
           </tr>
@@ -64,9 +63,10 @@ function OrdersTable() {
         <tbody>
           {orders.map((order) => (
             <tr key={order.id}>
-              <td>{order.id}</td>
-              <td>{order.user_id}</td>
+              <td>{order.address}</td>
               <td>{order.status}</td>
+              <td>{order.total_amount}
+              </td>
               <td>
                 <button onClick={() => handleDeleteOrder(order.id)} className="fas fa-trash-alt"></button>
                 <button onClick={() => handleEditOrder(order.id)} className="fas fa-edit"></button>

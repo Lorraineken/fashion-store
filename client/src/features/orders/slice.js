@@ -1,20 +1,38 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
+// export const fetchOrders = createAsyncThunk(
+//   "orders/fetchOrder",
+//   async () => {
+//     const response = await fetch("http://localhost:3000/orders");
+//     if (!response.ok) {
+//       throw new Error("Failed to fetch orders");
+//     }
+//     return response.json();
+//   }
+// );
 export const fetchOrders = createAsyncThunk(
   "orders/fetchOrder",
-  async () => {
-    const response = await fetch("http://localhost:3000/orders");
-    if (!response.ok) {
-      throw new Error("Failed to fetch orders");
-    }
-    return response.json();
+  () => {
+    const token = localStorage.getItem("token");
+    return fetch("http://localhost:5000/orders", {
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      }
+    }).then((res) => {
+      if (!res.ok) {
+        throw new Error("Failed to fetch Orders");
+      }
+      console.log(res.json)
+      return res.json();
+    });
   }
 );
 
 export const addOrder = createAsyncThunk(
   "orders/addOrder",
   (order) => {
-    return fetch("http://localhost:3000/orders", {
+    return fetch("http://localhost:5000/orders", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(order),
@@ -30,7 +48,7 @@ export const addOrder = createAsyncThunk(
 export const updateOrder = createAsyncThunk(
   "orders/updateOrder",
   (order) => {
-    return fetch(`http://localhost:3000/orders/${order.id}`, {
+    return fetch(`http://localhost:5000/orders/${order.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(order),
@@ -46,7 +64,7 @@ export const updateOrder = createAsyncThunk(
 export const deleteOrder = createAsyncThunk(
   "orders/deleteOrder",
   (id) => {
-    return fetch(`http://localhost:3000/orders/${id}`, {
+    return fetch(`http://localhost:5000/orders/${id}`, {
       method: "DELETE",
     }).then((res) => {
       if (!res.ok) {
