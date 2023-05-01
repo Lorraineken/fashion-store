@@ -7,7 +7,15 @@
   position: relative;
   
 }
-
+#log_me_in span{
+  margin-left: 100%;
+  background: rgb(99, 147, 99);
+  border-radius: 5px;
+  padding: 10px;
+}
+#log_me_in span:hover{
+  background-color:rgb(73, 136, 73);
+}
 .num{
   position:absolute;
   top: -18px;

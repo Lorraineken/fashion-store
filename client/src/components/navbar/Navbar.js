@@ -5,7 +5,7 @@ import CartDropdown from "../main/CartDropdown";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutUser } from "../../features/users/logoutSlice";
-
+import { clearCartState } from "../../features/cart/slice";
 export default function Navbar({setProductDetailss}) {
   const items = useSelector((state) => state.cart.items);
   console.log('setProductDetailss:', setProductDetailss);
@@ -45,6 +45,8 @@ const redirect  = useNavigate()
     console.log('clicked')
     console.log(logoutUser())
 dispatch(logoutUser())
+dispatch(clearCartState());
+redirect('/')
 
   }
   
@@ -134,9 +136,10 @@ dispatch(logoutUser())
   <li className="nav-item">
   <li className="font">
   <Link to="/cart" className="nav-link">
-    <i className="fa fa-shopping-bag" aria-hidden="true"></i>
+  <i className="sum_contain fa fa-shopping-bag" aria-hidden="true"><span className="num">{items.length}</span></i>
   </Link>
   {showCartDropdown && (
+    
     <CartDropdown
       cartItems={cartItems}
       removeFromCart={removeFromCart}
@@ -146,8 +149,8 @@ dispatch(logoutUser())
 </li>
   </li>
   <li className="nav-item">
-    <Link to="/signup" className="nav-link" >
-      Login
+    <Link to="/signup" className="nav-link"  id="log_me_in">
+     <span>Login</span>
     </Link>
   </li>
   {/* <li>

@@ -20,28 +20,6 @@ import UserReview from './UserReview';
 const Sidebar = () => {
   
   useEffect(() => {
-    // Create style element
-    // const style = document.createElement('style');
-    // style.innerHTML = `
-    //   body::before {
-    //     content: "";
-    //     position: fixed;
-    //     top: 0;
-    //     left: 0;
-    //     width: 100%;
-    //     height: 100%;
-    //     z-index: -1;
-        
-    //   }
-    // `;
-
-    // Append style element to head
-    // document.head.appendChild(style);
-
-    // Remove style element when component unmounts
-    // return () => {
-    //   document.head.removeChild(style);
-    // };
   }, []);
     const SidebarData = [
         {
@@ -56,10 +34,10 @@ const Sidebar = () => {
             icon:UilUsersAlt,
             heading:'Customers',
         },
-        {
-            icon:UilPackage,
-            heading:'Products',
-        },
+        // {
+        //     icon:UilPackage,
+        //     heading:'Products',
+        // },
         {
             icon:UilChart,
             heading:'Analytics'
@@ -104,7 +82,7 @@ const Sidebar = () => {
     </div>
     <div className='userTable'>
       {selected === 2 && <UserTable /> }
-      {selected === 4 && <UserReview /> }
+      {selected === 3 && <UserReview /> }
       {selected === 1 && <OrdersTable /> }
       {selected === 0 && <ProductTable /> }
       
