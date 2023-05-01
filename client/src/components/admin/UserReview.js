@@ -42,8 +42,8 @@ const sortedReviews = [...allReviews].sort((a, b) => new Date(a.created_at) - ne
     options: {
       chart: {
         type: "area",
-        height: 1,
-        width:'1%',
+        height: 10,
+        width:'10%',
       },
       fill: {
         colors: ["#A488F0"],
@@ -79,7 +79,7 @@ const sortedReviews = [...allReviews].sort((a, b) => new Date(a.created_at) - ne
   
   return <div className="customerReview">
     <h1 style={{textalign:'center'}}>User Reviews</h1>
-    <Chart options={data.options} series={data.series} type="area"  className= "charts" style={{height:'50vh'}}/>
+    <Chart options={data.options} series={data.series} type="area"  className= "charts" />
   </div>;
 };
 

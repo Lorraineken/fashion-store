@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 export const fetchReviews = createAsyncThunk(
   "reviews/fetchReviews",
   async () => {
-    const response = await fetch("http://localhost:3000/reviews");
+    const response = await fetch("https://fashion-store-deployed.onrender.com/reviews");
     if (!response.ok) {
       throw new Error("Failed to fetch reviews");
     }
@@ -15,7 +15,7 @@ export const fetchReviews = createAsyncThunk(
 export const addReview = createAsyncThunk(
   "reviews/addReview",
   (review) => {
-    return fetch("http://localhost:3000/reviews", {
+    return fetch("https://fashion-store-deployed.onrender.com/reviews", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(review),
@@ -31,7 +31,7 @@ export const addReview = createAsyncThunk(
 export const updateReview = createAsyncThunk(
   "reviews/updateReview",
   (review) => {
-    return fetch(`http://localhost:3000/reviews/${review.id}`, {
+    return fetch(`https://fashion-store-deployed.onrender.com/reviews/${review.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(review),
@@ -47,7 +47,7 @@ export const updateReview = createAsyncThunk(
 export const deleteReview = createAsyncThunk(
   "reviews/deleteReview",
   (id) => {
-    return fetch(`http://localhost:3000/reviews/${id}`, {
+    return fetch(`https://fashion-store-deployed.onrender.com/reviews/${id}`, {
       method: "DELETE",
     }).then((res) => {
       if (!res.ok) {

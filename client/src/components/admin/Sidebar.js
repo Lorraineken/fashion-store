@@ -56,10 +56,10 @@ const Sidebar = () => {
             icon:UilUsersAlt,
             heading:'Customers',
         },
-        // {
-        //     icon:UilPackage,
-        //     heading:'Products',
-        // },
+        {
+            icon:UilPackage,
+            heading:'Products',
+        },
         {
             icon:UilChart,
             heading:'Analytics'
@@ -104,7 +104,7 @@ const Sidebar = () => {
     </div>
     <div className='userTable'>
       {selected === 2 && <UserTable /> }
-     
+      {selected === 4 && <UserReview /> }
       {selected === 1 && <OrdersTable /> }
       {selected === 0 && <ProductTable /> }
       

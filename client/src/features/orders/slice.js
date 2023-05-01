@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 // export const fetchOrders = createAsyncThunk(
 //   "orders/fetchOrder",
 //   async () => {
-//     const response = await fetch("http://localhost:3000/orders");
+//     const response = await fetch("https://fashion-store-deployed.onrender.com/orders");
 //     if (!response.ok) {
 //       throw new Error("Failed to fetch orders");
 //     }
@@ -14,7 +14,7 @@ export const fetchOrders = createAsyncThunk(
   "orders/fetchOrder",
   () => {
     const token = localStorage.getItem("token");
-    return fetch("http://localhost:3000/user_roles", {
+    return fetch("https://fashion-store-deployed.onrender.com/user_roles", {
       headers: {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${token}`
@@ -32,7 +32,7 @@ export const fetchOrders = createAsyncThunk(
 export const addOrder = createAsyncThunk(
   "orders/addOrder",
   (order) => {
-    return fetch("http://localhost:3000/user_roles", {
+    return fetch("https://fashion-store-deployed.onrender.com/user_roles", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(order),
@@ -48,7 +48,7 @@ export const addOrder = createAsyncThunk(
 export const updateOrder = createAsyncThunk(
   "orders/updateOrder",
   (order) => {
-    return fetch(`http://localhost:3000/user_roles/${order.id}`, {
+    return fetch(`https://fashion-store-deployed.onrender.com/user_roles/${order.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(order),
@@ -64,7 +64,7 @@ export const updateOrder = createAsyncThunk(
 export const deleteOrder = createAsyncThunk(
   "orders/deleteOrder",
   (id) => {
-    return fetch(`http://localhost:3000/user_roles/${id}`, {
+    return fetch(`https://fashion-store-deployed.onrender.com/user_roles/${id}`, {
       method: "DELETE",
     }).then((res) => {
       if (!res.ok) {

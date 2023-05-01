@@ -30,7 +30,7 @@ export const { setUsers, setErrors } = usersSlice.actions;
 export const addNewUser = (userData) => async (dispatch) => {
   
     
-     fetch('http://localhost:3000/create_account', {
+     fetch('https://fashion-store-deployed.onrender.com/create_account', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
