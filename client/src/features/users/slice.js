@@ -23,7 +23,7 @@ export const addUser = createAsyncThunk(
   "users/addUser",
   (user) => {
   //  const token = localStorage.getItem("token");
-    return fetch("http://localhost:3000/create_account", {
+    return fetch("http://localhost:3000/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -32,6 +32,7 @@ export const addUser = createAsyncThunk(
       body: JSON.stringify(user),
     }).then((res) => {
       if (!res.ok) {
+        console.log(res)
         throw new Error("Failed to add User");
       }
       return res.json();
@@ -52,6 +53,7 @@ export const updateUser = createAsyncThunk(
       body: JSON.stringify(user),
     }).then((res) => {
       if (!res.ok) {
+        console.log(res)
         throw new Error("Failed to update User");
       }
       return res.json();
@@ -72,6 +74,7 @@ export const deleteUser = createAsyncThunk(
     });
     
     if (!response.ok) {
+      console.log(response)
       throw new Error("Failed to delete User");
     }
     
@@ -122,6 +125,7 @@ const usersSlice = createSlice({
       });
   },
 });
+
 
 export default usersSlice.reducer;
 

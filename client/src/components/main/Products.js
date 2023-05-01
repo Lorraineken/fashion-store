@@ -5,12 +5,16 @@ import { fetchProducts, updateProduct} from "../../features/products/slice";
 import "../main/product.css";
 import StarRatings from 'react-star-ratings';
 import Categories from "./Categories";
+import ProductDetails from "./ProductDetails";
+import Preloader from "./Preloader";
+import Navbar from "../navbar/Navbar";
 function Products() {
   const products = useSelector((state) => state.products.list);
   const cartItems = useSelector((state) => state.cart.items);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [productDetailss, setProductDetailss] = useState(null)
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -48,91 +52,48 @@ function Products() {
   function handleProductDetails(product){
     console.log(product)
     dispatch(setProductDetail(product))
+    setProductDetailss(product.id)
+    
   }
+ // <Navbar setProductDetailss={setProductDetailss} />
 
-  const filteredProducts =
-    selectedCategory === ""
-      ? products
-      : products.filter((product) => product.category === selectedCategory);
+ const filteredProducts = selectedCategory && selectedCategory !== 'products'
+ ? products.filter(product =>
+     product.categories.some(category => category.name === selectedCategory)
+   )
+ : products;
   if (isLoading) {
     return (
-      <div class="preloader">
-        <svg
-          class="cart"
-          role="img"
-          aria-label="Shopping cart line animation"
-          viewBox="0 0 128 128"
-          width="128px"
-          height="128px"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g
-            fill="none"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="8"
-          >
-            <g class="cart__track" stroke="hsla(0,10%,10%,0.1)">
-              <polyline points="4,4 21,4 26,22 124,22 112,64 35,64 39,80 106,80" />
-              <circle cx="43" cy="111" r="13" />
-              <circle cx="102" cy="111" r="13" />
-            </g>
-            <g class="cart__lines" stroke="currentColor">
-              <polyline
-                class="cart__top"
-                points="4,4 21,4 26,22 124,22 112,64 35,64 39,80 106,80"
-                stroke-dasharray="338 338"
-                stroke-dashoffset="-338"
-              />
-              <g class="cart__wheel1" transform="rotate(-90,43,111)">
-                <circle
-                  class="cart__wheel-stroke"
-                  cx="43"
-                  cy="111"
-                  r="13"
-                  stroke-dasharray="81.68 81.68"
-                  stroke-dashoffset="81.68"
-                />
-              </g>
-              <g class="cart__wheel2" transform="rotate(90,102,111)">
-                <circle
-                  class="cart__wheel-stroke"
-                  cx="102"
-                  cy="111"
-                  r="13"
-                  stroke-dasharray="81.68 81.68"
-                  stroke-dashoffset="81.68"
-                />
-              </g>
-            </g>
-          </g>
-        </svg>
-        <div class="preloader__text">
-          <p class="preloader__msg">Bringing you the goods…</p>
-          <p class="preloader__msg preloader__msg--last">
-            This is taking long. Something’s wrong.
-          </p>
-        </div>
-      </div>
+  <>
+  <Preloader/>
+  </>
     );
   }
+  const filterProductsCat= [
+    'products',
+    'Shirts',
+    'Pants',
+    'Shoes',
+    'Dresses',
+  ]
   return (
     <>
-      {/* <Categories /> */}
+
+      {productDetailss === null ? (
+      <>
+      <Navbar/>
       <div className="product-container">
-        <div class="sidebar">
-          <div class="sidebar-header">History</div>
+        <div class="sidebars">
+          <div class="sidebar-header">Filter</div>
           <div class="sidebar-content">
             <div class="category-dropdown">
-              <ul>
-                <li>All products</li>
-                <li>Men's clothing</li>
-                <li>Women's clothing</li>
-                <li>Sneakers</li>
-                <li>Jewelry</li>
-                <li>Hoodies</li>
-                <li>Denims</li>
-              </ul>
+            <ul>
+        {filterProductsCat.map(category => (
+          <li key={category} onClick={() => handleCategoryChange(category)}>
+            {category}
+          </li>
+        ))}
+      </ul>
             </div>
           </div>
         </div>
@@ -232,7 +193,14 @@ function Products() {
             ))
           )}
         </div>
-      </div>
+      </div> </>):(
+
+      <>
+        <Navbar setProductDetailss={setProductDetailss} />
+      <ProductDetails />
+      </>
+      )}
+
     </>
   );
 }

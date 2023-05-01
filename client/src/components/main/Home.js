@@ -1,5 +1,5 @@
 import React from "react";
-import "./Home.css";
+// import "./Home.css";
 import { Link } from "react-router-dom";
 import Video from "../assets/video1.mp4";
 // import image1 from "../assets/img1.jpg"

@@ -6,6 +6,7 @@ const initialState = {
 };
 
 const userSlice = createSlice({
+  
   name: 'user',
   initialState,
   reducers: {
@@ -14,34 +15,38 @@ const userSlice = createSlice({
       state.error = null;
     },
     setError(state, action) {
-      state.error = action.payload;
+      state.error = 'Please make sure password and email are filled out correctly';
+    },
+    clearUserLoginState: (state) => {
+      state.error = null;
+      state.user = null;
+     // state.status = 'idle';
     },
   },
 });
-
+export const { clearUserLoginState } = userSlice.actions;
 export const { setUser, setError } = userSlice.actions;
 
 export const loginAccount = (userData) => async (dispatch) => {
-    try {
-      const response = await fetch('http://localhost:3000/login_account', {
+  
+    
+     fetch('http://localhost:3000/login_account', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(userData),
         
-      });
-      const data = await response.json();
-      console.log(data)
-      const token = data.body.token;
-      localStorage.setItem('token', token);
-      dispatch(setUser(data.body));
-    
-    } catch (error) {
-      console.log(error)
-      dispatch(setError(error.message));
-    }
+      }).then(res=>res.json())
+      .then(data=>{
+        if(data.message === 'Log in success'){
+          const token = data.body.token;
+          localStorage.setItem('token', token);
+          dispatch(setUser(data.body));
+        }else{
+          dispatch(setError('Please make sure password and email are filled out correctly'));
+        }    
+      })
   };
   
-
 export default userSlice.reducer;

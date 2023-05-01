@@ -52,10 +52,11 @@ const Sidebar = () => {
             icon:UilEstate,
             heading:'DashBoard'
         },
+        // {
+        //     icon:UilClipboardAlt,
+        //     heading:'Orders',
+        // },
         {
-            icon:UilClipboardAlt,
-            heading:'Orders',
-        },{
             icon:UilUsersAlt,
             heading:'Customers',
         },
@@ -106,10 +107,10 @@ const Sidebar = () => {
       </div>
     </div>
     <div className='userTable'>
-      {selected === 2 && <UserTable /> }
-      {selected === 3 && <ProductTable /> }
-      {selected === 1 && <OrdersTable /> }
-      {selected === 4 && <UserReview /> }
+      {selected === 1 && <UserTable /> }
+      {selected === 2 && <ProductTable /> }
+      {/* {selected === 1 && <OrdersTable /> } */}
+      {selected === 0 && <div><UserReview /> </div>}
       
     </div>
     </div>

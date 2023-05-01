@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import '../main/SignUp.css'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { loginAccount } from '../../features/users/userLogin';
 import { useNavigate } from 'react-router-dom'
-import { addUser } from '../../features/users/slice';
+import { addNewUser } from "../../features/users/createUserSlice";
 
 const SignUp = () => {
+ 
   const [username, setName] = useState("");
   // const [email, setEmail] = useState("");
   const [signupEmail, setSignupEmail] = useState("");
@@ -14,17 +15,38 @@ const SignUp = () => {
   const [signInEmail, setSignInEmail] = useState("");
   const [signInPassword, setSignInPassword] = useState("");
   const navigate =   useNavigate()
+  const redirect = useNavigate()
   const dispatch = useDispatch();
+  const userLogin = useSelector((state) => state.user.user);
+  const usersSignup = useSelector((state) => state.userSignup.users);
+  const errorLogin = useSelector((state) => state.user.error);
+  const errorSignup = useSelector((state) => state.userSignup.error);
+  console.log(usersSignup)
+  console.log(userLogin)
+  console.log(errorSignup)
+
+  useEffect(() => {
+    if (userLogin) {
+      navigate('/');
+    }
+  }, [userLogin, navigate]);
+
+  useEffect(() => {
+    if (usersSignup) {
+      redirect('/')
+    }
+  }, [usersSignup, navigate]);
+
 
   const handleSignInSubmit = (event) => {
     event.preventDefault();
     dispatch(loginAccount({ email: signInEmail, password: signInPassword }));
-    navigate('/')
+ 
   };
+
   const handleSignUpSubmit = (event) => {
     event.preventDefault();
-    dispatch(addUser({ username: username, email: signupEmail, password: signuPassword }));
-    navigate('/signup')
+    dispatch(addNewUser({ username: username, email: signupEmail, password: signuPassword }));
   };
   return (
     <div className="signup">
@@ -34,7 +56,7 @@ const SignUp = () => {
       <div >
         <form onSubmit={handleSignUpSubmit}>
           <div className="group">
-            <label htmlFor="name">Name:</label>
+           <label htmlFor="username">Username:</label>
             <input
               type="text"
               id="username"
@@ -63,17 +85,8 @@ const SignUp = () => {
               required
             />
           </div>
-          {/* <div className="group">
-            <label htmlFor="confirmPassword">Confirm Password:</label>
-            <input
-              type="password"
-              id="confirmPassword"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-            />
-          </div> */}
           <button className="btn" type="submit">Sign Up</button>
+          {errorSignup}
         </form>
         </div>
         </div>
@@ -103,6 +116,7 @@ const SignUp = () => {
             </div>
             <button className="btnn" type="submit">Sign In</button>
             <button className="bt" type="submit">Reset Password</button>
+           <p> {errorLogin}</p>
           </form>
         </div>
     </div>
