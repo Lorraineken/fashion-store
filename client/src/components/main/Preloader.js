@@ -3,7 +3,7 @@ import React from 'react'
 function Preloader() {
   return (
     <>
-        <div class="preloader">
+        <div class="preloader" >
         <svg
           class="cart"
           role="img"

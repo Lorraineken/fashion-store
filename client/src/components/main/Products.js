@@ -87,7 +87,7 @@ function Products() {
           <div class="sidebar-header">Filter</div>
           <div class="sidebar-content">
             <div class="category-dropdown">
-            <ul>
+            <ul className="category-dropdown">
         {filterProductsCat.map(category => (
           <li key={category} onClick={() => handleCategoryChange(category)}>
             {category}
