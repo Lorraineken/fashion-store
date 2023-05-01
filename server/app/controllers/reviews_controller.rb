@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
 
     def create 
         review = Review.new(reviews_params)
-        review.user_id = session[:user_id]
+        review.user_id = @uid
         review.save
         if review.valid? 
             render json: review, status: :created
@@ -29,20 +29,24 @@ class ReviewsController < ApplicationController
     
        def update 
         review =Review.find(params[:id])
-        review.update!(reviews_params)
-        render json: review, status: :accepted
+        if review.user_id == @uid 
+            review.update!(reviews_params)
+            render json: review, status: :accepted
+        end
        end
 
        def destroy 
         review =Review.find(params[:id])
-        review.destroy 
-        head :no_content
+         if review.user_id == @uid 
+            review.destroy 
+            head :no_content
+         end
        end
     
        private
     
        def reviews_params 
-        params.permit(:comments,:rating,:product_id)
+        params.permit(:comments,:rating,:product_id,:id)
        end
     
        def review_record_missing 
