@@ -20,7 +20,7 @@ console.log(allReviews)
     fetch('https://fashion-store-deployed.onrender.com/reviews')
       .then(response => response.json())
       .then(data => {
-        setAllReviews(data)
+        setAllReviews(data.slice(0, 20))
       });
   }, []);
   
