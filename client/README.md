@@ -93,7 +93,7 @@ Fashion store is an online website that is a budget-friendly clothing store that
 -Mathew Mageto()
 
 
--Emmanuel()
+-Emmanuel(`https://github.com/Barsu5489`)
 
 
 -Sheema Shamil(`https://github.com/sheema-shamil`)
