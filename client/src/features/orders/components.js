@@ -155,13 +155,14 @@ console.log(orders)
         <div className="modal">
         <div className="userForm">
       <form onSubmit={handleFormSubmit}>
-        <label htmlFor="">user</label>
+        <label htmlFor="">Enter user id</label>
         <input
   type="text"
   name="user_id"
   value={formData.user_id || ""}
   onChange={handleFormChange}
 />
+    <label htmlFor="">Enter role id</label>
 <input
   type="text"
   name="role_id"
