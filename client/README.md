@@ -1,70 +1,122 @@
-# Getting Started with Create React App
+# Fashion Store
+Fashion store is an online website that is a budget-friendly clothing store that has colorful and trendy pieces for both men and women.Their selection of graphic T-shirts,Hats,jackets and sneakers.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## How to get started
+- In order for you to use the content on this repo ensure you have the following:
 
-In the project directory, you can run:
+- A computer that runs on either of the following; (Windows 7+, Linux, Mac OS) ruby
+### Installation
+- To use this repo on your machine, you require some simple steps:
 
-### `npm start`
+## Step one
+- Open a terminal / command line interface on your computer
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Clone the repo by using the following:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+`https://github.com/Lorraineken/fashion-store`
 
-### `npm test`
+- Change directory to the repo folder:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`cd fashion-store`
 
-### `npm run build`
+- Before installing Rails, you need to have the following software installed on your computer:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`sudo apt-get install ruby`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Bundler: Bundler is a package manager for Ruby, which makes it easy to manage dependencies. You can install it by running the following command:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`gem install bundler`
 
-### `npm run eject`
+## Backend
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+`cd server`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Install Rails Once you have Ruby and Bundler installed, you can install Rails by following these steps:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Open a terminal or command prompt on your computer.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+-  install Rails by running the following command:
 
-## Learn More
+`gem install rails`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Verify that Rails is installed by running the following command:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+`rails --version`
 
-### Code Splitting
+- This should output the version number of Rails that you just installed.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- To run the migrations and seeds, run
 
-### Analyzing the Bundle Size
+` rails db:migrate db:seed`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- To install all the gems, run
 
-### Making a Progressive Web App
+` bundle install`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- To run the rails server, run
 
-### Advanced Configuration
+` rails s`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+## Frontend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- The front end to this repo is stored under client
+
+`cd client`
+
+- After cloning and forking the repo, Install JavaScript dependencies
+
+`npm install`
+
+- To run the server, run
+
+`npm start`
+
+- Then navigate to  to view the website
+
+- The front end is deployed in the below link:
+
+ `https://fashion-store-beta.vercel.app/`
+
+- This is how the website looks when you click the link:
+
+
+
+## Authors
+
+-Lorraine Kupa(`https://github.com/Lorraineken`)
+
+
+-Mathew Mageto()
+
+
+-Emmanuel()
+
+
+-Sheema Shamil(`https://github.com/sheema-shamil`)
+
+
+-Shuaib Shaban()
+
+
+-Claris Njoga()
+
+
+
+# License
+The project is licensed under MIT.
+
+
+
+
+
+
+
+
+
+
+
+
