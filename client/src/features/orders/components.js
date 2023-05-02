@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchOrders, addOrder, updateOrder, deleteOrder } from "./slice";
+import Preloader from "../../components/main/Preloader";
 
 function OrdersTable() {
   const dispatch = useDispatch();
   const orders = useSelector((state) => state.orders.list);
+  const status = useSelector(state => state.orders.status)
   console.log(orders)
   const [formData, setFormData] = useState({
     role: { name: "" }, // set a default value for the name field
@@ -47,8 +49,6 @@ console.log(orders)
     });
   };
   
-  
-  
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -74,10 +74,27 @@ console.log(orders)
     setModal(false);
   };
   
-  
-  
-  
+  if (status === 'loading') {
+    return (
+  <>
+  <div
+  className="Loader_gigy"
+  style={{
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100vh',
+  }}
+>
+  <img
+    src="https://media2.giphy.com/media/jAYUbVXgESSti/200w.webp?cid=ecf05e47e77f8k4szj7dhh7j2prpzucfr61eohkhiffsccd1&ep=v1_gifs_search&rid=200w.webp&ct=g"
+    alt="Image"
+  />
+</div>
 
+  </>
+    );
+  }
   const handleDeleteOrder = (id) => {
     dispatch(deleteOrder(id));
   };
