@@ -86,23 +86,12 @@ Fashion store is an online website that is a budget-friendly clothing store that
 
 
 ## Authors
-
--Lorraine Kupa(`https://github.com/Lorraineken`)
-
-
--Mathew Mageto()
-
-
--Emmanuel()
-
-
--Sheema Shamil(`https://github.com/sheema-shamil`)
-
-
--Shuaib Shaban()
-
-
--Claris Njoga()
+- [Lorraine Kupa](https://github.com/Lorraineken)
+- [Mathew Mageto](https://github.com/Skanner33)
+- [Shuaib Shaban](https://github.com/ShuaibShaban)
+- [Sheema Shamil](https://github.com/sheema-shamil)
+- [Emmanuel Barsu](https://github.com/Barsu5489)
+- [Claris Njogu](https://github.com/Cla-d)
 
 
 
