@@ -10,7 +10,8 @@ Rails.application.routes.draw do
 
   # Routes for OrderController
   resources :orders, only: [:index, :show, :destroy]
-  post '/make_order', to: 'orders#make_order'
+  post '/make_order', to: 'orders#new'
+  
 
   # Routes for PaymentController
   resources :payments, only: [:index, :create]

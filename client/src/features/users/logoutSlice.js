@@ -38,7 +38,7 @@ export const logoutUser = () => async (dispatch) => {
   
 
   try {
-    const response = await fetch('http://localhost:3000/logout_account', {
+    const response = await fetch('https://fashion-store-deployed.onrender.com/logout_account', {
       method: 'delete',
      // this is important to send the cookie with the request
     });

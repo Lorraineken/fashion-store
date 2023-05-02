@@ -13,6 +13,7 @@
     margin-top: 3%;
   }
   
+  
   /* .basket-module {
     width: 100%;
     display: flex;
@@ -92,6 +93,7 @@
     font-size: 18px;
     font-weight: bold;
     text-align: right;
+    margin-right: 30%;
   }
   
   .basket-product > .quantity {
@@ -107,7 +109,6 @@
     border-radius: 3px;
     box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.1);
   }
-  
   .basket-product > .subtotal {
     width: 20%;
     font-size: 18px;
@@ -115,13 +116,17 @@
     text-align: right;
   }
   
-  .basket-product > .remove > button {
+  .basket-product > .remove_btnn > button {
     font-size: 16px;
     font-weight: bold;
     color: #333;
     background-color: transparent;
     border: none;
     cursor: pointer;
+    background-color: red;
+    padding: 6px;
+    border-radius: 4px;
+    color: white;
   }
   
   .summary {
@@ -223,7 +228,7 @@
     .list{
         display: inline-block;
         display: flex;
-        gap: 10%;
+        gap: 90%;
         margin-right: 5px;
     }
 
@@ -281,7 +286,7 @@
     margin-top: 20%;
   }
   .checkout-cta{
-    background-color: grey;
+    background-color: rgb(61, 95, 57);
     color: white;
     border-radius: 5px;
     margin-top: -15%;
@@ -293,5 +298,5 @@
     cursor: pointer;
   }
   .checkout-cta:hover{
-    background: black;
+    background: rgb(84, 131, 85);
   }

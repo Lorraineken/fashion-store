@@ -57,7 +57,7 @@ function Products() {
   }
  // <Navbar setProductDetailss={setProductDetailss} />
 
- const filteredProducts = selectedCategory && selectedCategory !== 'products'
+ const filteredProducts = selectedCategory && selectedCategory !== 'All products'
  ? products.filter(product =>
      product.categories.some(category => category.name === selectedCategory)
    )
@@ -65,12 +65,26 @@ function Products() {
   if (isLoading) {
     return (
   <>
-  <Preloader/>
+  <div
+  className="Loader_gigy"
+  style={{
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100vh',
+  }}
+>
+  <img
+    src="https://media2.giphy.com/media/jAYUbVXgESSti/200w.webp?cid=ecf05e47e77f8k4szj7dhh7j2prpzucfr61eohkhiffsccd1&ep=v1_gifs_search&rid=200w.webp&ct=g"
+    alt="Image"
+  />
+</div>
+
   </>
     );
   }
   const filterProductsCat= [
-    'products',
+    'All products',
     'Shirts',
     'Pants',
     'Shoes',

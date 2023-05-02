@@ -2,7 +2,7 @@ class ApplicationController < ActionController::API
   include ActionController::Cookies
   
 
-  JWT_SECRET = "qqqwrcgff21234OCKS)(WJMW)"
+  # JWT_SECRET = "qqqwrcgff21234OCKS)(WJMW)"
 
   wrap_parameters format: []
 

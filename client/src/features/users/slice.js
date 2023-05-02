@@ -4,7 +4,7 @@ export const fetchUsers = createAsyncThunk(
   "users/fetchUsers",
   () => {
     const token = localStorage.getItem("token");
-    return fetch("http://localhost:3000/users", {
+    return fetch("https://fashion-store-deployed.onrender.com/users", {
       headers: {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${token}`
@@ -23,7 +23,7 @@ export const addUser = createAsyncThunk(
   "users/addUser",
   (user) => {
   //  const token = localStorage.getItem("token");
-    return fetch("http://localhost:3000/users", {
+    return fetch("https://fashion-store-deployed.onrender.com/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -44,7 +44,7 @@ export const updateUser = createAsyncThunk(
   "users/updateUser",
   (user) => {
     const token = localStorage.getItem("token");
-    return fetch(`http://localhost:3000/users/${user.id}`, {
+    return fetch(`https://fashion-store-deployed.onrender.com/users/${user.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -65,7 +65,7 @@ export const deleteUser = createAsyncThunk(
   "users/deleteUser",
   async (userId) => {
     const token = localStorage.getItem("token");
-    const response = await fetch(`http://localhost:3000/users/${userId}`, {
+    const response = await fetch(`https://fashion-store-deployed.onrender.com/users/${userId}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -135,7 +135,7 @@ export default usersSlice.reducer;
 // export const fetchUsers = createAsyncThunk(
 //   "users/fetchUsers",
 //   async () => {
-//     const response = await fetch("http://localhost:3000/users");
+//     const response = await fetch("https://fashion-store-deployed.onrender.com/users");
 //     if (!response.ok) {
 //       throw new Error("Failed to fetch users");
 //     }
@@ -146,7 +146,7 @@ export default usersSlice.reducer;
 // export const addUser = createAsyncThunk(
 //   "users/addUser",
 //   (user) => {
-//     return fetch("http://localhost:3000/users", {
+//     return fetch("https://fashion-store-deployed.onrender.com/users", {
 //       method: "POST",
 //       headers: { "Content-Type": "application/json" },
 //       body: JSON.stringify(user),
@@ -162,7 +162,7 @@ export default usersSlice.reducer;
 // export const updateUser = createAsyncThunk(
 //   "users/updateUser",
 //   (user) => {
-//     return fetch(`http://localhost:3000/users/${user.id}`, {
+//     return fetch(`https://fashion-store-deployed.onrender.com/users/${user.id}`, {
 //       method: "PUT",
 //       headers: { "Content-Type": "application/json" },
 //       body: JSON.stringify(user),
@@ -178,7 +178,7 @@ export default usersSlice.reducer;
 // export const deleteUser = createAsyncThunk(
 //   "users/deleteUser",
 //   (id) => {
-//     return fetch(`http://localhost:3000/users/${id}`, {
+//     return fetch(`https://fashion-store-deployed.onrender.com/users/${id}`, {
 //       method: "DELETE",
 //     }).then((res) => {
 //       if (!res.ok) {
