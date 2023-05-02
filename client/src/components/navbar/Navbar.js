@@ -69,7 +69,7 @@ redirect('/')
     </li>
  
     {/* Conditionally rendered link for admin users */}
-    {userLogin && userLogin.user.username === "admin" && (
+    {userLogin && (userLogin.user.username === "admin" || userLogin.user.id === 1)  && (
             <li className="nav-item">
               <Link to="/sidebar" className="nav-link">
                 Admin

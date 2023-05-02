@@ -41,8 +41,8 @@ function ProductDetails() {
                         <span class="review">( {productDetail.reviews.length} reviews )</span>
                     </div>
                     <div class="product-price">
-                        <span class="offer-price">{productDetail.price - 5}</span>
-                        <span class="sale-price">{productDetail.price}</span>
+                        <span class="offer-price">{productDetail.price - 3}</span>
+                        <span class="sale-price">${productDetail.price}</span>
                     </div>
 
                     <div class="product-details">

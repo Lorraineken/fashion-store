@@ -5,6 +5,9 @@ import './userTable.css'
 function UserTable() {
   const dispatch = useDispatch();
   const users = useSelector((state) => state.users.users);
+  const status = useSelector(state => state.users.status)
+
+ 
   const [formData, setFormData] = useState({});
   const [editing, setEditing] = useState(false);
   const [modal, setModal] = useState(false)
@@ -14,6 +17,27 @@ function UserTable() {
     dispatch(fetchUsers());
   }, [dispatch]);
   
+  if (status === 'loading') {
+    return (
+  <>
+  <div
+  className="Loader_gigy"
+  style={{
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100vh',
+  }}
+>
+  <img
+    src="https://media2.giphy.com/media/jAYUbVXgESSti/200w.webp?cid=ecf05e47e77f8k4szj7dhh7j2prpzucfr61eohkhiffsccd1&ep=v1_gifs_search&rid=200w.webp&ct=g"
+    alt="Image"
+  />
+</div>
+
+  </>
+    );
+  }
 
       // Set background color when component mounts
      
